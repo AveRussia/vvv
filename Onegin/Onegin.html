@@ -7,19 +7,78 @@
 <meta name="keywords" content="Александр Сергеевич Пушкин, Евгений Онегин" />
 <meta name="author" content="Александр Сергеевич Пушкин" />
 <meta name="description" content="Сверка текста, оформление и комментарии — Валерий Вычеров. Часть комментариев принадлежит СЕРГЕЙЮ МИХАЙЛОВИЧУ БОНДИ." />
-<link rel="shortcut icon" href="favicon.ico" />
+<link rel="shortcut icon" href="favicon32x32.ico" />
 <style type="text/css">
 <!--
-h1 {font-family: 'Times New Roman'; font-size: 49px; color: darkkhaki; position: relative; width: auto; height: 49px
+body { margin: 0px; padding: 0px; background: no-repeat center/contain url('Онегин и Пушкин.png') #fffff0; background-size: 100% !important; background-position: 0px 0px;
 }
+/* Base styles 
+body { font-size: 16px; }*/
+/* Larger screens 
+@media (min-width: 992px) {
+  body { font-size: 18px; }
+}*/
+/* Smaller tablets and mobiles 
+@media (max-width: 768px) {
+  body { font-size: 14px; }
+}*/
+h1 {
+/*background: linear-gradient(to bottom, #cfc19f 24%, #534f2c 26%, #cfc19f 28%, #cfc19f 29%, #ffecb4 45%, #3a2c1f 65%);*/
+/*background-image: linear-gradient(to bottom, #a19170 14%, #7c6845 16%, #95876a 20%, #938568 22%,#f9e5ab 40%, #58492a 84%);*/
+background-image: linear-gradient(to bottom, #edc967 14%, #d2ac47 16%, #f7ef8a 20%, #e0aa3e 22%, #f9f295 40%, #ae8625 84%); /*Золотой градиент с line-height: 1.1;*/
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+	line-height: 1.1;
+    color: #fff;
+	font-family: 'Playfair Display', Garamond, serif;
+    position: relative;
+	font-size: 8vw;
+	margin: 0;
+	font-weight: 400;
+}
+
+h1:after {
+    background: none;
+	line-height: 1.1;
+    content: attr(data-heading);
+    left: 0;
+	top: 0;
+    z-index: -1;
+    position: absolute;
+	text-shadow: #fff 2px 2px 2px, #333 -1px -1px 2px;
+    /*text-shadow: -0.3vw 0.4vw 5px rgba(0,0,0,0.5);
+    text-shadow: 
+		-1px 0 1px #c6bb9f, 
+		0 1px 1px #c6bb9f, 
+		5px 5px 10px rgba(0, 0, 0, 0.4),
+		-5px -5px 10px rgba(0, 0, 0, 0.4);*/
+}
+
+
+   /* display: inline-block;
+    width: 100%;
+    font-family: 'Garamond';
+    font-size: 8vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.1;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    background: linear-gradient(119deg, #B37951 7.35%, #F1CEA8 37.25%, #CB9064 72.02%, #875635 94.44%);
+    //background-clip: border-box;
+    //background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    //text-shadow: -0.2vw 0.5vw 5px rgba(0,0,0,0.5);*/
+
 a {color: black; text-decoration: none
 }
 a:hover {color: blue
 }
 table {width: 100%; border-collapse: collapse; border-spacing: 0px
 }
-td {border: #fffff0 1px solid
-}
+/*td {border: #fffff0 1px solid
+}*/
 .ch {width: 19px
 }
 .tm {width: 299px; padding-left: 99px
@@ -51,7 +110,7 @@ hr {color: darkkhaki; height: 1px; width: 49%
 }
 .r {text-align: right
 }
-.j {text-align: justify; padding: 0px 99px
+.justify {text-align: justify; padding: 0px 99px
 }
 .n {clear: both; border-top: gray 1px solid; padding: 29px 0px; text-align: justify
 }
@@ -101,6 +160,117 @@ ol li:first-letter {font: italic 19px 'Times New Roman'; color: #cc0000
 	color: #1dacd6;
 	transform: scale(0.25) rotate(0deg);
 }
+
+/*Раскрывающийся список*/
+/*.details {
+  position: absolute;
+  display: block;
+  width: 199px;
+  transition: 0.3s;
+  overflow: hidden;
+}
+
+.details::after {
+  position: absolute;
+  left: 159px;
+  top: 11px;
+  content: "";
+  display: block;
+  width: 5px;
+  height: 5px;
+  border-right: 3px solid #425995;
+  border-bottom: 3px solid #425995;
+  transform: rotate(-45deg);
+  transform-origin: center;
+  transition: 1s;
+}
+
+.details[open]::after {
+  transform: rotate(45deg);
+}
+
+.details[open] {
+  padding-bottom: 100px;
+}
+
+.details[open] .details-title {
+  margin-bottom: 19px;
+}
+
+.details-title {
+  font-size: 22px;
+  cursor: pointer;
+  list-style: none; /*Удаление стандартной стрелки*/
+  /*font-weight: 400;
+  transition: 1s;
+}*/
+
+/*Второй вариант раскрывающегося списка*/
+     /* The key is to start <details> element in the "open" state...
+        ...and animate its max-height value by toggling a checkbox. */
+      details {
+        position: absolute;
+		margin-left: -15px;
+        max-width: 500px;
+        box-sizing: border-box;
+        transition: max-height 1000ms ease-out;
+        max-height: 39px; /* Set a max-height value just enough to show the summary content */
+        overflow: hidden; /* Hide the rest of the content */
+      }
+
+      summary {
+        display: block; /* This hides the summary's ::marker pseudo-element */
+      }
+
+      input {
+        display: none; /* Hide the checkbox element */
+      }
+
+      /* <label> element to check the checkbox */
+      label {
+        position: relative;
+        display: flex;
+        align-items: center;
+        padding-left: 9px;
+        height: 39px; /* This height value must be equal to max-height value of <details> element  */
+      }
+
+      label:hover {
+        cursor: pointer;
+      }
+
+      label::before {
+        content: "⏵";
+        font-size: 25px;
+        height: 25px;
+        display: flex;
+        margin-right: 13px;
+		margin-top: -4px;
+        align-items: center;
+        transition: rotate 500ms 500ms ease-out;
+      }
+
+      div.list {
+        padding: 0 10px;
+        /*border: 2px solid #888;*/
+      }
+
+      /* Here you can choose two approaches to animate <details> element:
+        1) Use adjacent sibling combinator (+)
+        2) Use :has() pseudo-class, but this might not work in Firefox.
+      */
+
+      input:checked + details,
+      details:has(input:checked) {
+        max-height: 800px; /* Set a max-height value enough to show all the content */
+      }
+
+      input:checked + details label::before,
+      details:has(input:checked) label::before {
+        rotate: 90deg;
+        transition: rotate 500ms ease-out;
+      }
+
 -->
 </style>
 
@@ -250,7 +420,7 @@ document.onmouseover = function(e) {
     var evt = e || window.event,
     src = evt.target || evt.srcElement;
 	var notecontainer = document.getElementById("note");
-	if (src.tagName=='SPAN')
+	if (src.tagName=='SPAN' && src.hasAttribute('title'))
 	{
     myIndex = findIndex(src);
 	tmptitlesave = items[myIndex].title;
@@ -274,7 +444,7 @@ function findIndex( elem ) {
 document.onmouseout = function(e) {
     var evt = e || window.event;
     src = evt.target || evt.srcElement;
-	if (src.tagName=='SPAN')
+	if (src.tagName=='SPAN' && src.hasAttribute('title'))
 	{
 	items[myIndex].title = tmptitlesave;
 	document.getElementById("note").style.left=-999+"px";
@@ -420,7 +590,6 @@ function rotation(){
 for(let i = 0; i < item.length; i++){
 item[i].addEventListener('click', function(){
 indexCurr = i;
-//console.log(indexPrev +' '+ indexCurr +' '+ rotate +' '+ degrees +' '+ startTime[i] +' '+ startTime[i+1]);
 	if(indexCurr!=indexPrev){
 		rotate=false;
 }
@@ -489,37 +658,47 @@ function SingleFilePlay(sfp){
 </script>
 </head>
 
-<body style="margin: 0px; padding: 0px; background: #fffff0; color: #000000">
+<body>
 
 <div id="dispBox" style="position: absolute; width: 723px; height: auto; margin: 0px; padding: 21px; background-color: #ffffff; border: darkkhaki 3px double; display: none; font: 16px 'Times New Roman'; text-align: justify; clip: rect(0px 0px 0px 0px); z-index: 3"></div>
 
 <div id="comTT" style="position: absolute; display: none; left: 0px; font: 12px 'Times New Roman'; color: #333333; width: 299px; background-color: #fffff0; padding-left: 19px; padding-right: 9px; text-align: justify; z-index: 2"></div>
 
-<div id="note" style="position: absolute; left: -999px; background: #fffff0; padding: 13px; border: darkkhaki 1px solid; z-index: 3; border-radius: 5px; display: inline-block; max-width: 350px; box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5)"></div>
+<div id="note" class="what-show" style="position: absolute; left: -999px; background: #fffff0; padding: 13px; border: darkkhaki 1px solid; z-index: 3; border-radius: 5px; display: inline-block; max-width: 350px; box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5)"></div>
 
-<div style="text-align: center">
 
-<img src="Pushkin.gif" style="width: 270px; height: 270px" title="Александр Сергеевич Пушкин. Автопортрет. 1829 г." alt="" />
-<br />
-<br />
-<br />
-<img src="Pushkin-sign.gif" style="width: 307px; height: 75px" title="Александр Сергеевич Пушкин" alt=""/>
-<br />
-<br />
-<span style="font-size: 39px">&minus;·•·&minus;</span>
+<!--img src="Pushkin.gif" style="width: 270px; height: 270px" title="Александр Сергеевич Пушкин. Автопортрет. 1829 г." alt="" /-->
 
-<h1>Евгений Онегин</h1>
 <br />
-<img src="roscherk.gif" alt="" />
-<h2>Роман в стихах</h2>
-<br />
-<br />
-
+<!--img src="Pushkin-sign.gif" style="width: 307px; height: 75px" title="Александр Сергеевич Пушкин" alt=""/-->
+<div style="height: 100%; width: 100%; display: flex; align-items: center; justify-content: center; text-align: center; margin-top: 3vw; margin-bottom: 19vw">
+<h1 data-heading="ЕВГЕНИЙ ОНЕГИН" contenteditable>ЕВГЕНИЙ ОНЕГИН</h1>
 </div>
-<div class="j">
+<!-- <span style="font-size: 39px">&minus;·•·&minus;</span>
+ -->
+<div style="align-items: center; justify-content: center; text-align: center; margin-bottom:107vw">
 
-<img src="content.gif" title="Содержание" alt="" />
 <br />
+<svg xmlns="http://www.w3.org/2000/svg" style="padding-left: 4vw" width="9vw" height="8vw" viewBox="0 0 74 47">
+  <g style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round">
+    <path d="m 40.603388,42.525117 c -1.832413,2.644044 -4.464498,2.859344 -6.396613,-0.960868 -1.141344,-2.407606 -0.821986,-6.039548 -0.192172,-7.769276 1.585466,-4.004568 5.795005,-9.801638 15.675818,-13.946261 1.651884,-0.616774 3.205013,-0.569594 4.502335,-0.13727 1.28125,0.446307 1.285162,1.200988 0.08236,1.702104 -1.514461,0.594767 -3.108925,0.561948 -4.584697,-0.08236 C 37.592688,16.087599 26.160466,5.620724 16.581776,3.0747604 13.864092,2.467317 10.607992,2.492724 8.0712617,3.1571204 6.0673801,3.7571091 3.31457,5.2744837 3.2669392,8.8124942 c -0.01338,3.4291968 3.6918579,6.6325568 9.9380848,7.6320098 3.297155,0.458795 7.470376,-0.256914 9.361565,-1.043228" />
+    <path d="m 36.079627,40.519735 c 1.00147,0.301848 2.633017,0.154994 3.26694,-1.784466 1.141344,-2.407606 0.52,-5.463029 -0.109814,-7.192757 -1.585466,-4.004568 -4.861594,-7.46811 -13.644276,-11.832359 -1.624431,-0.781494 -3.232467,-0.734314 -4.529789,-0.164724 -1.089077,0.583574 -1.257708,1.228442 -0.05491,1.729558 1.514461,0.594767 3.108925,0.561948 4.584697,-0.08236 C 37.69021,15.94904 49.149885,5.7292433 58.728575,3.1832793 c 2.717684,-0.607443 5.973784,-0.582036 8.510514,0.08236 2.003882,0.599989 4.756692,2.117364 4.804323,5.655374 0.01338,3.4291977 -3.691858,6.6325577 -9.938085,7.6320107 -3.297155,0.458795 -7.470376,-0.256914 -9.361565,-1.043228" />
+    <path d="m 24.653037,27.398364 c 2.198675,-0.06064 3.474933,-0.516497 4.914136,-1.235397 9.65451,-4.852039 16.437599,-12.43201 23.884346,-15.758177 2.084577,-0.8310423 5.360822,-0.8142566 5.325934,0.960864 -0.131959,2.205007 -5.096261,2.351638 -7.824182,1.59229 C 43.879363,10.86292 36.903052,7.2130312 30.857477,4.4199766 c 2.77508,-0.5450528 4.597897,-1.111108 6.753505,-2.2237149 2.33879,1.0105087 4.3059,1.596553 6.918224,2.1688083 -6.763715,2.5893828 -13.433613,7.151911 -20.864486,8.428154 -4.403867,0.602463 -7.484086,-0.659501 -7.604557,-2.251168 -0.234559,-1.7182643 2.939081,-1.6606344 5.682828,-0.08236 6.760964,3.584298 14.158388,10.988894 23.472547,16.005258 2.338321,1.100074 5.031509,1.374838 6.341705,1.043224" />
+  </g>
+</svg>
+<h2 style="font-size: 2vw; font-family: 'Playfair Display', Garamond, serif; padding-left: 4.5vw">Роман в стихах</h2>
+</div>
+<div class="justify" style="font-size: 22px">
+<span class="data" onclick="showCom('c1')">О тексте*</span>
+<br />
+<span class="to-show" title="Ниже, слева от текста романа, приводятся предисловия, примечания, строфы или отдельные стихи из ранних редакций, отсутствующие в окончательной авторской редакции романа, а также варианты строф или отдельных стихов из черновых и беловых рукописей. Для их чтения нажмите на символы&lt;div class='cen' style='font: 18px Times New Roman; color: #999999'>РР&lt;/div>">Из ранних редакций*</span>
+<br />
+<br />
+
+<!-- 
+<details class="details">	
+<summary class="details-title">Содержание</summary>
+<small>
 <a href="#glava1">Глава первая</a><br />
 <a href="#glava2">Глава вторая</a><br />
 <a href="#glava3">Глава третья</a><br />
@@ -531,14 +710,33 @@ function SingleFilePlay(sfp){
 <a href="#notes">Примечания</a><br />
 <a href="#trip">Путешествие Онегина</a><br />
 <a href="#glava10">Десятая глава</a>
-<br />
-<br />
-<br />
-<big>
-<span class="data" onclick="showCom('c1')">О тексте*</span>
-<br />
-<span title="Ниже, слева от текста романа, приводятся предисловия, примечания, строфы или отдельные стихи из ранних редакций, отсутствующие в окончательной авторской редакции романа, а также варианты строф или отдельных стихов из черновых и беловых рукописей. Для их чтения нажмите на символы&lt;div class='cen' style='font: 18px Times New Roman; color: #999999'>РР&lt;/div>">Из ранних редакций*</span>
-</big>
+</small>
+</summary>
+</details>
+ -->
+<input type="checkbox" name="detail-one" id="detail-one">
+    <details open="">
+      <summary>
+        <label for="detail-one">Содержание</label>
+      </summary>
+      <div class="list">
+<small>
+<a href="#glava1">Глава первая</a><br />
+<a href="#glava2">Глава вторая</a><br />
+<a href="#glava3">Глава третья</a><br />
+<a href="#glava4">Глава четвёртая</a><br />
+<a href="#glava5">Глава пятая</a><br />
+<a href="#glava6">Глава шестая</a><br />
+<a href="#glava7">Глава седьмая</a><br />
+<a href="#glava8">Глава восьмая</a><br />
+<a href="#notes">Примечания</a><br />
+<a href="#trip">Путешествие Онегина</a><br />
+<a href="#glava10">Десятая глава</a>
+</small>
+
+      </div>
+    </details>
+
 </div>
 <br />
 <br />
@@ -583,7 +781,7 @@ P&eacute;tri de vanit&eacute; il avait encore plus de cette esp&egrave;ce d'orgu
 <div class="epigraph" style="width: 439px">
 И жить торопится и чувствовать спешит.
 <div class="r">
-<span class="data" onclick="showCom('c4')"><i>К. Вяземский</i>*</span>
+<i><span class="data" onclick="showCom('c4')">К. Вяземский*</span></i>
 </div>
 </div>
 <pre class="gl MT">
@@ -619,7 +817,7 @@ P&eacute;tri de vanit&eacute; il avait encore plus de cette esp&egrave;ce d'orgu
 Где, может быть, родились вы,
 Или блистали, мой читатель;
 Там некогда гулял и я:
-Но вреден север для меня.<a href="#1" title="К&nbsp;примечаниям"><sup>1</sup></a><span title="Цифрами отмечены слова, примечания к которым даны Пушкиным. Эти примечания традиционно помещаются в конце романа.&lt;br />&lt;hr />Этот стих — намёк на ссылку Пушкина на юг.">*</span>
+<a href="#1"><span title="Цифрами отмечены слова, примечания к которым даны Пушкиным. Эти примечания традиционно помещаются в конце романа.&lt;br />&lt;hr />Этот стих — намёк на ссылку Пушкина на юг.">Но вреден север для меня.*</span><sup><span title="К примечаниям">1</span></sup></a>
 
         <u>III</u>
 
@@ -646,7 +844,7 @@ P&eacute;tri de vanit&eacute; il avait encore plus de cette esp&egrave;ce d'orgu
 <i>Monsieur</i> прогнали со двора.
 Вот мой Онегин на свободе;
 Острижен по последней моде;
-Как <a href="#2" title="К&nbsp;примечаниям"><i>dandy</i><sup>2</sup></a> <div class="disk"></div> лондонский одет —
+Как <a href="#2"><i><span title="К примечаниям">dandy</span></i><sup>2</sup></a> <div class="disk"></div> лондонский одет —
 И наконец увидел свет.
 Он по-французски совершенно
 Мог изъясняться и писал;
@@ -831,7 +1029,7 @@ P&eacute;tri de vanit&eacute; il avait encore plus de cette esp&egrave;ce d'orgu
 
 Ещё бокалов жажда просит
 Залить горячий жир котлет,
-Но звон брегета им доносит,
+Но звон <span class="data" onclick="showCom('c13')">брегета*</span> им доносит,
 Что новый начался балет.
 Театра злой законодатель,
 Непостоянный обожатель
@@ -959,7 +1157,7 @@ P&eacute;tri de vanit&eacute; il avait encore plus de cette esp&egrave;ce d'orgu
 <span class="data" onclick="showCom('c182')">Руссо*</span> (замечу мимоходом)
 Не мог понять, как важный <span title="Мельхиор Гримм (1723–1807) — французский писатель. Вёл обзор французской литературы и искусства, рассылая его в виде писем преимущественно царствующим особам, ввиду чего пользовался их покровительством.">Грим*</span>
 Смел чистить ногти перед ним,
-<a href="#6" title="К&nbsp;примечаниям">Красноречивым сумасбродом.<sup>6</sup></a>
+<a href="#6"><span title="К примечаниям">Красноречивым сумасбродом.</span><sup>6</sup></a>
 Защитник вольности и прав
 В сём случае совсем не прав.
 
@@ -1224,7 +1422,7 @@ P&eacute;tri de vanit&eacute; il avait encore plus de cette esp&egrave;ce d'orgu
 Так благочестия полны,
 Так осмотрительны, так точны,
 Так неприступны для мужчин,
-Что вид их уж рождает <a href="#7" title="К&nbsp;примечаниям"><i>сплин</i>.<sup>7</sup></a>
+Что вид их уж рождает <a href="#7"><i><span title="К примечаниям">сплин</span></i>.<sup>7</sup></a>
 
         <u>XLIII</u>
 
@@ -1298,9 +1496,9 @@ P&eacute;tri de vanit&eacute; il avait encore plus de cette esp&egrave;ce d'orgu
 
 Как часто летнею порою,
 Когда прозрачно и светло
-Ночное небо над <a href="#8" title="К&nbsp;примечаниям">Невою,<sup>8</sup></a>
+Ночное небо над <a href="#8"><span title="К примечаниям">Невою,<sup>8</sup></span></a>
 И вод весёлое стекло
-Не отражает лик Дианы,
+Не отражает лик <span title="Здесь – лик Луны.<br /><br />Диа́на в римской мифологии — богиня охоты, растительного и животного мира, женственности и плодородия.<br />Олицетворение Луны. Сестра Аполлона.<br />Соответствует греческим Артемиде и Селене.<br /><br /><div style='text-align: center'><img src='Диана.jpg' width='339' height='647' alt='Диана Версальская' /><br />Диана Версальская. Лувр. Париж.</div>">Дианы*</span>,
 Воспомня прежних лет романы,
 Воспомня прежнюю любовь,
 Чувствительны, беспечны вновь,
@@ -1316,7 +1514,7 @@ P&eacute;tri de vanit&eacute; il avait encore plus de cette esp&egrave;ce d'orgu
 С душою, полной сожалений,
 И опершися на гранит,
 Стоял задумчиво Евгений,
-Как описал себя <a href="#9" title="К&nbsp;примечаниям">пиит.<sup>9</sup></a>
+Как описал себя <a href="#9"><span title="К примечаниям">пиит.</span><sup>9</sup></a>
 Всё было тихо; лишь ночные
 Перекликались часовые;
 Да дрожек отдалённый стук
@@ -1334,14 +1532,14 @@ P&eacute;tri de vanit&eacute; il avait encore plus de cette esp&egrave;ce d'orgu
 О <span title="Бре&#769;нта — река, впадающая в Адриатическое море. Близ устья её расположена Венеция.">Брента!*</span> нет, увижу вас,
 И, вдохновенья снова полный,
 Услышу ваш волшебный глас!
-Он свят для <span title="Внуки Аполло&#769;на — поэты. Аполлон — в древнегреческой мифологии бог солнца и покровитель искусств.">внуков Аполлона*</span>;
+Он свят для <span title="Внуки Аполло&#769;на — поэты.<br />Аполлон – в древнегреческой мифологии бог солнца и покровитель искусств.<br /><br /><div style='text-align: center'><img src='Аполлон.jpg' width='332' height='535' alt='Аполлон Бельведерский'><br /><br />Леохар<br />Аполлон Бельведерский<br />Музей Пио-Клементино, Ватикан.</div>">внуков Аполлона*</span>;
 По гордой <span title="Альбио&#769;н (кельт.) — древнее название Британских островов.&lt;br />&#160; «Гордая лира Альбиона» — Байрон. Пушкин имеет в виду IV песнь «Странствований Чайльд-Гарольда», где описывается Венеция.">лире Альбиона*</span>
 Он мне знаком, он мне родной.
 Ночей Италии златой
 Я негой наслажусь на воле
 С венецианкою младой,
 То говорливой, то немой,
-Плывя в таинственной <span title="Гондо&#769;ла (итал. gondola) — одновёсельная плоскодонная длинная венецианская лодка с каютой или специальным тентом для пассажиров, с поднятыми фигурными носом и кормой.">гондоле*</span>;
+Плывя в таинственной <span title="Гондо&#769;ла (итал. gondola) — одновесе&#769;льная плоскодонная длинная венецианская лодка с поднятыми фигурными носом и кормой.<br /><br /><div style='text-align: center'><img src='Gondola.jpg' width='343' height='515' alt='Гондола'></div>">гондоле*</span>;
 С ней обретут уста мои
 <span class="data" onclick="showCom('c39')">Язык Петрарки*</span> и любви.
 
@@ -1349,7 +1547,7 @@ P&eacute;tri de vanit&eacute; il avait encore plus de cette esp&egrave;ce d'orgu
 
 Придёт ли час моей свободы?
 Пора, пора! — взываю к ней;
-Брожу над <a href="#10" title="К&nbsp;примечаниям">морем,<sup>10</sup></a> жду погоды,
+Брожу над <a href="#10"><span title="К примечаниям">морем,</span><sup>10</sup></a> жду погоды,
 Маню <span title="Ветри&#769;ло — парус.">ветрила*</span> кораблей.
 Под <span title="Риза — облачение, одежда священника при богослужении.">ризой*</span> бурь, с волнами споря,
 По вольному распутью моря
@@ -1357,7 +1555,7 @@ P&eacute;tri de vanit&eacute; il avait encore plus de cette esp&egrave;ce d'orgu
 Пора покинуть скучный брег
 Мне неприязненной стихии,
 И средь <span title="Полу&#769;денный (слав.) — южный.&lt;br />&nbsp; Зыбь — лёгкая рябь на водной поверхности.&lt;br />&nbsp; Полуденные зыби — южные моря.">полуденных зыбей*</span>,
-<a href="#11" title="К&nbsp;примечаниям">Под небом Африки моей,<sup>11</sup></a>
+<a href="#11"><span title="К примечаниям">Под небом Африки моей,</span><sup>11</sup></a>
 Вздыхать о сумрачной России,
 Где я страдал, где я любил,
 Где сердце я похоронил.
@@ -1752,7 +1950,7 @@ O rus!..
 Ей шепчут: «Дуня, примечай!»
 Потом приносят и гитару:
 И запищит она (бог мой!):
-<a href="#12" title="К&nbsp;примечаниям"><i>Приди в <span title="Черто&#769;г — пышное, великолепное помещение или здание, дворец.">чертог*</span> ко мне златой!..</i><sup>12</sup></a>
+<a href="#12"><i><span title="К примечаниям">Приди в</span> <span title="Черто&#769;г – пышное, великолепное помещение или здание, дворец.">чертог*</span><span title="К примечаниям"> ко мне златой!..</span></i><sup>12</sup></a>
 
         <u>XIII</u>
 
@@ -1943,7 +2141,7 @@ O rus!..
 
 <tt id="cc61">РР</tt>        <u>XXIV</u>
 
-<a href="#13" title="К&nbsp;примечаниям">Её сестра звалась Татьяна…<sup>13</sup></a>
+<a href="#13"><span title="К примечаниям">Её сестра звалась Татьяна…</span><sup>13</sup></a>
 Впервые именем таким
 Страницы нежные романа
 Мы своевольно освятим.
@@ -2047,8 +2245,8 @@ O rus!..
 
 Она любила Ричардсона
 Не потому, чтобы прочла,
-Не потому, чтоб <a href="#14" title="К&nbsp;примечаниям">Грандисона
-Она Ловласу предпочла;<sup>14</sup></a>
+Не потому, чтоб <a href="#14"><span title="К примечаниям">Грандисона
+Она Ловласу предпочла;</span><sup>14</sup></a>
 Но встарину княжна Алина,
 Её московская кузина,
 Твердила часто ей об них.
@@ -2075,7 +2273,7 @@ O rus!..
 Потом хозяйством занялась,
 Привыкла и довольна стала.
 Привычка свыше нам дана:
-<a href="#15" title="К&nbsp;примечаниям">Замена счастию она.<sup>15</sup></a>
+<a href="#15"><span title="К примечаниям">Замена счастию она.</span><sup>15</sup></a>
 
 <tt id="cc67">РР</tt>        <u>XXXII</u>
 
@@ -2169,7 +2367,7 @@ O rus!..
 Соседа памятник смиренный,
 И вздох он пеплу посвятил;
 И долго сердцу грустно было.
-«<span class="data" onclick="showCom('c23a')">Poor Yorick!*</span> <div class="disk"></div><a href="#16" title="К&nbsp;примечаниям"><sup>16</sup></a> — молвил он уныло,—
+«<span class="data" onclick="showCom('c23a')">Poor Yorick!*</span><a href="#16"><sup><span title="К примечаниям">16</span></sup></a> <div class="disk"></div> — молвил он уныло,—
 Он на руках меня держал.
 Как часто в детстве я играл
 Его <span title="Оча&#769;ковская медаль — медаль, полученная за участие во взятии турецкой крепости Очаков в 1788 году.">Очаковской медалью!*</span>
@@ -2184,7 +2382,7 @@ O rus!..
 И там же надписью печальной
 Отца и матери, в слезах,
 Почтил он прах <span title="Патриарха&#769;льный — верный отжившей старине, старозаветный.">патриархальный…*</span>
-Увы! на жизненных браздах
+Увы! на жизненных <span title="Т.е. на жизненном пути. Здесь «бразды» — это борозды.">браздах*</span>
 Мгновенной жатвой поколенья,
 По тайной воле <span title="Провиде&#769;ние — высшая божественная сила, судьба.">провиденья*</span>,
 Восходят, зреют и падут;
@@ -2302,7 +2500,7 @@ Elle &eacute;tait fille, elle &eacute;tait amoureuse.
         <u>IV</u>
 
 Они дорогой самой краткой
-<a href="#17" title="К&nbsp;примечаниям">Домой летят во весь опор.<sup>17</sup></a>
+<a href="#17"><span title="К примечаниям">Домой летят во весь опор.</span><sup>17</sup></a>
 Теперь послушаем украдкой
 Героев наших разговор:
 — Ну что ж, Онегин? ты зеваешь.—
@@ -2395,7 +2593,7 @@ O свадьбе Ленского давно
 Любовник <span title="Юлия Вольма&#769;р — героиня романа французского писателя, философа Жана Жака Руссо&#769; «Юлия, или Новая Элои&#769;за» (Julie, ou la Nouvelle H&#233;lo&#239;se).">Юлии Вольмар*</span>,
 <span title="Мале&#769;к Аде&#769;ль — герой сентиментального романа французской писательницы Марии Котте&#769;н (1770–1807) «Матильда» (1805).">Малек-Адель*</span> и <span title="Густав де Линар — герой романа французской писательницы баронессы Варвары-Юлии Крюднер (1764–1824) «Валерия» (1803).">де Линар*</span>,
 И <span title="Ве&#769;ртер — герой сентиментального романа Гёте «Страдания молодого Вертера» (1774).">Вертер*</span>, мученик мятежный,
-И бесподобный <a href="#18" title="К&nbsp;примечаниям">Грандисон,<sup>18</sup></a>
+И бесподобный <a href="#18"><span title="К примечаниям">Грандисон,</span><sup>18</sup></a>
 Который нам наводит сон,—
 Все для мечтательницы нежной
 В единый образ облеклись,
@@ -2447,7 +2645,7 @@ O свадьбе Ленского давно
 Или задумчивый <span title="Вампир — смотрите примечание Пушкина № 19.">Вампир*</span>,
 Или <span title="Мельмо&#769;т — герой фантастического романа Матюрина «Мельмот-скиталец».">Мельмот*</span>, бродяга мрачный,
 Иль <span title="Вечный жид — великий грешник Агасфе&#769;р, который «видел Христа, несущего крест, и издевался»; осуждённый за это на бессмертие до Второго пришествия и вечное скитание по всему миру.">вечный жид*</span>, или <span title="Корса&#769;р — герой поэмы Байрона «Корсар», морской разбойник, пират.">Корсар*</span>,
-Или таинственный <a href="#19" title="К&nbsp;примечаниям">Сбогар.<sup>19</sup></a>
+Или таинственный <a href="#19"><span title="К примечаниям">Сбогар.</span><sup>19</sup></a>
 Лорд <span class="data" onclick="showCom('c42')">Байрон*</span> прихотью удачной
 Облёк в унылый романтизм
 И безнадёжный эгоизм.
@@ -2616,7 +2814,7 @@ O свадьбе Ленского давно
 И, признаюсь, от них бежал,
 И, мнится, с ужасом читал
 Над их бровями надпись ада:
-<a href="#20" title="К&nbsp;примечаниям"><i>Оставь надежду навсегда</i>.<sup>20</sup></a>
+<a href="#20"><i><span title="К примечаниям">Оставь надежду навсегда</span></i>.<sup>20</sup></a>
 Внушать любовь для них беда,
 Пугать людей для них отрада.
 Быть может, на брегах Невы
@@ -2695,7 +2893,7 @@ O свадьбе Ленского давно
 Я знаю: дам хотят заставить
 Читать по-русски. Право, страх!
 Могу ли их себе представить
-С <a href="#21" title="К&nbsp;примечаниям">«Благонамеренным»<sup>21</sup></a> в руках!
+С <a href="#21"><span title="К примечаниям">«Благонамеренным»</span><sup>21</sup></a> в руках!
 Я шлюсь на вас, мои поэты;
 Не правда ль: <span title="Милые предметы — любимые женщины.">милые предметы*</span>,
 Которым, за свои грехи,
@@ -2743,7 +2941,7 @@ O свадьбе Ленского давно
 
         <u>XXX</u>
 
-Певец <span class="data" onclick="showCom('c87')">Пиров*</span> и грусти <a href="#22" title="К&nbsp;примечаниям">томной,<sup>22</sup></a>
+Певец <span class="data" onclick="showCom('c87')">Пиров*</span> и грусти <a href="#22"><span title="К примечаниям">томной,</span><sup>22</sup></a>
 Когда б ещё ты был со мной,
 Я стал бы просьбою нескромной
 Тебя тревожить, милый мой:
@@ -3627,7 +3825,7 @@ La morale est dans la nature des choses.
 Не гонит уж коров из хлева,
 И в час полуденный в кружок
 Их не зовёт его рожок;
-В избушке распевая, <a href="#23" title="К&nbsp;примечаниям">дева<sup>23</sup></a>
+В избушке распевая, <a href="#23"><span title="К примечаниям">дева</span><sup>23</sup></a>
 Прядёт, и, зимних друг ночей,
 Трещит лучинка перед ней.
 
@@ -3639,7 +3837,7 @@ La morale est dans la nature des choses.
 На, вот возьми её скорей!)
 Опрятней модного паркета
 Блистает речка, льдом одета.
-<a href="#24" title="К&nbsp;примечаниям">Мальчишек радостный народ<sup>24</sup></a>
+<a href="#24"><span title="К примечаниям">Мальчишек радостный народ</span><sup>24</sup></a>
 Коньками звучно режет лёд;
 На красных лапках гусь тяжёлый,
 Задумав плыть по лону вод,
@@ -3688,7 +3886,7 @@ La morale est dans la nature des choses.
 Благословенное вино
 В бутылке мёрзлой для поэта
 На стол тотчас принесено.
-Оно сверкает <span title="Ипокре&#769;на — в древнегреческой мифологии источник вдохновения, ручей, который течёт на горе Гелико&#769;н.">Ипокреной*</span>;<a href="#25" title="К&nbsp;примечаниям"><sup>25</sup></a>
+Оно сверкает <span title="Ипокре&#769;на — в древнегреческой мифологии источник вдохновения, ручей, который течёт на горе Гелико&#769;н.">Ипокреной*</span>;<a href="#25"><sup><span title="К примечаниям">25</span></sup></a>
 Оно своей игрой и пеной
 (Подобием того-сего)
 Меня пленяло: за него
@@ -3780,7 +3978,7 @@ La morale est dans la nature des choses.
 Меж тем как мы, враги Гимена,
 В домашней жизни зрим один
 Ряд утомительных картин,
-Роман во вкусе <a href="#26" title="К&nbsp;примечаниям">Лафонтена…<sup>26</sup></a>
+Роман во вкусе <a href="#26"><span title="К примечаниям">Лафонтена…</span><sup>26</sup></a>
 Мой бедный Ленский, сердцем он
 Для <span title="Оный, -ая, -ое (устар.) — тот, тот самый, вышеупомянутый.">оной*</span> жизни был рождён.
 
@@ -3839,12 +4037,12 @@ La morale est dans la nature des choses.
         <u>II</u>
 
 Зима!.. Крестьянин <span title="Торжествуя — празднуя, отмечая первый снег, первопуток.">торжествуя*</span>
-На <span title="Дро&#769;вни — крестьянские сани без кузова для перевозки дров, грузов.">дровнях*</span> обновляет путь;
+На <span title="Дро&#769;вни — крестьянские сани без кузова для перевозки дров, грузов.<br /><br /><img src='Дровни.jpg' width='344' height='227' alt='Дровни'>">дровнях*</span> обновляет путь;
 Его лошадка, снег почуя,
 Плетётся <span title="Рысь — бег, при котором лошадь ставит на землю одновременно одну переднюю и одну заднюю ногу.">рысью*</span> как-нибудь;
-Бразды пушистые взрывая,
-Летит <span title="Киби&#769;тка — в старину: крытая дорожная повозка.">кибитка*</span> удалая;
-<span title="Ямщи&#769;к — кучер на ямски&#769;х лошадях. Ям — в старину: почтовая станция, где проезжающие меняли лошадей.">Ямщик*</span> сидит на <span title="Облучо&#769;к — то же, что козлы, т. е. сиденье для кучера (ямщика) в передке экипажа.">облучке*</span>
+<span title="В этом случае «бразды» — это борозды, которые сани или повозка оставляют после проезда по заснеженной дороге.">Бразды*</span> пушистые взрывая,
+Летит <span title="Киби&#769;тка — в старину: крытая дорожная повозка.<br /><br /><img src='Кибитка.jpg' width='345' height='206' alt='Кибитка'>">кибитка*</span> удалая;
+<span title="Ямщи&#769;к — кучер на ямски&#769;х лошадях. Ям — в старину: почтовая станция, где проезжающие меняли лошадей.">Ямщик*</span> сидит на <span title="Облучо&#769;к — то же, что ко&#769;злы, т. е. сиденье для кучера (ямщика) в передке экипажа.">облучке*</span>
 В <span title="Тулу&#769;п — долгополая меховая шуба, обычно нагольная, не крытая сукном.">тулупе*</span>, в красном <span title="Куша&#769;к — пояс, обычно широкий, матерчатый.">кушаке*</span>.
 Вот бегает <span title="Дворо&#769;вый — принадлежащий к дво&#769;рне, т. е. к домашней прислуге в помещичьем доме (при крепостном праве).">дворовый*</span> мальчик,
 В <span title="Сала&#769;зки — маленькие ручные санки.">салазки*</span> <i>жучку</i> посадив,
@@ -3862,13 +4060,13 @@ La morale est dans la nature des choses.
 Согретый вдохновенья богом,
 Другой поэт роскошным слогом
 Живописал нам первый снег
-И все оттенки <a href="#27" title="К&nbsp;примечаниям">зимних нег;<sup>27</sup></a>
+И все оттенки <a href="#27"><span title="К примечаниям">зимних нег;</span><sup>27</sup></a>
 Он вас пленит, я в том уверен,
 Рисуя в пламенных стихах
 Прогулки тайные в санях;
 Но я бороться не намерен
 Ни с ним покаместь, ни с тобой,
-<a href="#28" title="К&nbsp;примечаниям">Певец Финляндки молодой!<sup>28</sup></a>
+<a href="#28"><span title="К примечаниям">Певец Финляндки молодой!</span><sup>28</sup></a>
 
         <u>IV</u>
 
@@ -3953,7 +4151,7 @@ La morale est dans la nature des choses.
 Кому поём, тому добро
 И слава!»</i> Но сулит утраты
 Сей песни жалостный напев;
-<a href="#29" title="К&nbsp;примечаниям">Милей <i>кошурка</i> сердцу дев.<sup>29</sup></a>
+<a href="#29"><span title="К примечаниям">Милей</span> <i><span title="К примечаниям">кошурка</span></i> <span title="К примечаниям">сердцу дев.</span><sup>29</sup></a>
 
         <u>IX</u>
 
@@ -3969,7 +4167,7 @@ La morale est dans la nature des choses.
 К нему на цыпочках летит
 И голосок её звучит
 Нежней свирельного напева:
-<a href="#30" title="К&nbsp;примечаниям"><i>Как ваше имя?</i><sup>30</sup></a> Смотрит он
+<a href="#30"><i><span title="К примечаниям">Как ваше имя?</span></i><sup>30</sup></a> Смотрит он
 И отвечает: Агафон.
 
         <u>X</u>
@@ -4100,7 +4298,7 @@ La morale est dans la nature des choses.
 Вот мельница в присядку пляшет
 И крыльями трещит и машет;
 Лай, хохот, пенье, свист и хлоп,
-Людская молвь и конский <a href="#31" title="К&nbsp;примечаниям">топ!<sup>31</sup></a>
+Людская молвь и конский <a href="#31"><span title="К примечаниям">топ!</span><sup>31</sup></a>
 Но что подумала Татьяна,
 Когда узнала меж гостей
 Того, кто мил и страшен ей,
@@ -4148,7 +4346,7 @@ La morale est dans la nature des choses.
 И шайка вся сокрылась вдруг;
 Осталася во тьме морозной
 Младая дева с ним <span title="Сам-друг — вдвоём.">сам-друг*</span>;
-<a href="#32" title="К&nbsp;примечаниям">Онегин тихо увлекает<sup>32</sup></a>
+<a href="#32"><span title="К примечаниям">Онегин тихо увлекает</span><sup>32</sup></a>
 Татьяну в угол и слагает
 Её на шаткую скамью
 И клонит голову свою
@@ -4189,7 +4387,7 @@ La morale est dans la nature des choses.
 Ни <span onmouseover="this.title=document.getElementById('ws1').title||document.getElementById('ws1').info">Скотт*</span>, ни <span class="data" onclick="showCom('c42')">Байрон*</span>, ни <span title="Лу&#769;ций А&#769;нней Сене&#769;ка (ок. 4 года до н. э. – 65 год н. э.) — римский писатель, философ, политический деятель.">Сенека*</span>,
 Ни даже Дамских Мод Журнал
 Так никого не занимал:
-То был, друзья, <a href="#33" title="К&nbsp;примечаниям">Мартын Задека,<sup>33</sup></a>
+То был, друзья, <a href="#33"><span title="К примечаниям">Мартын Задека,</span><sup>33</sup></a>
 Глава <span title="Халде&#769;йскими мудрецами в средние века называли профессиональных гадальщиков и предсказателей. Называли их так по имени древнего восточного государства Халдеи (иначе Вавилона), жрецы которого славились умением гадать по звёздам.">халдейских мудрецов*</span>,
 Гадатель, толкователь снов.
 
@@ -4229,7 +4427,7 @@ La morale est dans la nature des choses.
 
         <u>XXV</u>
 
-Но вот <a href="#34" title="К&nbsp;примечаниям">багряною рукою<sup>34</sup></a>
+Но вот <a href="#34"><span title="К примечаниям">багряною рукою</span><sup>34</sup></a>
 Заря от утренних долин
 Выводит с солнцем за собою
 Весёлый праздник именин.
@@ -4255,7 +4453,7 @@ La morale est dans la nature des choses.
 От тридцати до двух годов;
 Уездный франтик Петушков,
 Мой брат двоюродный, <span title="Буянов — герой шуточной поэмы Василия Львовича Пушкина «Опасный сосед». Пушкин шутя называл Буянова своим двоюродным братом, так как «отцом», то есть автором этой поэмы, был его дядя.">Буянов*</span>
-<a href="#35" title="К&nbsp;примечаниям">В пуху, в картузе с козырьком<sup>35</sup></a>
+<a href="#35"><span title="К примечаниям">В пуху, в картузе с козырьком</span><sup>35</sup></a>
 (Как вам, конечно, он знаком),
 И отставной советник Флянов,
 Тяжёлый сплетник, старый плут,
@@ -4288,7 +4486,7 @@ La morale est dans la nature des choses.
 Музыка будет полковая!
 Полковник сам её послал.
 Какая радость: будет бал!
-<a href="#36" title="К&nbsp;примечаниям">Девчонки прыгают заране;<sup>36</sup></a>
+<a href="#36"><span title="К примечаниям">Девчонки прыгают заране;</span><sup>36</sup></a>
 Но кушать подали. Четой
 Идут за стол рука с рукой.
 Теснятся барышни к Татьяне;
@@ -4423,7 +4621,7 @@ La morale est dans la nature des choses.
 Определять обедом, чаем
 И ужином. Мы время знаем
 В деревне без больших сует:
-Желудок — верный наш брегет;
+Желудок — верный наш <span class="data" onclick="showCom('c13')">брегет*</span>;
 И кстати я замечу в скобках,
 Что речь веду в моих строфах
 Я столь же часто о пирах,
@@ -4633,7 +4831,7 @@ Nasce una gente a cui l'morir non dole.
 Достался в плен: драгой залог!
 Новейший <span title="Ре&#769;гул — римский политический и военный деятель III века до н. э. Был взят карфагенянами в плен и послан ими в Рим с целью склонить римский сенат к заключению мира. При этом он дал слово вернуться в Карфаген в случае незаключения мира. Регул в Риме добился продолжения войны и добровольно вернулся в Карфаген, где был предан мучительной казни.">Регул*</span>, чести бог,
 Готовый вновь <span title="Предаться узам — стать узником, попасть в плен.&lt;br>&lt;hr>Пушкин иронически сопоставляет беспутного кутилу Зарецкого с Ре&#769;гулом.">предаться узам,*</span>
-Чтоб каждым уторм у <a href="#37" title="К&nbsp;примечаниям">Вери<sup>37</sup></a>
+Чтоб каждым уторм у <a href="#37"><span title="К примечаниям">Вери</span><sup>37</sup></a>
 В долг осушать бутылки три.
 
         <u>VI</u>
@@ -4734,7 +4932,7 @@ Nasce una gente a cui l'morir non dole.
 Конечно, быть должно презренье
 Ценой его забавных слов,
 Но шопот, хохотня глупцов…»
-<a href="#38" title="К&nbsp;примечаниям">И вот общественное мненье!<sup>38</sup></a>
+<a href="#38"><span title="К примечаниям">И вот общественное мненье!</span><sup>38</sup></a>
 Пружина чести, наш кумир!
 И вот на чём вертится мир!
 
@@ -4938,7 +5136,7 @@ Nasce una gente a cui l'morir non dole.
 Готовы санки беговые.
 Он сел, на мельницу летит.
 Примчались. Он слуге велит
-<a href="#39" title="К&nbsp;примечаниям"><i>Лепажа</i><sup>39</sup></a> стволы роковые
+<a href="#39"><i><span title="К примечаниям">Лепажа</span></i><sup>39</sup></a> <span title="Пистолеты французского оружейника Лепажа считались лучшим дуэльным оружием. Его изделия отличались изяществом и тщательностью отделки. Дуэльная пара находилась в специальном ящике, включавшем набор необходимых инструментов для литья пуль и заряжания оружия.<br><div style='text-align:center'><img src='Lepage.png' width='350' height='343' alt='Пистолеты Лепажа'><br>Дуэльные пистолеты<br>Мастер Жан Лепаж<br>Франция, Париж<br>1808 г.<br>На стволах: «Le page a Paris», «Arger de l'Empereur». На замочных досках: «LePage A Paris»<br><i>Сталь, орех, золото, гравировка</i><br>Длина общая 363,0 см. Длина ствола 220,0 см. Калибр 12,0 см<br>Из коллекции Государственного Исторического музея</div>">стволы роковые*</span>
 Нести за ним, а лошадям
 Отъехать в поле к двум дубкам.
 
@@ -5281,7 +5479,7 @@ Nasce una gente a cui l'morir non dole.
 И наконец окаменеть
 В мертвящем упоеньи света,
 В сём омуте, где с вами я
-<a href="#40" title="К&nbsp;примечаниям">Купаюсь, милые друзья!<sup>40</sup></a>
+<a href="#40"><span title="К примечаниям">Купаюсь, милые друзья!</span><sup>40</sup></a>
 </pre>
 
 </td><td>&#160;</td></tr></table>
@@ -5370,7 +5568,7 @@ Nasce una gente a cui l'morir non dole.
 Вот время: добрые ленивцы,
 <span title="Эпикуре&#769;ец — человек принадлежащий к школе Эпикура, последователь его учения. Эпикур (341–270 до н. э.) — древнегреческий философ-материалист, создатель эпикуреизма, индивидуалистической этики. Основал школу в Афинах под названием «Сад Эпикура» (ок. 307 г. до н. э.), на вратах которой была надпись: «Странник, здесь тебе будет хорошо; здесь высшее благо — наслаждение». Высшее благо — счастье достигается, по Эпикуру, мудростью, которая учит жить сообразно с постигаемой разумом природой, душевным спокойствием, получаемым в результате отказа от суетных желаний, и дружбой, объединяющей единомышленников. При этом он придавал значение не столько наличию удовольствий, сколько отсутствию страданий от неумеренности.">Эпикурейцы-мудрецы*</span>,
 Вы, равнодушные счастливцы,
-Вы, школы <a href="#41" title="К&nbsp;примечаниям">Левшина<sup>41</sup></a> птенцы,
+Вы, школы <a href="#41"><span title="К примечаниям">Левшина</span><sup>41</sup></a> птенцы,
 Вы, деревенские <span title="Приа&#769;м — герой «Илиады» Гомера, троянский царь, отец многочисленного семейства. Его жена Геку&#769;ба родила ему пятьдесят сыновей и пятьдесят дочерей.">Приамы*</span>,
 И вы, чувствительные дамы,
 Весна в деревню вас зовёт,
@@ -5843,7 +6041,7 @@ Nasce una gente a cui l'morir non dole.
 
         <u>XXXIV</u>
 
-Теперь у нас <a href="#42" title="К&nbsp;примечаниям">дороги плохи,<sup>42</sup></a>
+Теперь у нас <a href="#42"><span title="К примечаниям">дороги плохи</span>,<sup>42</sup></a>
 Мосты забытые гниют,
 На станциях клопы да блохи
 Заснуть минуты не дают;
@@ -5867,7 +6065,7 @@ Nasce una gente a cui l'morir non dole.
 <span title="Автомедо&#769;ны — кучера. В поэме Гомера «Илиада» Автомедон имя возницы, управлявшего конями Ахиллеса.">Автомедоны*</span> наши бойки,
 Неутомимы наши тройки,
 И вёрсты, теша праздный взор,
-<a href="#43" title="К&nbsp;примечаниям">В глазах мелькают как забор.<sup>43</sup></a>
+<a href="#43"><span title="К примечаниям">В глазах мелькают как забор.</span><sup>43</sup></a>
 К несчастью Ларина тащилась,
 Боясь <span title="Прогоны — в старину: плата за проезд на почтовых, то есть казённых, лошадях.">прогонов*</span> дорогих,
 Не на почтовых, на своих,
@@ -6310,7 +6508,7 @@ Still for ever fare thee well.<br />
         <u>VI</u>
 
 И ныне музу я впервые
-На светский <a href="#44" title="К&nbsp;примечаниям">раут<sup>44</sup></a> привожу;
+На светский <a href="#44"><span title="К примечаниям">раут</span><sup>44</sup></a> привожу;
 На прелести её степные
 С ревнивой робостью гляжу.
 Сквозь тесный ряд аристократов,
@@ -7172,7 +7370,7 @@ N. N. прекрасный человек.
 
 <br />
 
-<div style="margin: 0px 59px" class="j">
+<div style="margin: 0px 59px" class="justify">
 <a name="1"><sup>1</sup></a> Писано в <span title="Бессарабия — Молдавия. Намёк на ссылку Пушкина за его политические стихи.">Бессарабии*</span>.
 <br />
 <a name="2"><sup>2</sup></a> <span title="Dandy (англ.) — де&#769;нди, щёголь, франт.">Dandy*</span>, франт.
@@ -7418,7 +7616,7 @@ N. N. прекрасный человек.
 <br />
 <br />
 <br />
-<div class="j">
+<div class="justify">
 <p>
 Последняя глава Евгения Онегина издана была особо, со следующим предисловием:
 </p>
@@ -7438,7 +7636,7 @@ N. N. прекрасный человек.
 </td><td>&#160;</td></tr></table>
 
 <br />
-<div class="j">
+<div class="justify">
 &nbsp; <span class="data" onclick="showCom('c21')" class="PT">П. А. Катенин*</span> (коему прекрасный поэтический талант не мешает быть и тонким критиком) заметил нам, что сие исключение, может быть, и выгодное для читателей, вредит однако ж плану целого сочинения; ибо чрез то переход от Татьяны, уездной барышни, к Татьяне, знатной даме, становится слишком неожиданным и необъяснённым. — Замечание обличающее опытного художника. Автор сам чувствовал справедливость оного, но решился выпустить эту главу по причинам, важным для него, а не для публики. Некоторые отрывки были напечатаны; мы здесь их помещаем, присовокупив к ним ещё несколько строф.
 <br />
 <br />
@@ -7469,7 +7667,7 @@ N. N. прекрасный человек.
 </td><td>&#160;</td></tr></table>
 
 <br />
-<div class="j" style="position: absolute">Онегин едет в Астрахань, и оттуда на Кавказ.</div>
+<div class="justify" style="position: absolute">Онегин едет в Астрахань, и оттуда на Кавказ.</div>
 <br />
 
 <table><tr><td title="Отрывки из путешествия Онегина" class="ch">&#160;</td><td>&#160;</td><td class="tm">
@@ -7527,7 +7725,7 @@ N. N. прекрасный человек.
 </td><td>&#160;</td></tr></table>
 
 <br />
-<div class="j" style="position: absolute">Онегин посещает потом Тавриду:</div>
+<div class="justify" style="position: absolute">Онегин посещает потом Тавриду:</div>
 <br />
 
 <table><tr><td title="Отрывки из путешествия Онегина" class="ch">&#160;</td><td>&#160;</td><td class="tm">
@@ -8286,10 +8484,27 @@ Panem et circenses.
 </pre>
 </div>
 <div class="n" id="c13">
-<img src="Antoinette.jpg" vspace="14" title="Часы 1827 года. Модель «Marie Antoinette»&lt;br />&lt;hr />&lt;br />Мария-Антуанетта (2.11.1755–1793) — казнённая королева Франции." class="fr" alt="" /><img src="Breguet.jpg" title="Абрахам-Луи Бреге" class="fl" alt="" />
-<div class="t">
-Бреге&#769;т — карманные часы с боем, изготовлявшиеся фирмой французского часового мастера Абрахама-Луи Бреге (Abracham-Louis Breguet) (1747–1823). Отличались большой точностью, отбивали часы, доли часов и показывали числа месяца. Впервые часы Breguet появились в России в 1801 году. А уже в 1808 году в Санкт-Петербурге открылось представительство «Русский Дом Breguet». В 1816 году за выдающиеся заслуги в часовом деле Бреге был избран членом французской Королевской Академии Наук и награждён орденом Почётного Легиона, а также стал членом Французского Бюро Измерений (Палаты мер и весов).
-</div>
+<table>
+<tr>
+	<td><img src="Breguet timepiece.jpg" width="292" height="402" /></td>
+	<td><div id="" class="t">
+		Бреге&#769;т — карманные часы с боем, изготовлявшиеся фирмой французского часового мастера Абрахама-Луи Бреге (Abracham-Louis Breguet) (1747–1823). Отличались большой точностью, отбивали часы, доли часов и показывали числа месяца. Впервые часы Breguet появились в России в 1801 году. А уже в 1808 году в Санкт-Петербурге открылось представительство «Русский Дом Breguet». Оригинальные часы фирмы Breguet были очень популярны и очень дороги, следствием чего стало появление большого количества копий, а само слово «брегет» в русском языке стало нарицательным. Так стали называть любые карманные часы с боем (репетиры).
+	</div></td>
+</tr>
+</table>
+<br>У Пушкина тоже был брегет, конечно же, оригинальный, о чём свидетельствует сама фирма на своём сайте Breguet.com:
+<table>
+<tr>
+	<td><img src="Breguet-com.jpg" width="324" height="260" /></td>
+	<td>Один из наиболее знаменитых писателей России, Александр Пушкин (1799-1837), происходивший из древнего дворянского рода, был постоянным клиентом Breguet с начала 19-го века. Он разделял увлечение русского высшего общества роскошными часами. Герой его гениального романа Евгений Онегин имеет часы Брегет:<br>
+«Онегин едет на бульвар,<br>
+И там гуляет на просторе,<br>
+Пока недремлющий брегет<br>
+Не прозвонит ему обед.»<br>
+</td>
+</tr>
+</table>
+<br>
 </div>
 <div class="n" id="c14">
 <img src="Kaverin.jpg" class="fl" alt="" />
@@ -11060,13 +11275,20 @@ Madame de Sta&euml;l — мадам де Сталь (псевдоним) — А�
 
 <table><tr><td style="width: 39px" title="Примечания">&#160;</td><td>
 <div class="n" id="c150">
-<img src="bolivar.jpg" class="fl" alt="" />
-<div class="t">
-&Agrave; la Bolivar (франц.) — а-ля&#769; Боливар — боливарская (как у Боливара).
+<table>
+<tr>
+	<td style="text-align:center"><img src="Man's tailcoat detail with stock and beaver top hat.jpg" width="265" height="329" alt="Боливар" />
+<br>Детали мужского фрака<br>с галстуком и шляпой-цилиндром<br>&agrave; la Bolivar из бобровой шерсти</td>
+	<td style="padding-left: 29px"><div class="t">
+&Agrave; la Bolivar (франц.) <span style="cursor: url('therapy.png'), auto" onclick="SingleFilePlay('À la Bolivar.mp3')">&#127911;</span> — А-ля&#769; Боливар — боливарская (как у Боливара).
 </div>
 <hr />
 <br />
 Sim&oacute;n Bol&iacute;var (1783–1830) — Симо&#769;н Болива&#769;р — герой и руководитель национально-освободительных войн в странах Латинской Америки (1810–1825) против испанского владычества. Родился в Венесуэле в семье испанского аристократа. Его именем названа страна Боливия.
+</td>
+</tr>
+</table>
+	
 </div>
 <div class="n" id="c151">
 <div class="t">
@@ -11118,10 +11340,9 @@ William Shakespeare — Вильям Шекспир (1564–1616) — велич
 Вильям Шекспир. «Гамлет». <span title="Великий князь Константин Константинович Романов (1858–1915).">Перевод К.Р.*</span> 
 </div>
 <div class="n" id="c154">
-<img src="Dante.jpg" title="Виргилий и Данте в аду" class="fl" alt="" />
-<div class="t">
-Lasciate ogni speranza voi ch'entrate (итал.) — Оставьте всякую надежду, вы, сюда входящие — надпись на воротах ада в поэме «Божественная комедия» итальянского поэта Данте Алигьери (1265–1321).
-</div>
+Lasciate ogni speranza voi ch'entrate (итал.) <span style="cursor: url('therapy.png'), auto" onclick="SingleFilePlay('Lasciate ogni speranza voi ch\'entrate.mp3')">&#127911;</span> – Оставьте всякую надежду, вы, сюда входящие.<br>Надпись на воротах ада в поэме «Божественная комедия» итальянского поэта Данте Алигьери (1265–1321).
+<br><br>
+<img src="Dante.jpg" title="Виргилий и Данте в девятом круге ада" width="720" height="480" class="fl" alt="" />
 </div>
 <div class="n" id="c155">
 <img src="Izmaylov.jpg" class="fr" alt="" />
