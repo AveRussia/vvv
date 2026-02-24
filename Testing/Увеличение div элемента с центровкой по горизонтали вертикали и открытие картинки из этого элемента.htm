@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<link rel="icon" sizes="any" type="image/svg+xml" href="data:image/svg+xml;utf8,%3Csvg  xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E
+%3Cg transform='scale(0.13)'%3E
+%3Cpath style='fill:white' d='m 3.057,122.75619 c -1.467024,-1.37914 40.438765,-54.288569 88.525095,-90.527413 7.436195,-6.055016 -4.688899,-8.145551 -8.99236,-9.056189 -19.189309,-4.048951 -59.263503,-5.8211 -59.862233,-7.368857 0.100914,-1.413589 47.01494,-0.438983 60.942172,0.820831 8.795312,1.136572 17.534296,2.828546 20.876186,7.979097 4.26758,6.351587 -2.85819,12.349243 -7.159747,16.242293 -7.135234,6.351135 -12.706851,9.125079 -19.767216,15.55302 7.938706,10.376118 15.305235,21.914573 18.224493,28.252216 1.850348,4.520459 0.395149,6.508486 -5.384831,9.595482 -16.241315,7.40096 -43.544038,21.16428 -44.11777,20.00085 -0.647992,-0.88793 16.813782,-12.7542 27.049696,-18.810074 C 82.881942,89.615202 88.602112,87.692838 85.810707,83.95651 79.39549,75.121391 77.917455,73.006411 70.12424,63.133218 53.197711,73.995563 4.09214,124.39817 3.057,122.75619 z' /%3E
+%3Cpath style='fill:white' d='m 56.964286,38.969326 a 10.357142,10.357142 0 1 1 -20.714285,0 10.357142,10.357142 0 1 1 20.714285,0 z' transform='matrix(0.93421052,0,0,0.93421052,73.780545,-21.3648)' /%3E
+%3C/g%3E
+%3C/svg%3E%0A">
+<title>Увеличение div элемента с центровкой по горизонтали вертикали и открытие картинки из этого элемента</title>
+
+
+<style type="text/css">
+body {
+	background: #2a2a2a;
+	color: white;
+	margin: 49px 0px;
+	padding: 0px;
+	font: 16px Raleway, "Yandex Sans Text Regular", sans-serif;
+	counter-reset: list; /* Инициируем счетчик */}
+
+  /* Scroll Progress Indicator for loupe – beguin */
+
+   .gear {
+      z-index: 1000;
+    }
+
+    .ring-bg {
+      fill: none;
+      stroke: #505050;
+      stroke-width: 9;
+    }
+
+    .ring {
+      fill: none;
+      stroke: #07c;
+      stroke-width: 9;
+      stroke-linecap: round;
+      stroke-dasharray: 886; /* 2 * π * 141 ≈ 885 */
+      stroke-dashoffset: -886; /* со знаком минус задаёт движение по часовой стрелке*/
+      transform: rotate(45deg); /* изменяет точку начала движения на круге */
+	  transform-origin:  151px 151px; /* перемещает круг к начальным координатам, смещённым свойством transform */
+      animation: progress-fill linear;
+      animation-timeline: scroll(root);
+    }
+
+    @keyframes progress-fill {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+#gear {
+  animation: ClockwiseSpin linear;
+  transform-origin:  151px 151px;
+  animation-timeline: scroll(root);
+}
+
+@keyframes ClockwiseSpin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/*  Scroll Progress Indicator for loupe – end */
+
+article {
+	width: 50%;
+	min-width: 699px;
+	margin: 0 auto;
+	background-color: #222;
+	outline:39px solid #222;
+	padding: 1px 29px 29px 29px;
+}
+h1 {font: 33px 'Segoe UI Variable Small Light', sans-serif;
+}
+h2 {font: 32px 'Yandex Sans Display Light', sans-serif; text-align: right;
+}
+pre {font: 14px 'Courier New'; padding: 19px; white-space: pre-wrap; text-align: left;
+}
+tt {
+border: 1px solid gray; padding: 1px 5px; font-size: 14px;
+}
+td {vertical-align: top;
+}
+u::before {
+	counter-increment: list; /* Указываем идентификатор счетчика */
+	content: counter(list) "."; /* Выводим текст перед тегом <u> */
+	display: inline-block;
+	text-decoration: none;
+	float: left;
+	margin: -13px 29px 15px 0px;
+	font: 54px HandelGotDLig;
+	color: rgba(59,59,59,1);
+	text-shadow: -2px 2px 0px rgba(0,0,0,1);
+}
+.clear {
+  clear: both;
+}
+.с {
+text-align: center; width: 100%; height: 3vw; line-height: 3vw;
+}
+i {
+font-style: normal; font: menu; /* или small-caption, status-bar ;*/
+}
+
+/* Открые и закрытие блока - начало*/
+input[type=checkbox] {display: none;
+}
+input[type=checkbox]:checked + .open {max-height:5900px;
+}
+.open {
+	max-height: 0px;
+	transition: max-height 0.7s ease-in-out;
+	overflow: hidden;
+	border: 1px solid white;
+}
+.open p {font-size: 10pt;
+}
+/* Открые и закрытие блока - конец*/
+
+.zoom:hover {cursor: zoom-in;
+}
+.zoom-in {cursor: zoom-out; transform: scale(2); transition: all 1s ease-in-out;
+}
+.zoom-out {cursor: zoom-in; transform: scale(1); transition: all 1s ease-in-out;
+}
+</style>
+
+<script type="text/javascript">
+<!--
+window.onload=function(){
+var inBody = document.getElementsByTagName('main')[0].innerHTML;
+var inBodyPre = inBody.replace(/</g,'&lt;');
+content.innerHTML = "<pre>"+inBodyPre+"</pre>"
+ShowModifiedDate()
+}
+
+function ShowModifiedDate() {
+
+var mod = document.lastModified;
+var m = String(mod).slice(0, 2);
+var d = String(mod).slice(3, 5);
+var y = String(mod).slice(6, 10);
+
+var mm = (01==m)?'января':(02==m)?'февраля':(03==m)?'марта':(04==m)?'апреля':(05==m)?'мая':(06==m)?'июня':(07==m)?'июля':(08==m)?'августа':(09==m)?'сентября':(10==m)?'октября':(11==m)?'ноября':'декабря';
+
+document.getElementById("modified").innerHTML = d+' '+mm+' '+y+' г.';
+document.getElementById("modified").title = mod;
+}
+//-->
+</script>
+
+</head>
+<body>
+
+<article>
+
+<!-- Лупа со Scroll Progress Indicator – beguin -->
+
+<svg id="loupe" style="position: fixed; margin-left: -99px" xmlns="http://www.w3.org/2000/svg" width="163" height="99"  viewBox="0 0 436 431" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+<defs>
+<linearGradient id="linearGradient1">
+      <stop style="stop-color:#45454f; stop-opacity:1;" offset="0" />
+      <stop style="stop-color:#aaaaaa; stop-opacity:1;" offset="0.5" />
+      <stop style="stop-color:#45454f; stop-opacity:1;" offset="1" />
+</linearGradient>
+<linearGradient xlink:href="#linearGradient1" id="linearGradient2" x1="40" y1="151" x2="262" y2="151" gradientUnits="userSpaceOnUse" />
+</defs>
+  <defs>
+    <linearGradient id="linearGradient3">
+      <stop style="stop-color:#45454f; stop-opacity:1;" offset="0.47" />
+      <stop style="stop-color:#aaaaaa; stop-opacity:1;" offset="0.59" />
+    <linearGradient xlink:href="#linearGradient3" id="linearGradient4" x1="34" y1="407" x2="-102" y2="262" gradientUnits="userSpaceOnUse" />
+  </defs>
+  <path id="gear" d="m134 192c-16.4-6.81-27.2-22.8-27.2-40.6-3e-3 -17.8 10.7-33.8 27.2-40.7 16.4-6.81 35.4-3.05 48 9.53 12.6 12.6 16.4 31.5 9.55 47.9-9.32 22.4-35 33.1-57.5 23.8zm103 21.9-6.5-25.4c1.05-2.34 2.26-5.41 2.93-7.13l22.5-13.4c1.06-0.627 1.77-1.71 1.93-2.93 1.19-9.16 1.19-18.4 4e-3 -27.6-0.158-1.22-0.87-2.3-1.93-2.93l-22.5-13.3c-0.885-2.43-1.88-4.84-2.98-7.18l6.48-25.3c0.305-1.19 0.045-2.46-0.706-3.43-5.64-7.32-12.2-13.9-19.5-19.5-0.975-0.752-2.24-1.01-3.44-0.706l-25.3 6.5c-2.35-1.09-4.75-2.09-7.18-2.97l-13.3-22.5c-0.627-1.06-1.71-1.77-2.93-1.93-9.16-1.19-18.4-1.19-27.6-4e-3 -1.22 0.158-2.3 0.87-2.93 1.93l-13.3 22.5c-2.43 0.885-4.84 1.88-7.18 2.98l-25.3-6.48c-1.19-0.305-2.46-0.0444-3.43 0.707-7.32 5.64-13.9 12.2-19.5 19.5-0.751 0.975-1.01 2.24-0.706 3.44l6.5 25.4c-1.05 2.34-2.26 5.41-2.93 7.13l-22.5 13.4c-1.06 0.627-1.77 1.71-1.93 2.93-1.19 9.16-1.19 18.4-4e-3 27.6 0.158 1.22 0.87 2.3 1.93 2.93l22.5 13.3c0.885 2.43 1.88 4.84 2.98 7.18l-6.48 25.3c-0.305 1.19-0.045 2.46 0.706 3.43 5.64 7.32 12.2 13.9 19.5 19.5 0.975 0.752 2.24 1.01 3.44 0.706l25.3-6.5c2.35 1.09 4.75 2.09 7.18 2.97l13.3 22.5c0.627 1.06 1.71 1.77 2.93 1.93 9.16 1.19 18.4 1.19 27.6 4e-3 1.22-0.158 2.3-0.87 2.93-1.93l13.3-22.5c2.4-0.915 5.42-2.23 7.11-2.97l25.4 6.5c1.19 0.305 2.46 0.0444 3.43-0.707 7.32-5.64 13.9-12.2 19.5-19.5 0.751-0.975 1.01-2.24 0.706-3.44z" style="fill:url(#linearGradient2);stroke:#333333;stroke-width:6" stroke-width="6"/>
+<path style="fill:url(#linearGradient4);stroke:#000000;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+       d="m 41.550653,239.82279 c 9.436138,10.3395 12.187898,13.20224 22.037846,22.40535 L 33.91823,291.03578 c 2.7978,10.36189 0.402586,22.10143 -6.515859,28.84275 L -83.71911,425.62755 c -31.80631,17.32791 -61.92128,-17.49822 -42.84425,-45.64402 L -16.623578,275.10988 c 6.8560367,-5.78928 16.97069586,-8.54939 27.681505,-6.51586 z" />
+<g fill="none" stroke="#505050" transform="scale(-1 1) translate(-302,0)">
+	<circle class="ring-bg" cx="151" cy="151" r="141" />
+	<circle  class="ring" cx="151" cy="151" r="141" />
+ </g>
+</svg>
+<!-- Лупа со Scroll Progress Indicator – end -->
+
+<h1 style="position: relative; width: auto; margin: 9px auto 69px auto; text-align: center; padding: 0 99px; border: 1px solid transparent">Увеличение div элемента<br> <em><small>с центровкой по горизонтали и вертикали</small></em>.<br> Увеличение картинки<br> <em><small>из этого элемента.</small></em></h1>
+
+<div id="bigCommentBox" class="hideBigComment"></div>
+<div id="shortCommentBox" class="hideShortCommentRight"></div>
+
+<div class="data" onclick="showCom('a5','short')" style="cursor: pointer; font: 39px Arial; letter-spacing: -9px; color: red; text-align: center">NB &nbsp; !</div>
+
+<div class="data" onclick="showCom('a1','big')" style="cursor: pointer">Маша с мячиком</div>
+<br>
+<span class="data" onclick="showCom('a2','big')" style="cursor: pointer">Воробушки</span>
+
+<main>
+
+<script>
+
+let bigComment, shortComment
+
+function showCom(idElementToShow,commentSize){
+
+bigComment = document.getElementById('bigCommentBox')
+shortComment = document.getElementById('shortCommentBox')
+bigComment.style.left = ''
+bigComment.style.top = ''
+bigComment.innerHTML = document.getElementById(idElementToShow).innerHTML
+shortComment.style.left = ''
+shortComment.style.top = ''
+shortComment.innerHTML = document.getElementById(idElementToShow).innerHTML
+if(commentSize == 'big') bigComment.className = 'openBigComment'
+else {shortComment.className = 'openShortComment'; click()}
+}
+
+var clicked = 1;
+var odd = true;
+// Счётчик нужен для попеременного направления открытия и закрытия ShortComment
+function click() {
+clicked++;
+odd = !(clicked % 2); // результат true или false
+}
+
+document.onclick = function(evt){
+
+// Проверяем, находится ли точка клика вне элемента bigComment или shortComment, чтобы закрыть его
+
+bigComment = document.getElementById('bigCommentBox')
+shortComment = document.getElementById('shortCommentBox')
+const rectBig = bigComment.getBoundingClientRect();
+const rectShort = shortComment.getBoundingClientRect();
+
+const isOutsideBigComment = evt.clientX < rectBig.left || evt.clientX > rectBig.right || evt.clientY < rectBig.top || evt.clientY > rectBig.bottom;
+const isOutsideShortComment = evt.clientX < rectShort.left || evt.clientX > rectShort.right || evt.clientY < rectShort.top || evt.clientY > rectShort.bottom;
+
+let ifClass = evt.srcElement.classList.contains("data"); /*Проверяем наличие класса data в элементе по щелчку*/
+if(ifClass == true){
+//let slice = evt.srcElement.className.slice(5); /*Извлекаем второе имя составного класса элемента*/
+
+// Помещаем элементы bigComment и shortComment в центр
+bigComment.style.left = document.documentElement.clientWidth/2 - bigComment.clientWidth/2 + 'px';
+bigComment.style.top = document.documentElement.clientHeight/2 - bigComment.clientHeight/2 + window.scrollY + 'px';
+shortComment.style.left = document.documentElement.clientWidth/2 - shortComment.clientWidth/2 + 'px';
+shortComment.style.top = document.documentElement.clientHeight/2 - shortComment.clientHeight/2 + window.scrollY + 'px';
+}
+else if (isOutsideBigComment && isOutsideShortComment && evt.srcElement.tagName!='IMG'){
+	if (bigComment.className == 'openBigComment') bigComment.className = 'hideBigComment';
+	else {if(odd == true) shortComment.className = 'hideShortCommentLeft'
+	else shortComment.className = 'hideShortCommentRight'
+}
+}
+}
+</script>
+
+<script>
+
+let prevPic = 0
+
+function placeToCenter(elem,N){
+
+// Определяем индекс элемента img
+var pictures = document.querySelectorAll('IMG');
+var pictureIndex = Array.from(pictures).indexOf(elem);
+
+let currentPic = pictureIndex
+
+if(document.getElementsByTagName('IMG')[prevPic].className == 'animatePicture' && document.getElementsByTagName('IMG')[currentPic].className == 'staticPicture') { 
+document.getElementsByTagName('IMG')[prevPic].className = 'staticPicture'
+even = true
+times = 0
+}
+
+prevPic = currentPic
+
+if(even==true) {
+
+let r = elem.getBoundingClientRect();
+var elemLeft = `${r.left}`, elemTop = `${r.top}`;
+
+  var docWidth = document.documentElement.clientWidth,
+      docHeight = document.documentElement.clientHeight;
+  var elemWidth = elem.clientWidth,
+      elemHeight = elem.clientHeight;
+  var countedPointX = (docWidth - elemWidth)/2 - Math.round(elemLeft) + 'px',
+      countedPointY = (docHeight - elemHeight)/2 - Math.round(elemTop) + 'px';
+
+var styleBySelector = {};
+for (var i=0; i<document.styleSheets.length; i++)   {
+  var styleList = document.styleSheets[i].rules || document.styleSheets[i].cssRules;
+  for (var j=0; j<styleList.length; j++)
+    styleBySelector[styleList[j].selectorText] = styleList[j].style;
+ }
+
+// Только для открытия картинки с помощью scale
+styleBySelector['.animatePicture'].transform = 'translate3d('+countedPointX + ',' +countedPointY + ', 0) scale('+N+','+N+')';
+
+elem.className = 'animatePicture';
+}
+
+else {
+elem.className = 'staticPicture';
+}
+doclick();
+}
+
+var times = 0;
+var even = true;
+// Счётчик нужен для открытия и закрытия картинок
+function doclick() {
+times++;
+even = !(times % 2); // результат true или false
+}
+
+</script>
+
+<style type="text/css">
+#bigCommentBox, #shortCommentBox {
+position: absolute;
+  width: fit-content;
+  max-width: 50%;
+padding: 21px;
+background-color: #fffff0;
+border: darkkhaki 3px double;
+font: 16px 'Times New Roman';
+text-align: justify;
+z-index: 3;
+}
+
+.hideBigComment {
+transition: all 1s cubic-bezier(0.57, 0.4, 0.55, 1.0); /*ease-in-out;*/
+transform: scale(0.001, 0.001);
+}
+.openBigComment {
+transition: all 1s cubic-bezier(0.57, 0.4, 0.55, 1.3); /*ease-in;*/
+transform: scale(1, 1);
+color: black;
+}
+
+.hideShortCommentRight {
+clip-path: polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%); /* Для открытия блока справа налево */
+transition: clip-path 0.7s cubic-bezier(0.57, 0.4, 0.55, 1.0);
+}
+.hideShortCommentLeft {
+clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%); /* Для открытия блока слева направо */
+transition: clip-path 0.7s cubic-bezier(0.57, 0.4, 0.55, 1.0);
+}
+.openShortComment {
+clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+transition: clip-path 0.7s cubic-bezier(0.57, 0.4, 0.55, 1.5);
+color: black;
+}
+
+figure {display: block; margin: 0;
+}
+figcaption {font: 10pt Arial; color: gray;
+}
+
+.staticPicture {
+cursor: zoom-in;
+position: relative;
+transition: all 1s ease-in-out;
+transform: translate3d(0, 0, 0) scale(1, 1);
+}
+.animatePicture {
+cursor: zoom-out;
+position: absolute;
+transition: all 1s ease-in-out;
+transform: translate3d(100px, 100px, 0) scale(2, 2);
+object-fit: cover;
+}
+
+</style>
+
+<div id="a1" style="display: none">
+<table>
+<tr>
+<td style=" width: 43px; height: 80px">
+	<img src="Маша2.png" style=" width: 43px; height: 70px" onclick="placeToCenter(this,4)" class="staticPicture" />
+</td>
+	<td><i></i>
+<style type="text/css">
+	i{
+  position:fixed;
+  width:50px;
+  height:50px;
+  border-radius:50%;
+  background:radial-gradient(at 30% 30%,#0000,#000a) red;
+  left:159px;
+  top:-99px; /* Значение top здесь должно быть на единицу больше, чем в @keyframes */
+}
+i:hover{
+  animation: x 1s cubic-bezier(0,15,1,15) infinite;
+}
+@keyframes x {
+   to {
+     top:-100px;
+   }
+}
+</style>
+</td>
+</tr>
+</table>
+</div>
+
+<div id="a2" style="display: none">
+<figure style="width:92px; height:93px; margin-right: 29px; float: left">
+	<img src="Воробьи.jpg" width="92px" height="93px" border="0" onclick="placeToCenter(this,4)" class="staticPicture"> 
+</figure>О чём поют воробушки &nbsp;&nbsp;<br>В последний день зимы?<br>– Мы выжили!<br>– Мы дожили!<br>– Мы живы! Живы мы!<br><br><div style="text-align: right">
+	В. Берестов
+</div>
+</div>
+
+</main>
+
+
+<div id="a3" style="display: none">
+<figure style="width:255px; height:385px; margin: 0 29px 0 0; float: left">
+	<img src="Mugler.webp" style="width=:255px; height:385px" border="0" onclick="placeToCenter(this,4)" class="staticPicture">
+<figcaption><cite>Thierry Mugler</cite></figcaption>
+</figure>
+Bid me discourse, I will enchant thine ear,&nbsp; &nbsp; &nbsp; &nbsp;<br>
+Or like a fairy trip upon the green,<br>
+Or, like a nymph, with long dishevell'd hair,<br>
+Dance on the sands, and yet no footing seen:<br>
+Love is a spirit all compact of fire,<br>
+Not gross to sink, but light, and will aspire.
+<br><br>
+<cite>Venus and Adonis</cite>, by William Shakespeare
+</div>
+
+<div id="a4" style="display: none">
+<figure style="width:159px; height:159px; margin: 0 29px 0 0; float: left">
+	<svg xmlns="http://www.w3.org/2000/svg" width="159" height="159" viewBox="0 0 24 24"><path fill="blue" d="M12 10.93c-.97-1.87-3.6-5.34-6.05-7.07-2.34-1.65-3.25-1.35-3.83-1.1-.68.3-.8 1.34-.8 1.96 0 .6.33 5 .55 5.73.74 2.42 3.3 3.25 5.69 2.97-3.48.52-6.58 1.78-2.53 6.27 4.47 4.59 6.12-.99 6.97-3.82.85 2.84 1.83 8.2 6.89 3.82 3.8-3.82 1.04-5.75-2.45-6.27 2.38.28 4.95-.55 5.68-2.97.22-.74.56-5.11.56-5.72 0-.62-.12-1.65-.8-1.96-.58-.26-1.49-.55-3.83 1.1-2.45 1.72-5.08 5.2-6.05 7.08z"/></svg>
+<figcaption><cite>Butterfly</cite></figcaption>
+</figure>
+Bid me discourse, I will enchant thine ear,<br>
+Or like a fairy trip upon the green,<br>
+Or, like a nymph, with long dishevell'd hair,<br>
+Dance on the sands, and yet no footing seen:<br>
+Love is a spirit all compact of fire,<br>
+Not gross to sink, but light, and will aspire.
+<br><br>
+<div style="text-align: right">
+	<cite>Venus and Adonis</cite>, by William Shakespeare
+</div>
+</div>
+
+<div id="a5" style="display: none">
+<figure style="width:139px; height:139px; margin: 0 29px 0 0; float: left; font: bold 99px Arial; color: red">
+	<span style="letter-spacing: -29px">NB</span>&nbsp;!
+</figure>
+ <p>В стилях &lt;style> для блока #bigCommentBox, в котором сейчас находится этот текст,<br> параметр width не имеет строго заданного значения в единицах или процентах: 
+</p>
+<ul>
+		<li>width: fit-content;</li>
+		<li>max-width: 50%;</li>
+</ul>
+<p>При этом, если текст не прерывать тегом &lt;br>, то ширина блока будет максимальной – 50% от ширины родительского элемента, как указано в max-width. Первая строка этого текста прервана после слова «текст». Если бы дальше ничего не было, то ширина блока ограничилась этим словом.
+</p>
+<p>Если текст прервается &lt;br> несколько раз, например, при форматировании строфы стихотворения, то ширина блока будет ограничена шириной первой строки. Если следующие строки будут длиннее, они бутут прерваны не тегом &lt;br>, а шириной первой строки. Чтобы избежать этого, необходимо в конце первой строки добавить несколько непрерываемых пробелов с помощью &amp;nbsp; (смотрите Пример 1 и Пример 2 в самом конце этой страницы).
+</p>
+<p>Если в этом блоке будет картинка или другой блок, к которому применено обтекание, как здесь с NB! – float: left, то первый абзац, помещённый в какой-то другой блок, например, &lt;div> или &lt;p> может вызвать сбой и обтекания не будет, а сам он разместится под картинкой.
+</p>
+</div>
+
+<div id="content"></div>
+<span class="data" onclick="showCom('a3','big')" style="cursor: pointer">Пример 1</span>
+<br />
+<span class="data" onclick="showCom('a4','short')" style="cursor: pointer">Пример 2</span>
+<br />
+<br />
+<span id="modified"></span>
+
+</article>
+</body>
+</html>
