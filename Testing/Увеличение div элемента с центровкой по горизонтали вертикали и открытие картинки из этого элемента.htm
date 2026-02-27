@@ -2,6 +2,7 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" sizes="any" type="image/svg+xml" href="data:image/svg+xml;utf8,%3Csvg  xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E
 %3Cg transform='scale(0.13)'%3E
 %3Cpath style='fill:white' d='m 3.057,122.75619 c -1.467024,-1.37914 40.438765,-54.288569 88.525095,-90.527413 7.436195,-6.055016 -4.688899,-8.145551 -8.99236,-9.056189 -19.189309,-4.048951 -59.263503,-5.8211 -59.862233,-7.368857 0.100914,-1.413589 47.01494,-0.438983 60.942172,0.820831 8.795312,1.136572 17.534296,2.828546 20.876186,7.979097 4.26758,6.351587 -2.85819,12.349243 -7.159747,16.242293 -7.135234,6.351135 -12.706851,9.125079 -19.767216,15.55302 7.938706,10.376118 15.305235,21.914573 18.224493,28.252216 1.850348,4.520459 0.395149,6.508486 -5.384831,9.595482 -16.241315,7.40096 -43.544038,21.16428 -44.11777,20.00085 -0.647992,-0.88793 16.813782,-12.7542 27.049696,-18.810074 C 82.881942,89.615202 88.602112,87.692838 85.810707,83.95651 79.39549,75.121391 77.917455,73.006411 70.12424,63.133218 53.197711,73.995563 4.09214,124.39817 3.057,122.75619 z' /%3E
@@ -15,10 +16,11 @@
 body {
 	background: #2a2a2a;
 	color: white;
-	margin: 49px 0px;
+	margin: 0px;
 	padding: 0px;
-	font: 16px Raleway, "Yandex Sans Text Regular", sans-serif;
-	counter-reset: list; /* Инициируем счетчик */}
+	font-family: Raleway, "Yandex Sans Text Regular", sans-serif;
+	counter-reset: list; /* Инициируем счетчик */
+	}
 
   /* Scroll Progress Indicator for loupe – beguin */
 
@@ -66,17 +68,35 @@ body {
 }
 /*  Scroll Progress Indicator for loupe – end */
 
+/* Общая ширина блока article будет width + border-left + border-right */
+/* Ширина поля для чтения рассчитана из ширины примерно 90 печатных знаков шрифтом 16px*/
+
+@media screen and (orientation: portrait) {
 article {
-	width: 50%;
-	min-width: 699px;
+	width: 94vw;
 	margin: 0 auto;
 	background-color: #222;
-	outline:39px solid #222;
-	padding: 1px 29px 29px 29px;
+	/*border: 39px solid #2a2a2a;*/
+	padding: 9px;
 }
-h1 {font: 33px 'Segoe UI Variable Small Light', sans-serif;
+#loupe, #fontReSize {
+display: none
 }
-h2 {font: 32px 'Yandex Sans Display Light', sans-serif; text-align: right;
+}
+
+@media screen and (orientation: landscape) {
+article {
+	width: 739px;
+	margin: 0 auto;
+	background-color: #222;
+	border: 39px solid #2a2a2a;
+	padding: 29px;
+}
+}
+
+h1 {font: 2rem 'Segoe UI Variable Small Light', sans-serif;
+}
+h2 {font: 1.5rem 'Yandex Sans Display Light', sans-serif; text-align: right;
 }
 pre {font: 14px 'Courier New'; padding: 19px; white-space: pre-wrap; text-align: left;
 }
@@ -160,7 +180,7 @@ document.getElementById("modified").title = mod;
 
 <!-- Лупа со Scroll Progress Indicator – beguin -->
 
-<svg id="loupe" style="position: fixed; margin-left: -99px" xmlns="http://www.w3.org/2000/svg" width="163" height="99"  viewBox="0 0 436 431" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg id="loupe" style="position: fixed; margin-left: -59px" xmlns="http://www.w3.org/2000/svg" width="99" height="99"  viewBox="-131 0 436 431" xmlns:xlink="http://www.w3.org/1999/xlink">
 
 <defs>
 <linearGradient id="linearGradient1">
@@ -191,7 +211,7 @@ document.getElementById("modified").title = mod;
 <div id="bigCommentBox" class="hideBigComment"></div>
 <div id="shortCommentBox" class="hideShortCommentRight"></div>
 
-<div class="data" onclick="showCom('a5','short')" style="cursor: pointer; font: 39px Arial; letter-spacing: -9px; color: red; text-align: center">NB &nbsp; !</div>
+<div class="data" onclick="showCom('a5','short')" style="cursor: pointer; font: 39px Arial; letter-spacing: -9px; color: red; text-align: center">NB &nbsp; &nbsp; !</div>
 
 <div class="data" onclick="showCom('a1','big')" style="cursor: pointer">Маша с мячиком</div>
 <br>
@@ -318,6 +338,22 @@ even = !(times % 2); // результат true или false
 </script>
 
 <style type="text/css">
+
+@media screen and (orientation: portrait) {
+#bigCommentBox, #shortCommentBox {
+position: absolute;
+  width: fit-content;
+  max-width: 90%;
+padding: 21px;
+background-color: #fffff0;
+border: darkkhaki 3px double;
+text-align: justify;
+z-index: 3;
+font: 12px 'Times New Roman';
+}
+}
+
+@media screen and (orientation: landscape) {
 #bigCommentBox, #shortCommentBox {
 position: absolute;
   width: fit-content;
@@ -325,9 +361,9 @@ position: absolute;
 padding: 21px;
 background-color: #fffff0;
 border: darkkhaki 3px double;
-font: 16px 'Times New Roman';
 text-align: justify;
 z-index: 3;
+}
 }
 
 .hideBigComment {
@@ -354,9 +390,10 @@ transition: clip-path 0.7s cubic-bezier(0.57, 0.4, 0.55, 1.5);
 color: black;
 }
 
+/* text-align: center; к figure применять нельзя */
 figure {display: block; margin: 0;
 }
-figcaption {font: 10pt Arial; color: gray;
+figcaption {display: block; font: 10pt Arial; color: gray; text-align: center;
 }
 
 .staticPicture {
