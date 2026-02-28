@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" sizes="any" type="image/svg+xml" href="data:image/svg+xml;utf8,%3Csvg  xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E
 %3Cg transform='scale(0.13)'%3E
 %3Cpath style='fill:white' d='m 3.057,122.75619 c -1.467024,-1.37914 40.438765,-54.288569 88.525095,-90.527413 7.436195,-6.055016 -4.688899,-8.145551 -8.99236,-9.056189 -19.189309,-4.048951 -59.263503,-5.8211 -59.862233,-7.368857 0.100914,-1.413589 47.01494,-0.438983 60.942172,0.820831 8.795312,1.136572 17.534296,2.828546 20.876186,7.979097 4.26758,6.351587 -2.85819,12.349243 -7.159747,16.242293 -7.135234,6.351135 -12.706851,9.125079 -19.767216,15.55302 7.938706,10.376118 15.305235,21.914573 18.224493,28.252216 1.850348,4.520459 0.395149,6.508486 -5.384831,9.595482 -16.241315,7.40096 -43.544038,21.16428 -44.11777,20.00085 -0.647992,-0.88793 16.813782,-12.7542 27.049696,-18.810074 C 82.881942,89.615202 88.602112,87.692838 85.810707,83.95651 79.39549,75.121391 77.917455,73.006411 70.12424,63.133218 53.197711,73.995563 4.09214,124.39817 3.057,122.75619 z' /%3E
@@ -68,6 +68,8 @@ body {
 }
 /*  Scroll Progress Indicator for loupe – end */
 
+
+
 /* Общая ширина блока article будет width + border-left + border-right */
 /* Ширина поля для чтения рассчитана из ширины примерно 90 печатных знаков шрифтом 16px*/
 
@@ -79,6 +81,13 @@ article {
 	/*border: 39px solid #2a2a2a;*/
 	padding: 9px;
 }
+h1 {font: 1.2rem 'Segoe UI Variable Small Light', sans-serif;
+}
+h2 {font: 1.1rem 'Yandex Sans Display Light', sans-serif; text-align: right;
+}
+pre {font: 14px 'Courier New'; padding: 19px; white-space: pre-wrap; text-align: left;
+}
+
 #loupe, #fontReSize {
 display: none
 }
@@ -92,19 +101,21 @@ article {
 	border: 39px solid #2a2a2a;
 	padding: 29px;
 }
-}
-
 h1 {font: 2rem 'Segoe UI Variable Small Light', sans-serif;
 }
 h2 {font: 1.5rem 'Yandex Sans Display Light', sans-serif; text-align: right;
 }
 pre {font: 14px 'Courier New'; padding: 19px; white-space: pre-wrap; text-align: left;
 }
+}
+
 tt {
 border: 1px solid gray; padding: 1px 5px; font-size: 14px;
 }
 td {vertical-align: top;
 }
+
+
 u::before {
 	counter-increment: list; /* Указываем идентификатор счетчика */
 	content: counter(list) "."; /* Выводим текст перед тегом <u> */
@@ -126,27 +137,6 @@ i {
 font-style: normal; font: menu; /* или small-caption, status-bar ;*/
 }
 
-/* Открые и закрытие блока - начало*/
-input[type=checkbox] {display: none;
-}
-input[type=checkbox]:checked + .open {max-height:5900px;
-}
-.open {
-	max-height: 0px;
-	transition: max-height 0.7s ease-in-out;
-	overflow: hidden;
-	border: 1px solid white;
-}
-.open p {font-size: 10pt;
-}
-/* Открые и закрытие блока - конец*/
-
-.zoom:hover {cursor: zoom-in;
-}
-.zoom-in {cursor: zoom-out; transform: scale(2); transition: all 1s ease-in-out;
-}
-.zoom-out {cursor: zoom-in; transform: scale(1); transition: all 1s ease-in-out;
-}
 </style>
 
 <script type="text/javascript">
@@ -156,6 +146,14 @@ var inBody = document.getElementsByTagName('main')[0].innerHTML;
 var inBodyPre = inBody.replace(/</g,'&lt;');
 content.innerHTML = "<pre>"+inBodyPre+"</pre>"
 ShowModifiedDate()
+
+var OSName="Unknown OS";
+if (navigator.appVersion.indexOf("Win")!=-1) OSName="Windows";
+if (navigator.appVersion.indexOf("Mac")!=-1) OSName="MacOS";
+if (navigator.appVersion.indexOf("X11")!=-1) OSName="UNIX";
+if (navigator.appVersion.indexOf("Linux")!=-1) OSName="Linux";
+
+console.log(OSName);
 }
 
 function ShowModifiedDate() {
@@ -266,6 +264,13 @@ bigComment.style.left = document.documentElement.clientWidth/2 - bigComment.clie
 bigComment.style.top = document.documentElement.clientHeight/2 - bigComment.clientHeight/2 + window.scrollY + 'px';
 shortComment.style.left = document.documentElement.clientWidth/2 - shortComment.clientWidth/2 + 'px';
 shortComment.style.top = document.documentElement.clientHeight/2 - shortComment.clientHeight/2 + window.scrollY + 'px';
+// Если открывшееся окно комментария выходит за верхнюю границу окна документа, окно комментария сдвигается вниз до верхней границы окна документа
+setTimeout(function(){
+let r1 = shortComment.getBoundingClientRect();
+var elemLeft1 = `${r1.left}`, elemTop1 = `${r1.top}`;
+if (elemTop1 < 0) shortComment.style.transform = 'translate3d(0, '+Math.abs(elemTop1)+'px,  0)';
+}, 1500);
+
 }
 else if (isOutsideBigComment && isOutsideShortComment && evt.srcElement.tagName!='IMG'){
 	if (bigComment.className == 'openBigComment') bigComment.className = 'hideBigComment';
@@ -319,6 +324,12 @@ for (var i=0; i<document.styleSheets.length; i++)   {
 styleBySelector['.animatePicture'].transform = 'translate3d('+countedPointX + ',' +countedPointY + ', 0) scale('+N+','+N+')';
 
 elem.className = 'animatePicture';
+// Если высота открывшейся картинки больше высоты окна, картина смещается вниз до верхней границы окна
+setTimeout(function(){
+let r2 = elem.getBoundingClientRect();
+var elemTop2 = `${r2.top}`;
+if (elemTop2 < 0) styleBySelector['.animatePicture'].transform = 'translate3d('+countedPointX+', '+Math.abs(elemTop)+'px,  0) scale('+N+','+N+')';
+}, 1500);
 }
 
 else {
@@ -326,6 +337,7 @@ elem.className = 'staticPicture';
 }
 doclick();
 }
+
 
 var times = 0;
 var even = true;
@@ -343,13 +355,13 @@ even = !(times % 2); // результат true или false
 #bigCommentBox, #shortCommentBox {
 position: absolute;
   width: fit-content;
-  max-width: 90%;
+  max-width: 80%;
 padding: 21px;
 background-color: #fffff0;
 border: darkkhaki 3px double;
 text-align: justify;
+font-size: 14px;
 z-index: 3;
-font: 12px 'Times New Roman';
 }
 }
 
@@ -357,11 +369,12 @@ font: 12px 'Times New Roman';
 #bigCommentBox, #shortCommentBox {
 position: absolute;
   width: fit-content;
-  max-width: 50%;
+  max-width: 679px;
 padding: 21px;
 background-color: #fffff0;
 border: darkkhaki 3px double;
 text-align: justify;
+font-size: 14px;
 z-index: 3;
 }
 }
@@ -444,9 +457,9 @@ i:hover{
 </div>
 
 <div id="a2" style="display: none">
-<figure style="width:92px; height:93px; margin-right: 29px; float: left">
+<figure style="width:92px; height:133px; margin-right: 29px; float: left">
 	<img src="Воробьи.jpg" width="92px" height="93px" border="0" onclick="placeToCenter(this,4)" class="staticPicture"> 
-</figure>О чём поют воробушки &nbsp;&nbsp;<br>В последний день зимы?<br>– Мы выжили!<br>– Мы дожили!<br>– Мы живы! Живы мы!<br><br><div style="text-align: right">
+</figure>О чём поют воробушки &nbsp; &nbsp; &nbsp;<br>В последний день зимы?<br>– Мы выжили!<br>– Мы дожили!<br>– Мы живы! Живы мы!<br><br><div style="text-align: right">
 	В. Берестов
 </div>
 </div>
@@ -455,8 +468,8 @@ i:hover{
 
 
 <div id="a3" style="display: none">
-<figure style="width:255px; height:385px; margin: 0 29px 0 0; float: left">
-	<img src="Mugler.webp" style="width=:255px; height:385px" border="0" onclick="placeToCenter(this,4)" class="staticPicture">
+<figure style="width:255px; height:415px; margin: 0 29px 0 0; float: left">
+	<img src="Mugler.webp" style="width:255px; height:385px" border="0" onclick="placeToCenter(this,4)" class="staticPicture">
 <figcaption><cite>Thierry Mugler</cite></figcaption>
 </figure>
 Bid me discourse, I will enchant thine ear,&nbsp; &nbsp; &nbsp; &nbsp;<br>
@@ -470,16 +483,18 @@ Not gross to sink, but light, and will aspire.
 </div>
 
 <div id="a4" style="display: none">
-<figure style="width:159px; height:159px; margin: 0 29px 0 0; float: left">
-	<svg xmlns="http://www.w3.org/2000/svg" width="159" height="159" viewBox="0 0 24 24"><path fill="blue" d="M12 10.93c-.97-1.87-3.6-5.34-6.05-7.07-2.34-1.65-3.25-1.35-3.83-1.1-.68.3-.8 1.34-.8 1.96 0 .6.33 5 .55 5.73.74 2.42 3.3 3.25 5.69 2.97-3.48.52-6.58 1.78-2.53 6.27 4.47 4.59 6.12-.99 6.97-3.82.85 2.84 1.83 8.2 6.89 3.82 3.8-3.82 1.04-5.75-2.45-6.27 2.38.28 4.95-.55 5.68-2.97.22-.74.56-5.11.56-5.72 0-.62-.12-1.65-.8-1.96-.58-.26-1.49-.55-3.83 1.1-2.45 1.72-5.08 5.2-6.05 7.08z"/></svg>
+<figure style="width:30%; margin: 0 29px 59px 0; float: left">
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="blue" d="M12 10.93c-.97-1.87-3.6-5.34-6.05-7.07-2.34-1.65-3.25-1.35-3.83-1.1-.68.3-.8 1.34-.8 1.96 0 .6.33 5 .55 5.73.74 2.42 3.3 3.25 5.69 2.97-3.48.52-6.58 1.78-2.53 6.27 4.47 4.59 6.12-.99 6.97-3.82.85 2.84 1.83 8.2 6.89 3.82 3.8-3.82 1.04-5.75-2.45-6.27 2.38.28 4.95-.55 5.68-2.97.22-.74.56-5.11.56-5.72 0-.62-.12-1.65-.8-1.96-.58-.26-1.49-.55-3.83 1.1-2.45 1.72-5.08 5.2-6.05 7.08z"/></svg>
 <figcaption><cite>Butterfly</cite></figcaption>
 </figure>
+<div style="width:439px">
 Bid me discourse, I will enchant thine ear,<br>
 Or like a fairy trip upon the green,<br>
 Or, like a nymph, with long dishevell'd hair,<br>
 Dance on the sands, and yet no footing seen:<br>
 Love is a spirit all compact of fire,<br>
 Not gross to sink, but light, and will aspire.
+</div>
 <br><br>
 <div style="text-align: right">
 	<cite>Venus and Adonis</cite>, by William Shakespeare
