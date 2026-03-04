@@ -189,11 +189,15 @@ screenWidth = window.screen.width
 screenHeight = window.screen.height
 const availableScreenWidth = window.screen.availWidth
 const availableScreenHeight = window.screen.availHeight
+const realWidth = window.screen.width * window.devicePixelRatio;
+const realHeight = window.screen.height * window.devicePixelRatio;
 
 if (screenWidth<='739') { Document.getElementByTagName('article')[0].style.width = screenWidt +'px'
 
 	}
 //console.log(screenWidth + ' ' + screenHeight +'\n'+ availableScreenWidth + ' ' + availableScreenHeight)
+document.getElementById('screenWH').innerHTML= 'Физическое: &#8596; ' + realWidth + '&nbsp; &#8597; ' + realHeight + ' &nbsp; | &nbsp; Логическое: &#8596; ' + screenWidth + '&nbsp; &#8597; ' + screenHeight;
+
 }
 
 function ShowModifiedDate() {
@@ -319,7 +323,7 @@ font-size: <input type="text" id="htmlFontSize" value="16" style="width: 19px" o
 </p>
 <table class="dpi" style="width: 100%">
 		<tr>
-			<th colspan="20" style="font: 16px Arial; cursor: help" onclick="document.getElementById('screenWH').innerHTML= ' &#8596; ' + screenWidth + '&nbsp; &nbsp; &#8597; ' + screenHeight" title="Щёлкните для получения логического разрешения этого устройства">Разрешение экрана в альбомной ориентации* <div id="screenWH"></div>
+			<th colspan="20" style="font: 16px Arial"><big>Разрешение этого экрана в альбомной ориентации</big> <div id="screenWH"></div>
 </th>
 		</tr>
 		<tr>
