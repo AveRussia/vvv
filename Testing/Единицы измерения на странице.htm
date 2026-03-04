@@ -274,7 +274,7 @@ function move() {
 <!-- Лупа со Scroll Progress Indicator – end -->
 
 
-<h1 style="font-size: 2rem; position: relative; width: auto; margin: 9px auto 69px auto; text-align: center; padding: 0 99px; border: 1px solid transparent" class="b" onclick="document.getElementById('screenWH').innerHTML= ' &#8596; ' + screenWidth + '&nbsp; &nbsp; &#8597; ' + screenHeight">Единицы измерения на странице</h1>
+<h1 style="font-size: 2rem; position: relative; width: auto; margin: 9px auto 69px auto; text-align: center; padding: 0 99px; border: 1px solid transparent" class="b">Единицы измерения на странице</h1>
 
 
 <div id="fontReSize" style="position: fixed; margin: -29px 0 0 -59px;">
@@ -319,7 +319,7 @@ font-size: <input type="text" id="htmlFontSize" value="16" style="width: 19px" o
 </p>
 <table class="dpi" style="width: 100%">
 		<tr>
-			<th colspan="20">Разрешение экрана <div id="screenWH"></div>
+			<th colspan="20" style="font: 16px Arial; cursor: help" onclick="document.getElementById('screenWH').innerHTML= ' &#8596; ' + screenWidth + '&nbsp; &nbsp; &#8597; ' + screenHeight" title="Щёлкните для получения логического разрешения этого устройства">Разрешение экрана в альбомной ориентации* <div id="screenWH"></div>
 </th>
 		</tr>
 		<tr>
@@ -382,8 +382,8 @@ font-size: <input type="text" id="htmlFontSize" value="16" style="width: 19px" o
 			<td>360</td>
 			<td>2732</td>
 			<td>2048</td>
-			<td></td>
-			<td></td>
+			<td>1366</td>
+			<td>1024</td>
 		</tr>
 </table>
 
