@@ -19,9 +19,8 @@ html {
 body {
 	background: #2a2a2a;
 	color: white;
-	margin: 49px 0px;
+	margin: 0px;
 	padding: 0px;
-	/*font-size: 26px;*/
 	font-family: Raleway, "Yandex Sans Text Regular", sans-serif;
 	counter-reset: list; /* Инициируем счетчик */
 	}
@@ -78,20 +77,44 @@ h2 {font-family: 'Yandex Sans Display Light', sans-serif;
   }
 }
 
+/* Общая ширина блока article будет width + border-left + border-right */
+/* Ширина поля для чтения рассчитана из ширины примерно 90 печатных знаков шрифтом 16px*/
+
+@media screen and (orientation: portrait) {
 article {
-	width: 50%;
-	min-width: 699px;
+	width: 94vw;
 	margin: 0 auto;
 	background-color: #222;
-	outline:39px solid #222;
-	padding: 1px 29px 29px 29px;
+	/*border: 39px solid #2a2a2a;*/
+	padding: 9px;
 }
-pre {padding: 19px; white-space: pre-wrap; text-align: left;
+#loupe, #fontReSize {
+display: none
+}
+}
+
+@media screen and (orientation: landscape) {
+article {
+	width: 739px;
+	margin: 0 auto;
+	background-color: #222;
+	border: 39px solid #2a2a2a;
+	padding: 29px;
+}
+}
+
+pre {padding: 9px; white-space: pre-wrap; text-align: left;
 }
 tt {
 border: 1px solid gray; padding: 1px 5px; font-size: 14px;
 }
-td {vertical-align: top;
+
+table.dpi, th, td {
+border: 1px solid gray;
+border-collapse: collapse; /*separate или initial*/
+vertical-align: top;
+text-align: center;
+font: menu;
 }
 u::before {
 	counter-increment: list; /* Указываем идентификатор счетчика */
@@ -113,11 +136,24 @@ color: #3377ff;
 .red {
 color: #cc0000;
 }
+/* Выводим текст перед тегом <span class="nb"></span> */
+.nb::before {
+color: red;
+font: 20px Arial;
+letter-spacing: -5px;
+content: "NB \2002 !";
+display: inline-block;
+margin: 0 9px 0 0;
+}
+li::marker {
+  color: red; /* Маркеры окрасим в красный цвет, текст останется без изменений */
+}
 #info {
     width:auto;
+    height:auto;
 	display: none;
-    height:16px;
-    background: #cc9900;
+    /*background: #cc9900;*/
+	background: -webkit-gradient(linear,right top,left top,from(#feb802),to(#fee502));
 	color: black;
 	text-shadow: gold 0.7px -0.7px 1px;
 	border: 2px solid gold;
@@ -130,12 +166,34 @@ color: #cc0000;
     -webkit-transition: top 0.5s, left 0.5s;
 	z-index: 3;
 }
+/*
+@media screen and (max-width: 351px) { 771
+html {font-size:28px;}
+}
+@media screen and (max-width: 610px) { 976
+html {font-size:24px;}
+}
+@media screen and (max-width: 1920px) {
+html {font-size:16px;}
+}
+*/
 </style>
 
 <script type="text/javascript">
 <!--
+var screenWidth, screenHeight;
 window.onload=function(){
 ShowModifiedDate()
+
+screenWidth = window.screen.width
+screenHeight = window.screen.height
+const availableScreenWidth = window.screen.availWidth
+const availableScreenHeight = window.screen.availHeight
+
+if (screenWidth<='739') { Document.getElementByTagName('article')[0].style.width = screenWidt +'px'
+
+	}
+//console.log(screenWidth + ' ' + screenHeight +'\n'+ availableScreenWidth + ' ' + availableScreenHeight)
 }
 
 function ShowModifiedDate() {
@@ -151,9 +209,10 @@ document.getElementById("modified").innerHTML = d+' '+mm+' '+y+' г.';
 document.getElementById("modified").title = mod;
 }
 
-document.onmouseover = function(evt){ 
+
+document.onmouseover = function(evt){
 	if(evt.srcElement.classList.contains("b")) {
-document.getElementById('info').innerHTML = evt.srcElement.tagName + ' ' + evt.srcElement.style.fontSize + ' (' + getComputedStyle(evt.srcElement).fontSize +')'
+document.getElementById('info').innerHTML = 'Ширина экрана: '+ screenWidth +'px<br /> Высота&nbsp; экрана: ' + screenHeight +'px<br />&lt;'+ evt.srcElement.tagName + '&gt; <br />' + 'font-size: ' + evt.srcElement.style.fontSize + ' (' + getComputedStyle(evt.srcElement).fontSize +') <br /> width: ' + evt.srcElement.style.width + ' (' + getComputedStyle(evt.srcElement).width +')';
 document.getElementById('info').style.display = 'block'
 }
 else document.getElementById('info').style.display = 'none'
@@ -174,19 +233,21 @@ function move() {
     setInterval(move, 100);
 });
 	
+
 //-->
 </script>
 
 </head>
+
 <body>
-<div id="info" class="">
-	
-</div>
+
+<div id="info">Следует за курсором</div>
+
 <article>
 
 <!-- Лупа со Scroll Progress Indicator – beguin -->
 
-<svg id="loupe" style="position: fixed; margin-left: -99px" xmlns="http://www.w3.org/2000/svg" width="163" height="99"  viewBox="0 0 436 431" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg id="loupe" style="position: fixed; margin-left: -59px" xmlns="http://www.w3.org/2000/svg" width="99" height="99"  viewBox="-131 0 436 431" xmlns:xlink="http://www.w3.org/1999/xlink">
 
 <defs>
 <linearGradient id="linearGradient1">
@@ -212,18 +273,122 @@ function move() {
 </svg>
 <!-- Лупа со Scroll Progress Indicator – end -->
 
-<h1 style="font-size: 2rem; position: relative; width: auto; margin: 9px auto 69px auto; text-align: center; padding: 0 99px; border: 1px solid transparent" class="b">Единицы измерения на странице</h1>
-<div style="position: fixed; margin: -29px 0 0 -129px;">
-<pre style="background-color: rgba(255,255,255,0.2); border-radius: 9px">
+
+<h1 style="font-size: 2rem; position: relative; width: auto; margin: 9px auto 69px auto; text-align: center; padding: 0 99px; border: 1px solid transparent" class="b" onclick="document.getElementById('screenWH').innerHTML= ' &#8596; ' + screenWidth + '&nbsp; &nbsp; &#8597; ' + screenHeight">Единицы измерения на странице</h1>
+
+
+<div id="fontReSize" style="position: fixed; margin: -29px 0 0 -59px;">
+<strong>
+<pre class="b" style="background-color: rgba(255,204,17,0.7); background: -webkit-gradient(linear,right top,left top,from(#feb802),to(#fee502)); color: blue; border-radius: 9px 0; font-size: 0.7rem">
 html {
-font-size:<input type="text" id="htmlFontSize" value="16" style="width: 19px" onchange="document.getElementsByTagName('HTML')[0].style.fontSize = this.value + 'px'" />px;
+font-size: <input type="text" id="htmlFontSize" value="16" style="width: 19px" onchange="document.getElementsByTagName('HTML')[0].style.fontSize = this.value + 'px'" /> px;
 }
 </pre>
+</strong>
 </div>
-<p style="text-align: right">При наведении курсора на объекты, выделенные синим цветом,<br> показано назваие тэга этого объекта и его свойства, имеющие<br> отношение к размеру: заданные и рассчитанные браузером<br> (в скобках).
+<!-- background-image: linear-gradient(45deg, rgba(249, 242, 149, 1) 0%, rgba(184, 138, 68, 1) 100%); -->
+
+
+<div style="width: 259px; margin: 0 auto; text-align: center; border: 1px solid transparent">
+<h6>Размер экранного шрифта</h6>
+    <input type="radio" name="htmlFontSize" onchange="document.getElementsByTagName('HTML')[0].style.fontSize = '16px'" checked />
+    <input type="radio" style="transform: scale(1.5);" onchange="document.getElementsByTagName('HTML')[0].style.fontSize = '18px'" name="htmlFontSize" />
+&nbsp;
+    <input type="radio" style="transform: scale(2);" onchange="document.getElementsByTagName('HTML')[0].style.fontSize = '20px'" name="htmlFontSize" />
+&nbsp;&nbsp;
+    <input type="radio" style="transform: scale(2.5);" onchange="document.getElementsByTagName('HTML')[0].style.fontSize = '22px'" name="htmlFontSize" />
+&nbsp;&nbsp;&nbsp;
+    <input type="radio" style="transform: scale(3);" onchange="document.getElementsByTagName('HTML')[0].style.fontSize = '24px'" name="htmlFontSize" />
+</div>
+
+<br>
+
+
+<p style="text-align: right">При наведении курсора на объект, выделенный синим цветом,<br> показывается назваие тэга этого объекта и его свойства,<br> имеющие отношение к размеру: заданные<br> и рассчитанные браузером (в скобках).
 </p>
+
+<p><span class="nb"></span>
+<ul>
+	<li>На мобильных устройствах с высокой плотностью пикселей (Retina-дисплеи) физическое разрешение может быть в 2–3 раза больше логического. Это нужно учитывать при работе с screen.width и screen.height.</li>
+	<li>Размеры окна браузера и физические размеры экрана могут существенно отличаться, особенно на настольных компьютерах, где пользователи редко разворачивают браузер на весь экран.
+	<br />
+	</li>
+	<li>На разных операционных системах свойство screen.availWidth/availHeight может вести себя по-разному.</li>
+</ul>
+<br />
+</p>
+<table class="dpi" style="width: 100%">
+		<tr>
+			<th colspan="20">Разрешение экрана <div id="screenWH"></div>
+</th>
+		</tr>
+		<tr>
+			<td colspan="4">Win 11</td>
+			<td colspan="4">Samsung планшет</td>
+			<td colspan="4">Huawei телефон</td>
+			<td colspan="4">HTC телефон</td>
+			<td colspan="4">iPad планшет</td>
+		</tr>
+		<tr>
+			<td colspan="2">Физич.</td>
+			<td colspan="2">Логич.</td>
+			<td colspan="2">Физич.</td>
+			<td colspan="2">Логич.</td>
+			<td colspan="2">Физич.</td>
+			<td colspan="2">Логич.</td>
+			<td colspan="2">Физич.</td>
+			<td colspan="2">Логич.</td>
+			<td colspan="2">Физич.</td>
+			<td colspan="2">Логич.</td>
+		</tr>
+		<tr>
+			<td>&#8596;</td>
+			<td>&#8597;</td>
+			<td>&#8596;</td>
+			<td>&#8597;</td>
+			<td>&#8596;</td>
+			<td>&#8597;</td>
+			<td>&#8596;</td>
+			<td>&#8597;</td>
+			<td>&#8596;</td>
+			<td>&#8597;</td>
+			<td>&#8596;</td>
+			<td>&#8597;</td>
+			<td>&#8596;</td>
+			<td>&#8597;</td>
+			<td>&#8596;</td>
+			<td>&#8597;</td>
+			<td>&#8596;</td>
+			<td>&#8597;</td>
+			<td>&#8596;</td>
+			<td>&#8597;</td>
+		</tr>
+		<tr>
+			<td>3840</td>
+			<td>2160</td>
+			<td>1920</td>
+			<td>1080</td>
+			<td>2560</td>
+			<td>1600</td>
+			<td>976</td>
+			<td>610</td>
+			<td>2640</td>
+			<td>1200</td>
+			<td>771</td>
+			<td>351</td>
+			<td>2160</td>
+			<td>1080</td>
+			<td>720</td>
+			<td>360</td>
+			<td>2732</td>
+			<td>2048</td>
+			<td></td>
+			<td></td>
+		</tr>
+</table>
+
 <u></u><h2 style="font-size: 1.5rem" class="b">Размер шрифта</h2>
-<p class="b">На этой странице применены 3 единицы размера шрифта: </p>
+<p class="b">На этой странице применены 4 единицы размера шрифта: </p>
 <ol>
 	<li>
 <p><h3 class="b">px — пиксели</h3>
@@ -242,7 +407,7 @@ body {
 </pre>
 <p><em>Когда использовать:</em> <blockquote>Пиксели подходят для точных размеров, таких как иконки, кнопки и UI-элементы. Часто применяются как базовая единица, особенно на макетах.</blockquote>
 </p>
-<p>Когда избегать: <blockquote>Не стоит использовать для шрифтов — это мешает доступности. Также нежелательны в адаптивной вёрстке: не масштабируются под размер экрана.</blockquote>
+<p><em>Когда избегать:</em> <blockquote>Не стоит использовать для шрифтов — это мешает доступности. Также нежелательны в адаптивной вёрстке: не масштабируются под размер экрана.</blockquote>
 </p>
 <p><em>Совет:</em> <blockquote>Используйте умеренно, для точных деталей.</blockquote>
 </p>
@@ -268,6 +433,8 @@ body {
 </li>
 	<li>
 <p><h3>rem — относительная к корневому шрифту</h3>
+Представляет собой размер шрифта (font-size) корневого элемента (как правило, элемента <span class="red">&lt;html></span>). Если используется в свойстве font-size корневого элемента, то представляет его начальное значение. <br>
+По умолчанию в браузерах используется значение 16px, но пользовательские настройки могут его изменить.
 </p>
 <p>Тип: относительная
 </p>
@@ -292,8 +459,8 @@ h1 {
 <li><h3>vw / vh — проценты от вьюпорта</h3>
 <p>Тип: относительная
 </p>
-— 1vw = 1% от ширины окна<br>
-— 1vh = 1% от высоты окна<br>
+• 1vw = 1% от ширины окна<br>
+• 1vh = 1% от высоты окна<br>
 <pre>.hero {
   height: 100vh;
   font-size: 5vw;
@@ -305,12 +472,62 @@ h1 {
 
 <em>Совет:</em> <blockquote>Используйте с осторожностью, особенно vh на iOS — лучше lvh или JS-хаки.</blockquote></li>
 </ol>
-<p>Разница между 100% и 100vh/100vw в том, что 100% устанавливается относительно родительского элемента, внутри которого происходит вычисление длины и ширины для данного объекта, в то время как значение 100vh/100vw — абсолютное для окна браузера. 100vh обозначает всю высоту окна браузера, а 100vw — всю ширину. Это различие важно.</p>
-<u></u><h2>Ширина объекта</h2>
-<p>Задать ширину объекта в зависимости от ширины экрана можно с помощью медиазапросов.</p>
+<p>Разница между 100% и 100vh/100vw в том, что 100% устанавливается относительно родительского элемента, внутри которого происходит вычисление длины и ширины для данного объекта, в то время как значение 100vh/100vw — абсолютное для окна браузера. 100vh обозначает всю высоту окна браузера, а 100vw — всю ширину. Это различие важно.
+</p>
+
+<p>&nbsp;</p>
+
+
+<u></u><h2>Ширина объекта &nbsp; <input type="button" value="Показать" onclick="this.value=='Показать'?this.value='Скрыть':this.value='Показать'; showHide(this.value)" /></h2>
+
+<style type="text/css">
+#divWidth {
+position: absolute;
+background-color: rgba(255, 255, 255, 0.1);
+text-align: center;
+display: none;
+backdrop-filter: blur(5px);
+border-radius: 15px;
+border: 1px solid rgba(43, 43, 43, 0.568);
+}
+
+/* Очень маленькие устройства (телефоны 600px и менее) */
+@media only screen and (max-width: 600px) {#divWidth{width:500px}}
+
+/* Маленькие устройства (вертикально ориентированные планшеты и большие телефоны 600px и больше) */
+@media only screen and (min-width: 600px) {#divWidth{width:600px}}
+
+/* Средние устройства (горизонтально ориентированные планшеты 768px и больше) */
+@media only screen and (min-width: 768px) {#divWidth{width:768px}}
+
+/* Крупные устройства (ноутбуки и стационарные компьютеры 992px и болше) */
+@media only screen and (min-width: 992px) {#divWidth{width:992px}}
+
+/* Очень крупные устройства (крупные ноутбуки и стационарные компьютеры 1200px и больше) */
+@media only screen and (min-width: 1200px) {#divWidth{width:1200px}}
+</style>
+
+<script type="text/javascript">
+<!--
+function showHide(buttonValue) {
+		var div = document.getElementById('divWidth');
+if (buttonValue == 'Скрыть') {
+div.style.display = 'block';
+div.style.left = (document.documentElement.clientWidth - div.clientWidth)/2 +'px';
+}
+else div.style.display = 'none';
+}
+//-->
+</script>
+
+<div id="divWidth" class="b" style="font-size: 2rem">¯\_(ツ)_/¯</div>
+
+<p>Задать ширину объекта в зависимости от ширины экрана можно с помощью медиазапросов.
+</p>
+
 <ul>
 	<li>Прописать стиль для разных размеров окна. Например, если ширина экрана меньше 768px, можно использовать другой стиль:
-<br>
+<br />
 <pre>
 @media (max-width: 768px) {
 .myImage {
@@ -318,28 +535,110 @@ width: 100%
 }
 }
 </pre>
-Этот блок CSS будет применяться только если ширина экрана меньше 768 пикселей.
+<p>Этот блок CSS будет применяться только если ширина экрана меньше 768 пикселей.
+</p>
+<br />
 </li>
 	<li>Применить стили только для определённого диапазона ширины. Например, для экранов от 768px до 991px, можно использовать медиа-запрос:
-<br>
+<br />
 <pre>
-@media (min-width: 768px) and (max-width: 991px) { /* стили для экранов шириной от 768px до 991px */
+@media (min-width: 768px) and (max-width: 991px) {
+
+/* стили для экранов шириной от 768px до 991px */
 
 }
 </pre>
 </li>
+<br />
+	<li>Применить стили для определённой ориентации экрана – вертикальной или горизонтальной:
 <br>
-<strong>Важно</strong>: медиазапросы могут не работать на мобильных устройствах, если отсутствует или некорректен мета-тег viewport. Решение: добавить в &lt;head> страницы:
+<pre>
+@media screen and (orientation: portrait) {
+article {
+	width: 94vw;
+}
+}
+@media screen and (orientation: landscape) {
+article {
+	width: 739px;
+}
+}
+</pre>
+</li>
+<br />
+<li>
+Стили для устройств с высоким DPI (Retina-дисплеи):
+
+<pre>
+@media screen and (min-resolution: 2dppx) {
+.logo {
+background-image: url('logo@2x.png');
+}
+}
+</pre>
+</li>
+<br />
+<li>
+Сочетание стилей на примере стилей для планшетов альбомной ориентации:
+
+<pre>
+@media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+.sidebar {
+width: 30%;
+}
+.content {
+width: 70%;
+}
+}
+</pre>
+</li>
+<li>
+<p>Существует множество экранов и устройств с разной высотой и шириной, поэтому трудно создать точную точку разрыва для каждого устройства. Чтобы упростить задачу, вы можете ориентироваться на пять групп:
+</p>
+<pre>
+/* Очень маленькие устройства (телефоны 600px и менее) */
+@media only screen and (max-width: 600px) {...}
+
+/* Маленькие устройства (вертикально ориентированные планшеты и большие телефоны 600px и больше) */
+@media only screen and (min-width: 600px) {...}
+
+/* Средние устройства (горизонтально ориентированные планшеты 768px и больше) */
+@media only screen and (min-width: 768px) {...}
+
+/* Крупные устройства (ноутбуки и стационарные компьютеры 992px и болше) */
+@media only screen and (min-width: 992px) {...}
+
+/* Очень крупные устройства (крупные ноутбуки и стационарные компьютеры 1200px и больше) */
+@media only screen and (min-width: 1200px) {...}
+</pre>
+</li>
+<li>
+<p>Список через запятую: добавьте дополнительный медиа-запрос к уже существующему, используя запятую (это будет работать как оператор ИЛИ):
+</p>
+Когда ширина находится между 600px и 900px ИЛИ выше 1100px — изменить внешний вид &lt;div>
+<pre>
+@media screen and (max-width: 900px) and (min-width: 600px), (min-width: 1100px) {
+  div.example {
+    font-size: 50px;
+    padding: 50px;
+    border: 8px solid black;
+    background: yellow;
+  }
+}
+</pre>
+</li>
+</ul>
+
+<span class="nb"></span> Медиазапросы могут не работать на мобильных устройствах, если отсутствует или некорректен мета-тег viewport. Решение: добавить в &lt;head> страницы:
 
 <pre>
 &lt;meta name="viewport" content="width=device-width, initial-scale=1">
 </pre>
-</ul>
 
 
 <br />
 <br />
-<u></u>Пункт
+<u></u>
 <br />
 <br />
 <br />
@@ -349,5 +648,6 @@ width: 100%
 <br />
 
 </article>
+
 </body>
 </html>
