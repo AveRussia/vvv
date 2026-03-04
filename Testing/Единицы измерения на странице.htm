@@ -115,6 +115,7 @@ border-collapse: collapse; /*separate или initial*/
 vertical-align: top;
 text-align: center;
 font: menu;
+padding: 3px 9px;
 }
 u::before {
 	counter-increment: list; /* Указываем идентификатор счетчика */
@@ -181,23 +182,24 @@ html {font-size:16px;}
 
 <script type="text/javascript">
 <!--
-var screenWidth, screenHeight;
+var screenWidth, screenHeight, realWidth, realHeight;
 window.onload=function(){
 ShowModifiedDate()
 
-screenWidth = window.screen.width
-screenHeight = window.screen.height
 const availableScreenWidth = window.screen.availWidth
 const availableScreenHeight = window.screen.availHeight
-const realWidth = window.screen.width * window.devicePixelRatio;
-const realHeight = window.screen.height * window.devicePixelRatio;
+screenWidth = window.screen.width
+screenHeight = window.screen.height
+realWidth = window.screen.width * window.devicePixelRatio
+realHeight = window.screen.height * window.devicePixelRatio
 
-if (screenWidth<='739') { Document.getElementByTagName('article')[0].style.width = screenWidt +'px'
+if (screenWidth<='360') Document.getElementByTagName('article')[0].style.width = screenWidt +'px'
 
-	}
-//console.log(screenWidth + ' ' + screenHeight +'\n'+ availableScreenWidth + ' ' + availableScreenHeight)
-document.getElementById('screenWH').innerHTML= 'Физическое: &#8596; ' + realWidth + '&nbsp; &#8597; ' + realHeight + ' &nbsp; | &nbsp; Логическое: &#8596; ' + screenWidth + '&nbsp; &#8597; ' + screenHeight;
+ratio()
+}
 
+function ratio(){
+document.getElementById('screenWH').innerHTML= 'Физическое: &#8596; ' + Math.round(realWidth) + '&nbsp; &#8597; ' + Math.round(realHeight) + '<br />Логическое: &#8596; ' + screenWidth + '&nbsp; &#8597; ' + screenHeight;
 }
 
 function ShowModifiedDate() {
@@ -280,6 +282,8 @@ function move() {
 
 <h1 style="font-size: 2rem; position: relative; width: auto; margin: 9px auto 69px auto; text-align: center; padding: 0 99px; border: 1px solid transparent" class="b">Единицы измерения на странице</h1>
 
+			<div colspan="5" style="font: 16px Arial; cursor: help; text-align: center" onclick="ratio()" title="Щёлкните, если данные не показаны"><big>Разрешение этого экрана в альбомной ориентации*</big></div>
+			<div id="screenWH" style="text-align: center"></div>
 
 <div id="fontReSize" style="position: fixed; margin: -29px 0 0 -59px;">
 <strong>
@@ -321,9 +325,10 @@ font-size: <input type="text" id="htmlFontSize" value="16" style="width: 19px" o
 </ul>
 <br />
 </p>
+<!--
 <table class="dpi" style="width: 100%">
 		<tr>
-			<th colspan="20" style="font: 16px Arial"><big>Разрешение этого экрана в альбомной ориентации</big> <div id="screenWH"></div>
+			<th colspan="20" style="font: 16px Arial; cursor: help" onclick="ratio()"><big>Разрешение этого экрана в альбомной ориентации*</big> <div id="screenWH"></div>
 </th>
 		</tr>
 		<tr>
@@ -390,6 +395,59 @@ font-size: <input type="text" id="htmlFontSize" value="16" style="width: 19px" o
 			<td>1024</td>
 		</tr>
 </table>
+ -->
+ 
+ <table class="dpi" style="margin: 0 auto">
+	<tbody>
+		<tr>
+			<td rowspan="2">Разрешение экрана<br />в альбомной ориентации</td>
+			<td colspan="2">Физическое</td>
+			<td colspan="2">Логическое</td>
+		</tr>
+		<tr>
+			<td>&#8596;</td>
+			<td>&#8597;</td>
+			<td>&#8596;</td>
+			<td>&#8597;</td>
+		</tr>
+		<tr>
+			<td>Win 11</td>
+			<td>3840</td>
+			<td>2160</td>
+			<td>1920</td>
+			<td>1080</td>
+		</tr>
+		<tr>
+			<td>Samsung планшет</td>
+			<td>2560</td>
+			<td>1600</td>
+			<td>976</td>
+			<td>610</td>
+		</tr>
+		<tr>
+			<td>Huawei телефон</td>
+			<td>2640</td>
+			<td>1200</td>
+			<td>771</td>
+			<td>351</td>
+		</tr>
+		<tr>
+			<td>HTC телефон</td>
+			<td>2160</td>
+			<td>1080</td>
+			<td>720</td>
+			<td>360</td>
+		</tr>
+		<tr>
+			<td>iPad планшет</td>
+			<td>2732</td>
+			<td>2048</td>
+			<td>1366</td>
+			<td>1024</td>
+		</tr>
+	</tbody>
+</table>
+
 
 <u></u><h2 style="font-size: 1.5rem" class="b">Размер шрифта</h2>
 <p class="b">На этой странице применены 4 единицы размера шрифта: </p>
