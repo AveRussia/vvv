@@ -4,64 +4,147 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <head>
-<title>Тема</title>
+<title>@media screen</title>
+
 <style type="text/css">
-body {
-  --text-color: #222;
-  --bkg-color: #fff;
+
+@font-face {
+font-family: 'Pouchkine';
+src: url('Pouchkine.woff2') format('woff2');
 }
+
+h1 {
+text-align: center;
+color: #fde910;
+}
+
+pre {
+margin: 0 auto;
+width: fit-content;
+}
+
+@media screen and (orientation: portrait) {
+
+h1 {
+font: 12vw 'Avalon Medium', sans-serif;
+}
+h2 {
+font: 8vw Pouchkine, cursive, fantasy;
+text-align: center;
+}
+pre {
+font: 4vw serif;
+}
+
+}
+
+@media screen and (orientation: landscape) {
+
+h1 {
+font: 6vw 'Avalon Medium', sans-serif;
+}
+h2 {
+font: 4vw Pouchkine, cursive, fantasy;
+text-align: center;
+}
+pre {
+font: 2vw serif;
+}
+
+}
+
+body {
+  --color-bg: #fffff0;
+  --color-text: #000000;
+  --note-bg: #fffff0;
+  --note-border: 1px solid darkkhaki;
+}
+
 body.dark-theme {
-  --text-color: #eee;
-  --bkg-color: #121212;
-}
-
-* {
-  font-family: Arial, Helvetica, sans-serif;
+  --color-bg: #000a24; 
+  --color-text: #ffffff;
+  --note-bg: radial-gradient(
+      47.2% 50% at 50.39% 88.37%,
+      rgba(99, 99, 99, 0.2) 0%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    rgba(99, 99, 99, 0.2);
+  --note-backdrop-filter: blur(9px);
 }
 
 body {
-  background: var(--bkg-color);
+margin: 0px;
+padding: 0px;
+/*background: no-repeat center/contain url('Онегин и Пушкин.png');
+background-size: 100% !important;
+background-position: 0px 0px;*/
+color: var(--color-text);
+background-color: var(--color-bg);
 }
 
-h2, p {
-  color: var(--text-color);
-}
 </style>
+
 </head>
 <body>
-<h1 style="text-align: center; font: 99px 'Avalon Medium','Segoe UI Variable Small Light', sans-serif; color: #fde910; line-height: 0px;">Тема</h1>
 
+<div style="position: sticky; width: 49px; border: 1px solid gray; border-radius: 29px; margin-left: auto; top: 9px; right: 3px; text-align: center; line-height: 35px; color: gray; background: transparent; font-size: 24px; cursor: alias" onclick="toggleTheme()">💡</div>☾☼
 
-<button class="btn-toggle">Переключатель тёмной темы</button>
-<h2>Привет! Это просто заголовок</h2>
-<p>Я просто скучный текст, существующий исключительно ради данной демонстрации.</p>
-<p>А я ещё один текст, похожий на тот что выше, потому что два лучше, чем один.</p>
-<a href="#">Я ссылка, не нажимайте на меня!</a>
-<script>
-// Выбираем кнопку
-const btn = document.querySelector(".btn-toggle");
-// Выбираем настройки темы из localStorage
+<h1>@media screen</h1>
+
+<pre>
+Не мысля гордый свет забавить,
+Вниманье дружбы возлюбя,
+Хотел бы я тебе представить
+Залог достойнее тебя,
+Достойнее души прекрасной,
+Святой исполненной мечты,
+Поэзии живой и ясной,
+Высоких дум и простоты;
+Но так и быть — рукой пристрастной
+Прими собранье пёстрых глав,
+Полусмешных, полупечальных,
+Простонародных, идеальных,
+Небрежный плод моих забав,
+Бессониц, лёгких вдохновений,
+Незрелых и увядших лет,
+Ума холодных наблюдений
+И сердца горестных замет.
+
+<h2>Глава первая</h2>
+				I
+
+«Мой дядя самых честных правил,
+Когда не в шутку занемог,
+Он уважать себя заставил*
+И лучше выдумать не мог.
+Его пример другим наука:
+Но, боже мой, какая скука
+С больным сидеть и день и ночь,
+Не отходя ни шагу прочь!
+Какое низкое коварство
+Полуживого забавлять,
+Ему подушки поправлять,
+Печально подносить лекарство,
+Вздыхать и думать про себя:
+Когда же чорт возьмёт тебя!»
+</pre>
+
+<script type="text/javascript">
 const currentTheme = localStorage.getItem("theme");
-// Если текущая тема в localStorage равна "dark"…
 if (currentTheme == "dark") {
-  // …тогда мы используем класс .dark-theme
   document.body.classList.add("dark-theme");
 }
 
-// Отслеживаем щелчок по кнопке
-btn.addEventListener("click", function () {
-  // Переключаем класс .dark-theme при каждом щелчке
+function toggleTheme() {
   document.body.classList.toggle("dark-theme");
-  // Допустим, тема светлая
   let theme = "light";
-  // Если <body> содержит класс .dark-theme…
   if (document.body.classList.contains("dark-theme")) {
-    // …тогда делаем тему тёмной
     theme = "dark";
   }
-  // После чего сохраняем выбор в localStorage
   localStorage.setItem("theme", theme);
-});
+}
+
 </script>
+
 </body>
 </html>
