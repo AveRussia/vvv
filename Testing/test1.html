@@ -82,13 +82,19 @@ color: var(--color-text);
 background-color: var(--color-bg);
 }
 
+.toggle:before {
+position: absolute;
+margin: 10px 0 0 -13px;
+color: #000a24;
+font-weight: bold;
+content: url('data:image/svg+xml;utf8,<svg width="24px" height="48px" viewBox="0 0 6 12" xmlns="http://www.w3.org/2000/svg"><path d="m2.4 4.8c-0.48-0.0024-2.3-0.51-2.4-2.4 0.017-1.8 1.8-2.3 2.3-2.4-1.4 1-1.4 3.7 0.071 4.8z" style="fill:%23000a24"/></svg>');
+}
 </style>
 
 </head>
 <body>
 
-<div style="position: sticky; width: 49px; border: 1px solid gray; border-radius: 29px; margin-left: auto; top: 9px; right: 3px; text-align: center; line-height: 35px; color: gray; background: transparent; font-size: 24px; cursor: alias" onclick="toggleTheme()">💡</div>☾☼
-
+<div class="toggle" style="position: sticky; width: 39px; line-height: 39px; margin-left: auto; top: 9px; right: 3px; text-align: center; color: white; background: radial-gradient(circle, white 0%, transparent 70%); font-size: 54px; cursor: alias" onclick="toggleTheme()">•</div>
 <h1>@media screen</h1>
 
 <pre>
