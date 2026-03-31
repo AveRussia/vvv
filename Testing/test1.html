@@ -35,6 +35,19 @@ text-align: center;
 pre {
 font: 4vw serif;
 }
+.epigraph {
+font-size: 3vw;
+margin-left: 35%;
+margin-right: 2vw;
+margin-bottom: 9vw;
+text-align: justify;
+width: fit-content;
+max-width: 65%;
+}
+#note {
+max-width: 333px;
+}
+
 
 }
 
@@ -49,6 +62,18 @@ text-align: center;
 }
 pre {
 font: 2vw serif;
+}
+.epigraph {
+font-size: 1.5vw;
+margin-left: 45%;
+margin-right: 2vw;
+margin-bottom: 5vw;
+text-align: justify;
+width: fit-content;
+max-width: 33%;
+}
+#note {
+max-width: 399px;
 }
 
 }
@@ -126,7 +151,6 @@ border-radius: 9px;
 display: inline-block;
 box-sizing: border-box; /* Ширина контейнера будет включать в себя border и padding, здесь <= 333px */
 width: fit-content;
-max-width: 333px;
 box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
 backdrop-filter: var(--note-backdrop-filter);
 font: 14px Verdana, sans-serif;
@@ -156,6 +180,10 @@ text-align: justify;
 }
 
 #note:hover, span[title]:hover {cursor: url('data:image/svg+xml;utf8,<svg style="filter: drop-shadow(-3px 3px 3px rgba(220,220,220,0.9))" width="48" height="51" viewBox="-39 -39 507 539" xmlns="http://www.w3.org/2000/svg"> <g fill="%23fff" stroke="%23000" stroke-width="2px"> <path d="m149 110-0.05-0.21c7.7-9.5 29-1.8 40 7.2-2.6 0.96-5.7 3.1-6.5 5.1 15 0.88 39 5.8 49 11-9.3-1.7-19-2.7-24-2.6 9.1 1.7 16 3.3 24 6.9-4.5 0.36-10-0.48-14 1.8 9.3 3.3 20 8.4 31 17-3.8-0.88-8-0.7-12 0.068 11 4.3 20 11 27 17l-8.2-3 13 9.7-10-3.8 13 8h-5.9c5.9 3.2 12 7.6 17 14-2.7-0.54-5.5-0.75-7.8 0.54 5.7 1.8 7.8 4.3 12 7.1 36 53 69 94 117 202 7.2 16-3.2 33-30 29-3.4-0.88-6.7-6-9.8-11 2 5.5-6.5 7.2-10-3.1-12-1.5-63-29-81-67-8.2-6.3-16-12-21-28-15-16-29-39-45-54-34-30-76-78-85-96-3.8-8.9 7.8-22 8.7-37-5.4 13-17 22-20 37-15-18-3.3-26 0.45-38-4 0.63-6.2 3.5-9.4 8.4 4.8-18 7.1-25 12-35-2.2 0.47-4.3 2-6.5 4.9 2-4.2 8.6-22 16-29 7.8 6.3 17 13 26 21z"/> <path d="m2.7 1.8s3.1 0.98 9.7 5.2c214 148 271 232 340 345 21 37 2.9 5.6-1.2-0.74-110-178-273-288-340-335-2.2-6.3-6.9-13-8.3-14z"/> </g> <path d="m44 40c-2.2-1.5-32-22-34-23-3.2-8.5-8.7-16-8.7-16s3.9 0.97 12 6.8c1.8 1.2 28 19 31 21z" fill="%23f00" stroke="%23f00" stroke-width="2px"/></svg>'), auto;
+}
+
+.r {
+text-align: right;
 }
 
 </style>
@@ -188,6 +216,11 @@ text-align: justify;
 </details>
 
 <h1>@media screen</h1>
+
+<div class="epigraph">
+P&eacute;tri de vanit&eacute; il avait encore plus de cette esp&egrave;ce d'orgueil qui fait avouer avec la m&ecirc;me indiff&eacute;rence les bonnes comme les mauvaises actions, suite d'un sentiment de sup&eacute;riorit&eacute;, peut-&ecirc;tre imaginaire.<p class="r"><i><span title="Проникнутый тщеславием, он обладал сверх того ещё особенной гордостью, которая побуждает признаваться с одинаковым равнодушием в своих как добрых, так и дурных поступках,— следствие чувства превосходства, быть может мнимого.&lt;p class='r'>&lt;i>Из частного письма (франц.).&lt;/i>&lt;/p>">Tir&eacute; d'une lettre particuli&egrave;re.*</span></i> <div class="disk"></div>
+</p>
+</div>
 
 <pre>
 Не мысля гордый свет забавить,
