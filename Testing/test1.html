@@ -75,6 +75,7 @@ body.dark-theme {
       rgba(255, 255, 255, 0) 100%
     ),
     rgba(99, 99, 99, 0.2);
+  --note-border: "";
   --note-backdrop-filter: blur(9px);
   --croisan-content: url('data:image/svg+xml;utf8,<svg width="29" height="29" viewBox="-350 -350 1900 1900" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="radialGradient5" cx="576" cy="576" r="999" gradientUnits="userSpaceOnUse"><stop style="stop-color:white" offset="0"/><stop style="stop-color:white;stop-opacity:0" offset="1"/></radialGradient></defs><circle cx="576" cy="576" r="999" style="fill:url(%23radialGradient5);opacity:1; stroke:none"/><circle cx="576" cy="576" r="405" style="fill:%23ddd;opacity:1"/></svg>');
 }
@@ -106,12 +107,54 @@ content: var(--croisan-content);
 
 details {
 position: sticky;
+background-color: inherit;
 top: 9px;
 margin: -9px 9px;
 width: fit-content;
-background-color: inherit;
 z-index: 5; 
       }
+
+
+#note {
+position: absolute;
+left: -999px;
+background: var(--note-bg);
+border: var(--note-border);
+padding: 23px;
+z-index: 4;
+border-radius: 9px;
+display: inline-block;
+max-width: 299px;
+box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+backdrop-filter: var(--note-backdrop-filter);
+font: 14px Verdana, sans-serif;
+text-align: justify;
+}
+
+#note::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1px;
+  background: linear-gradient(
+    150deg,
+    rgba(255, 255, 255, 0.48) 16.73%,
+    rgba(255, 255, 255, 0.08) 30.2%,
+    rgba(255, 255, 255, 0.08) 68.2%,
+    rgba(255, 255, 255, 0.6) 81.89%
+  );
+  border-radius: inherit;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: xor;
+  -webkit-mask-composite: xor;
+  pointer-events: none;
+}
+
+#note:hover, span[title]:hover {cursor: url('data:image/svg+xml;utf8,<svg style="filter: drop-shadow(-3px 3px 3px rgba(220,220,220,0.9))" width="48" height="51" viewBox="-39 -39 507 539" xmlns="http://www.w3.org/2000/svg"> <g fill="%23fff" stroke="%23000" stroke-width="2px"> <path d="m149 110-0.05-0.21c7.7-9.5 29-1.8 40 7.2-2.6 0.96-5.7 3.1-6.5 5.1 15 0.88 39 5.8 49 11-9.3-1.7-19-2.7-24-2.6 9.1 1.7 16 3.3 24 6.9-4.5 0.36-10-0.48-14 1.8 9.3 3.3 20 8.4 31 17-3.8-0.88-8-0.7-12 0.068 11 4.3 20 11 27 17l-8.2-3 13 9.7-10-3.8 13 8h-5.9c5.9 3.2 12 7.6 17 14-2.7-0.54-5.5-0.75-7.8 0.54 5.7 1.8 7.8 4.3 12 7.1 36 53 69 94 117 202 7.2 16-3.2 33-30 29-3.4-0.88-6.7-6-9.8-11 2 5.5-6.5 7.2-10-3.1-12-1.5-63-29-81-67-8.2-6.3-16-12-21-28-15-16-29-39-45-54-34-30-76-78-85-96-3.8-8.9 7.8-22 8.7-37-5.4 13-17 22-20 37-15-18-3.3-26 0.45-38-4 0.63-6.2 3.5-9.4 8.4 4.8-18 7.1-25 12-35-2.2 0.47-4.3 2-6.5 4.9 2-4.2 8.6-22 16-29 7.8 6.3 17 13 26 21z"/> <path d="m2.7 1.8s3.1 0.98 9.7 5.2c214 148 271 232 340 345 21 37 2.9 5.6-1.2-0.74-110-178-273-288-340-335-2.2-6.3-6.9-13-8.3-14z"/> </g> <path d="m44 40c-2.2-1.5-32-22-34-23-3.2-8.5-8.7-16-8.7-16s3.9 0.97 12 6.8c1.8 1.2 28 19 31 21z" fill="%23f00" stroke="%23f00" stroke-width="2px"/></svg>'), auto;
+}
 
 </style>
 
@@ -125,7 +168,7 @@ z-index: 5;
 <summary>
 <label for="detail-one"></label>
 </summary>
-<pre style="border: 1px solid gray;	border-radius: 12px; padding: 9px; font: menu">
+<pre style="border: 1px solid gray; border-radius: 12px; padding: 9px; font: menu">
 <a href="#glava1">Глава первая</a>
 <a href="#glava2">Глава вторая</a>
 <a href="#glava3">Глава третья</a>
@@ -168,7 +211,7 @@ z-index: 5;
 
 «Мой дядя самых честных правил,
 Когда не в шутку занемог,
-Он уважать себя заставил*
+Он <span title="В старину «заставить себя уважать» иносказательно означало — быть при смерти.">уважать себя заставил*</span>
 И лучше выдумать не мог.
 Его пример другим наука:
 Но, боже мой, какая скука
@@ -196,6 +239,60 @@ function toggleTheme() {
   }
   localStorage.setItem("theme", theme);
 }
+
+
+/* Комментарии при наведении курсора начало */
+var items = document.getElementsByTagName("span");
+var myIndex;
+var tmptitlesave;
+var contLeft;
+
+const note = document.createElement('div');
+note.id = 'note';
+document.getElementsByTagName('body')[0].appendChild(note);
+
+
+document.onmouseover = function(e) {
+    var evt = e || window.event,
+    src = evt.target || evt.srcElement;
+	var notecontainer = document.getElementById('note');
+if (src.tagName=='SPAN' && src.hasAttribute('title'))
+	{
+    for(var i=0; i<items.length; i++) {
+    if (items[i]===src) myIndex = i
+	};
+	tmptitlesave = items[myIndex].title;
+	notecontainer.innerHTML=tmptitlesave;
+var noteStyles = window.getComputedStyle(notecontainer);
+var width = Math.round(noteStyles.getPropertyValue('width').replace('px',''));
+
+	notecontainer.style.left=items[myIndex].getBoundingClientRect().left + window.pageXOffset+"px";
+	notecontainer.style.top=items[myIndex].getBoundingClientRect().bottom + window.pageYOffset+"px";
+
+contLeft = notecontainer.style.left;
+
+if ((document.documentElement.clientWidth - items[myIndex].getBoundingClientRect().left) < (width+59)) {
+//notecontainer.style.left=(document.documentElement.clientWidth-width-9)+'px';
+notecontainer.style.marginLeft=-((document.documentElement.clientWidth - items[myIndex].getBoundingClientRect().left)-items[myIndex].getBoundingClientRect().width+59)+'px';
+notecontainer.style.right=3+'px';
+
+contLeft = notecontainer.style.left;
+}
+
+items[myIndex].title="";
+}
+
+if (src.id=='note') notecontainer.style.left=contLeft;
+
+src.addEventListener('mouseleave', function() {
+	if (src.tagName=='SPAN' && src.hasAttribute('title') || src.id=='note')
+	{
+	items[myIndex].title = tmptitlesave;
+	document.getElementById("note").style.left=-999+"px";
+	};
+});
+}
+/* Комментарии при наведении курсора конец */
 
 </script>
 
