@@ -58,7 +58,7 @@ body {
   --color-text: #000000;
   --note-bg: #fffff0;
   --note-border: 1px solid darkkhaki;
-  --croisan-content: url('data:image/svg+xml;utf8,<svg width="10" height="15" viewBox="0 0 615 785" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="m365 0c113 33 337 261 203 546-135 289-489 253-568 178 319 106 655-540 365-724z" style="fill:gray; stroke: none; stroke-width: 3px"/></svg>');
+  --croisan-content: url('data:image/svg+xml;utf8,<svg width="29" height="29" viewBox="-350 -350 1900 1900" xmlns="http://www.w3.org/2000/svg"><path d="m734 203c140 53 336 278 208 546-128 269-437 264-572 176 319 106 654-538 364-722z" style="fill:%23000a24"/></svg>');
 }
 
 body.dark-theme {
@@ -71,7 +71,7 @@ body.dark-theme {
     ),
     rgba(99, 99, 99, 0.2);
   --note-backdrop-filter: blur(9px);
-  --croisan-content: "";
+  --croisan-content: url('data:image/svg+xml;utf8,<svg width="29" height="29" viewBox="-350 -350 1900 1900" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="radialGradient5" cx="576" cy="576" r="999" gradientUnits="userSpaceOnUse"><stop style="stop-color:white" offset="0"/><stop style="stop-color:white;stop-opacity:0" offset="1"/></radialGradient></defs><circle cx="576" cy="576" r="999" style="fill:url(%23radialGradient5);opacity:1; stroke:none"/><circle cx="576" cy="576" r="405" style="fill:white;opacity:1"/></svg>');
 }
 
 body {
@@ -86,21 +86,16 @@ background-color: var(--color-bg);
 
 .toggle {
 position: sticky;
-width: 39px;
-line-height: 39px;
+width: 9px;
+line-height: 9px;
 margin-left: auto;
-top: 9px;
-right: 3px;
-text-align: center;
-color: white;
-background: radial-gradient(circle, white 0%, transparent 50%);
-font-size: 54px;
+top: 2px;
+right: 19px;
 cursor: alias;
 z-index: 7
 }
 .toggle:after {
 position: absolute;
-margin: -10px 12.5px 0 -12.5px;
 z-index: 5;
 content: var(--croisan-content);
 }
@@ -109,7 +104,7 @@ content: var(--croisan-content);
 </head>
 <body>
 
-<div class="toggle" onclick="toggleTheme()">•</div>
+<div class="toggle" onclick="toggleTheme()"></div>
 <h1>@media screen</h1>
 
 <pre>
