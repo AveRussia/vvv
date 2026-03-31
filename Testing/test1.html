@@ -86,7 +86,7 @@ padding: 0px;
 background-size: 100% !important;
 background-position: 0px 0px;*/
 color: var(--color-text);
-background-color: var(--color-bg);
+background: var(--color-bg);
 }
 
 .toggle {
@@ -103,6 +103,16 @@ position: absolute;
 z-index: 5;
 content: var(--croisan-content);
 }
+
+details {
+position: sticky;
+top: 9px;
+margin: -9px 9px;
+width: fit-content;
+background-color: inherit;
+z-index: 5; 
+      }
+
 </style>
 
 </head>
@@ -111,11 +121,11 @@ content: var(--croisan-content);
 <div class="toggle" onclick="toggleTheme()"></div>
 
 <input type="checkbox" id="detail-one" style="display: none" />
-    <details title="Оглавление" style="width: fit-content; position: sticky; margin: -59px 0 0 9px; top: 9px; z-index: 5; background-color: inherit">
-      <summary>
-        <label for="detail-one"></label>
-      </summary>
-<pre style="position: absolute; border: 1px solid gray; border-radius: 12px; padding: 9px; font: menu">
+<details>
+<summary>
+<label for="detail-one"></label>
+</summary>
+<pre style="border: 1px solid gray;	border-radius: 12px; padding: 9px; font: menu">
 <a href="#glava1">Глава первая</a>
 <a href="#glava2">Глава вторая</a>
 <a href="#glava3">Глава третья</a>
@@ -131,6 +141,7 @@ content: var(--croisan-content);
 <span class="data" onclick="showCom('c1','short')">Из ранних редакций</span>
 </pre>
 </details>
+
 <h1>@media screen</h1>
 
 <pre>
