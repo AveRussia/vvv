@@ -196,7 +196,7 @@ text-align: justify;
 Святой исполненной мечты,
 Поэзии живой и ясной,
 Высоких дум и простоты;
-Но так и быть — рукой пристрастной
+Но так и быть — рукой <span title="Овощи полезны для вас, поэтому вам нужно есть больше кольраби, лука-порея, дайкона, амаранта, татсоя, томатильо, дыни, бобов азуки и чеснока.">пристрастной*</span>
 Прими собранье пёстрых глав,
 Полусмешных, полупечальных,
 Простонародных, идеальных,
@@ -273,8 +273,12 @@ contLeft = notecontainer.style.left;
 
 if ((document.documentElement.clientWidth - items[myIndex].getBoundingClientRect().left) < (width+59)) {
 //notecontainer.style.left=(document.documentElement.clientWidth-width-9)+'px';
-notecontainer.style.marginLeft=-((document.documentElement.clientWidth - items[myIndex].getBoundingClientRect().left)-items[myIndex].getBoundingClientRect().width+59)+'px';
-notecontainer.style.right=3+'px';
+// notecontainer.style.marginLeft=-((document.documentElement.clientWidth - items[myIndex].getBoundingClientRect().left)-items[myIndex].getBoundingClientRect().width+59)+'px';
+//notecontainer.style.marginLeft='auto';
+notecontainer.style.width=notecontainer.getBoundingClientRect().width+'px';
+console.log(notecontainer.getBoundingClientRect().width);
+notecontainer.style.left=document.documentElement.clientWidth - notecontainer.getBoundingClientRect().width-3+'px';
+//contLeft = notecontainer.getBoundingClientRect().left+'px';
 
 contLeft = notecontainer.style.left;
 }
