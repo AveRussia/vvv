@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+<title>@media screen</title>
+
+<style type="text/css">
+
+@font-face {
+font-family: 'Pouchkine';
+src: url('Pouchkine.woff2') format('woff2');
+}
+
+pre {
+margin: 0 auto;
+width: fit-content;
+}
+
+@media screen and (orientation: portrait) {
+
+h1 {
+/*margin-bottom: 145vw;*/
+}
+h2 {
+font: 8vw Pouchkine, cursive, fantasy;
+text-align: center;
+}
+pre {
+font: 4vw serif;
+}
+.epigraph {
+font-size: 3vw;
+margin-left: 35%;
+margin-right: 2vw;
+margin-bottom: 9vw;
+text-align: justify;
+width: fit-content;
+max-width: 65%;
+}
+#note {
+max-width: 333px;
+}
+
+
+}
+
+@media screen and (orientation: landscape) {
+
+h1 {
+/*margin-bottom: 143vw;*/
+}
+h2 {
+font: 4vw Pouchkine, cursive, fantasy;
+text-align: center;
+}
+pre {
+font: 2vw serif;
+}
+.epigraph {
+font-size: 1.5vw;
+margin-left: 45%;
+margin-right: 2vw;
+margin-bottom: 5vw;
+text-align: justify;
+width: fit-content;
+max-width: 33%;
+}
+#note {
+max-width: 399px;
+}
+
+}
+
+a, a:visited, a:hover, a:active {
+  color: inherit;
+  text-decoration: none;
+}
+
+body {
+  --color-bg: #fffff0;
+  --color-text: #000000;
+  --note-bg: #fffff0;
+  --note-border: 1px solid darkkhaki;
+  --croisan-content: url('data:image/svg+xml;utf8,<svg width="29" height="29" viewBox="-350 -350 1900 1900" xmlns="http://www.w3.org/2000/svg"><path d="m734 203c140 53 336 278 208 546-128 269-437 264-572 176 319 106 654-538 364-722z" style="fill:%23000a24"/></svg>');
+}
+
+body.dark-theme {
+  --color-bg: #000a24; 
+  --color-text: #ffffff;
+  --note-bg: radial-gradient(
+      47.2% 50% at 50.39% 88.37%,
+      rgba(99, 99, 99, 0.2) 0%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    rgba(99, 99, 99, 0.2);
+  --note-border: "";
+  --note-backdrop-filter: blur(9px);
+  --croisan-content: url('data:image/svg+xml;utf8,<svg width="29" height="29" viewBox="-350 -350 1900 1900" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="radialGradient5" cx="576" cy="576" r="999" gradientUnits="userSpaceOnUse"><stop style="stop-color:white" offset="0"/><stop style="stop-color:white;stop-opacity:0" offset="1"/></radialGradient></defs><circle cx="576" cy="576" r="999" style="fill:url(%23radialGradient5);opacity:1; stroke:none"/><circle cx="576" cy="576" r="405" style="fill:%23ddd;opacity:1"/></svg>');
+}
+
+body {
+margin: 0px;
+padding: 0px;
+background: no-repeat center/contain url('Онегин и Пушкин.png');
+background-size: 100% !important;
+background-position: 0px 0px;
+color: var(--color-text);
+background-color: var(--color-bg);
+}
+
+h1 {
+background-image: linear-gradient(to bottom, #edc967 14%, #d2ac47 16%, #f7ef8a 20%, #e0aa3e 22%, #f9f295 40%, #ae8625 84%); /*Золотой градиент с line-height: 1.1;*/
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+	line-height: 1.1;
+    color: #fff;
+	font-family: 'Playfair Display', Garamond, serif;
+	font-size: 8vw;
+    position: relative;
+	margin-top: 0;
+	font-weight: 400;
+}
+
+h1:after {
+    background: none;
+	line-height: 1.1;
+    content: attr(data-heading);
+    left: 0;
+	top: 0;
+    z-index: -1;
+    position: absolute;
+	text-shadow: #fff 2px 2px 2px, #333 -1px -1px 2px;
+}
+
+
+.toggle {
+position: sticky;
+width: 33px;
+height: 9px;
+margin-left: auto;
+top: 2px;
+cursor: alias;
+z-index: 7
+}
+.toggle:after {
+position: absolute;
+z-index: 5;
+content: var(--croisan-content);
+}
+
+details {
+position: sticky;
+background-color: inherit;
+top: 9px;
+margin: -9px 9px;
+width: fit-content;
+z-index: 5; 
+      }
+
+
+#note {
+position: absolute;
+left: -999px;
+background: var(--note-bg);
+border: var(--note-border);
+padding: 23px;
+z-index: 4;
+border-radius: 9px;
+display: inline-block;
+box-sizing: border-box; /* Ширина контейнера будет включать в себя border и padding, здесь <= 333px */
+width: fit-content;
+box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+backdrop-filter: var(--note-backdrop-filter);
+font: 14px Verdana, sans-serif;
+text-align: justify;
+}
+
+#note::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1px;
+  background: linear-gradient(
+    150deg,
+    rgba(255, 255, 255, 0.48) 16.73%,
+    rgba(255, 255, 255, 0.08) 30.2%,
+    rgba(255, 255, 255, 0.08) 68.2%,
+    rgba(255, 255, 255, 0.6) 81.89%
+  );
+  border-radius: inherit;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: xor;
+  -webkit-mask-composite: xor;
+  pointer-events: none;
+}
+
+#note:hover, span[title]:hover {cursor: url('data:image/svg+xml;utf8,<svg style="filter: drop-shadow(-3px 3px 3px rgba(220,220,220,0.9))" width="48" height="51" viewBox="-39 -39 507 539" xmlns="http://www.w3.org/2000/svg"> <g fill="%23fff" stroke="%23000" stroke-width="2px"> <path d="m149 110-0.05-0.21c7.7-9.5 29-1.8 40 7.2-2.6 0.96-5.7 3.1-6.5 5.1 15 0.88 39 5.8 49 11-9.3-1.7-19-2.7-24-2.6 9.1 1.7 16 3.3 24 6.9-4.5 0.36-10-0.48-14 1.8 9.3 3.3 20 8.4 31 17-3.8-0.88-8-0.7-12 0.068 11 4.3 20 11 27 17l-8.2-3 13 9.7-10-3.8 13 8h-5.9c5.9 3.2 12 7.6 17 14-2.7-0.54-5.5-0.75-7.8 0.54 5.7 1.8 7.8 4.3 12 7.1 36 53 69 94 117 202 7.2 16-3.2 33-30 29-3.4-0.88-6.7-6-9.8-11 2 5.5-6.5 7.2-10-3.1-12-1.5-63-29-81-67-8.2-6.3-16-12-21-28-15-16-29-39-45-54-34-30-76-78-85-96-3.8-8.9 7.8-22 8.7-37-5.4 13-17 22-20 37-15-18-3.3-26 0.45-38-4 0.63-6.2 3.5-9.4 8.4 4.8-18 7.1-25 12-35-2.2 0.47-4.3 2-6.5 4.9 2-4.2 8.6-22 16-29 7.8 6.3 17 13 26 21z"/> <path d="m2.7 1.8s3.1 0.98 9.7 5.2c214 148 271 232 340 345 21 37 2.9 5.6-1.2-0.74-110-178-273-288-340-335-2.2-6.3-6.9-13-8.3-14z"/> </g> <path d="m44 40c-2.2-1.5-32-22-34-23-3.2-8.5-8.7-16-8.7-16s3.9 0.97 12 6.8c1.8 1.2 28 19 31 21z" fill="%23f00" stroke="%23f00" stroke-width="2px"/></svg>'), auto;
+}
+
+.r {
+text-align: right;
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="toggle" onclick="toggleTheme()"></div>
+
+<input type="checkbox" id="detail-one" style="display: none" />
+<details>
+<summary>
+<label for="detail-one"></label>
+</summary>
+<pre style="border: 1px solid gray; border-radius: 12px; padding: 9px; font: menu">
+<a href="#glava1">Глава первая</a>
+<a href="#glava2">Глава вторая</a>
+<a href="#glava3">Глава третья</a>
+<a href="#glava4">Глава четвёртая</a>
+<a href="#glava5">Глава пятая</a>
+<a href="#glava6">Глава шестая</a>
+<a href="#glava7">Глава седьмая</a>
+<a href="#glava8">Глава восьмая</a>
+<a href="#notes">Примечания</a>
+<a href="#trip">Путешествие Онегина</a>
+<a href="#glava10">Десятая глава</a>
+<hr /><span class="data" onclick="showCom('c0','short')">О тексте</span>
+<span class="data" onclick="showCom('c1','short')">Из ранних редакций</span>
+</pre>
+</details>
+
+<div style="height: 100%; width: 100%; display: flex; align-items: center; justify-content: center; text-align: center; margin-top: 3vw">
+<h1 data-heading="ЕВГЕНИЙ ОНЕГИН" contenteditable>ЕВГЕНИЙ ОНЕГИН</h1>
+</div>
+
+<div style="align-items: center; justify-content: center; text-align: center; margin-bottom:125vw; color: gray">
+
+<br />
+<svg xmlns="http://www.w3.org/2000/svg" style="padding-left: 4vw" width="9vw" height="8vw" viewBox="0 0 74 47">
+  <g style="fill:none;fill-opacity:1;stroke:#000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round">
+    <path d="m 40.6,42.5 c -1.8,2.6 -4.5,2.9 -6.4,-1 -1.1,-2.4 -0.8,-6.0 -0.2,-7.8 1.6,-4.0 5.8,-9.8 15.7,-13.9 1.7,-0.6 3.2,-0.6 4.5,-0.1 1.3,0.4 1.3,1.2 0.1,1.7 -1.5,0.6 -3.1,0.6 -4.6,-0.1 C 37.6,16.1 26.2,5.620724 16.6,3.1 13.9,2.5 10.6,2.5 8.1,3.2 6.1,3.8 3.3,5.3 3.3,8.8 c -0.0,3.4 3.7,6.6 9.9,7.6 3.3,0.5 7.5,-0.3 9.4,-1.0" />
+    <path d="m 36.1,40.5 c 1.0,0.3 2.6,0.2 3.3,-1.8 1.1,-2.4 0.5,-5.5 -0.1,-7.2 -1.6,-4.0 -4.9,-7.5 -13.6,-11.8 -1.6,-0.8 -3.2,-0.7 -4.5,-0.2 -1.1,0.6 -1.3,1.2 -0.1,1.7 1.5,0.6 3.1,0.6 4.6,-0.1 C 37.7,15.9 49.1,5.7 58.7,3.2 c 2.7,-0.6 6.0,-0.6 8.5,0.1 2.0,0.6 4.8,2.1 4.8,5.7 0.0,3.4 -3.7,6.6 -9.9,7.6 -3.3,0.5 -7.5,-0.26 -9.4,-1.0" />
+    <path d="m 24.7,27.4 c 2.2,-0.1 3.5,-0.5 4.9,-1.2 9.7,-4.9 16.4,-12.4 23.9,-15.8 2.1,-0.8 5.4,-0.8 5.3,1.0 -0.1,2.2 -5.1,2.4 -7.8,1.6 C 43.9,10.9 36.9,7.2 30.9,4.4 c 2.8,-0.5 4.6,-1.1 6.8,-2.2 2.3,1.0 4.3,1.6 6.9,2.2 -6.8,2.6 -13.4,7.2 -20.9,8.4 -4.4,0.6 -7.5,-0.7 -7.6,-2.3 -0.2,-1.7 2.9,-1.7 5.7,-0.1 6.8,3.6 14.2,11.0 23.5,16.0 2.3,1.1 5.0,1.4 6.3,1.0" />
+  </g>
+</svg>
+<div style="font-size: 2vw; font-family: 'Playfair Display', Garamond, serif; padding-left: 4.5vw">Роман в стихах</div>
+</div>
+
+<div class="epigraph">
+P&eacute;tri de vanit&eacute; il avait encore plus de cette esp&egrave;ce d'orgueil qui fait avouer avec la m&ecirc;me indiff&eacute;rence les bonnes comme les mauvaises actions, suite d'un sentiment de sup&eacute;riorit&eacute;, peut-&ecirc;tre imaginaire.<p class="r"><i><span title="Проникнутый тщеславием, он обладал сверх того ещё особенной гордостью, которая побуждает признаваться с одинаковым равнодушием в своих как добрых, так и дурных поступках,— следствие чувства превосходства, быть может мнимого.&lt;p class='r'>&lt;i>Из частного письма (франц.).&lt;/i>&lt;/p>">Tir&eacute; d'une lettre particuli&egrave;re.*</span></i> <div class="disk"></div>
+</p>
+</div>
+
+<pre>
+Не мысля гордый свет забавить,
+Вниманье дружбы возлюбя,
+Хотел бы я тебе представить
+Залог достойнее тебя,
+Достойнее души прекрасной,
+Святой исполненной мечты,
+Поэзии живой и ясной,
+Высоких дум и простоты;
+Но так и быть — рукой пристрастной
+Прими собранье пёстрых глав,
+Полусмешных, полупечальных,
+Простонародных, идеальных,
+Небрежный плод моих забав,
+Бессониц, лёгких вдохновений,
+Незрелых и увядших лет,
+Ума холодных наблюдений
+И сердца горестных замет.
+
+<h2>Глава первая</h2>
+				I
+
+«Мой дядя самых честных правил,
+Когда не в шутку занемог,
+Он <span title="В старину «заставить себя уважать» иносказательно означало — быть при смерти.">уважать себя заставил*</span>
+И лучше выдумать не мог.
+Его пример другим наука:
+Но, боже мой, какая скука
+С больным сидеть и день и ночь,
+Не отходя ни шагу прочь!
+Какое низкое коварство
+Полуживого забавлять,
+Ему подушки поправлять,
+Печально подносить лекарство,
+Вздыхать и думать про себя:
+Когда же чорт возьмёт тебя!»
+</pre>
+
+<script type="text/javascript">
+const currentTheme = localStorage.getItem("theme");
+if (currentTheme == "dark") {
+  document.body.classList.add("dark-theme");
+}
+
+function toggleTheme() {
+  document.body.classList.toggle("dark-theme");
+  let theme = "light";
+  if (document.body.classList.contains("dark-theme")) {
+    theme = "dark";
+  }
+  localStorage.setItem("theme", theme);
+}
+
+
+/* Комментарии при наведении курсора начало */
+var items = document.getElementsByTagName("span");
+var myIndex;
+var tmptitlesave;
+var contLeft;
+
+const note = document.createElement('div');
+note.id = 'note';
+document.getElementsByTagName('body')[0].appendChild(note);
+
+
+document.onmouseover = function(e) {
+    var evt = e || window.event,
+    src = evt.target || evt.srcElement;
+	var notecontainer = document.getElementById('note');
+if (src.tagName=='SPAN' && src.hasAttribute('title'))
+	{
+    for(var i=0; i<items.length; i++) {
+    if (items[i]===src) myIndex = i
+	};
+	tmptitlesave = items[myIndex].title;
+	notecontainer.innerHTML=tmptitlesave;
+
+var noteStyles = window.getComputedStyle(notecontainer);
+var width = Math.round(noteStyles.getPropertyValue('width').replace('px',''));
+
+if ((document.documentElement.clientWidth - items[myIndex].getBoundingClientRect().left) >= width) {
+
+	notecontainer.style.left=items[myIndex].getBoundingClientRect().left + window.pageXOffset+"px";
+	notecontainer.style.top=items[myIndex].getBoundingClientRect().bottom + window.pageYOffset+"px";
+
+contLeft = notecontainer.style.left;
+}
+else {
+notecontainer.style.left=document.documentElement.clientWidth - notecontainer.getBoundingClientRect().width-3+'px';
+notecontainer.style.top=items[myIndex].getBoundingClientRect().bottom + window.pageYOffset+"px";
+
+contLeft = notecontainer.style.left;
+}
+
+items[myIndex].title="";
+}
+
+if (src.id=='note') notecontainer.style.left=contLeft;
+
+src.addEventListener('mouseleave', function() {
+	if (src.tagName=='SPAN' && src.hasAttribute('title') || src.id=='note')
+	{
+	items[myIndex].title = tmptitlesave;
+	document.getElementById("note").style.left=-999+"px";
+	};
+});
+}
+/* Комментарии при наведении курсора конец */
+
+</script>
+
+</body>
+</html>
