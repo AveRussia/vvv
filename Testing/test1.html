@@ -53,6 +53,11 @@ font: 2vw serif;
 
 }
 
+a, a:visited, a:hover, a:active {
+  color: inherit;
+  text-decoration: none;
+}
+
 body {
   --color-bg: #fffff0;
   --color-text: #000000;
@@ -105,6 +110,27 @@ content: var(--croisan-content);
 
 <div class="toggle" onclick="toggleTheme()"></div>
 
+<input type="checkbox" id="detail-one" style="display: none" />
+    <details title="Оглавление" style="width: fit-content; position: sticky; margin: -59px 0 0 9px; top: 9px; z-index: 5; background-color: inherit">
+      <summary>
+        <label for="detail-one"></label>
+      </summary>
+<pre style="position: absolute; border: 1px solid gray; border-radius: 12px; padding: 9px; font: menu">
+<a href="#glava1">Глава первая</a>
+<a href="#glava2">Глава вторая</a>
+<a href="#glava3">Глава третья</a>
+<a href="#glava4">Глава четвёртая</a>
+<a href="#glava5">Глава пятая</a>
+<a href="#glava6">Глава шестая</a>
+<a href="#glava7">Глава седьмая</a>
+<a href="#glava8">Глава восьмая</a>
+<a href="#notes">Примечания</a>
+<a href="#trip">Путешествие Онегина</a>
+<a href="#glava10">Десятая глава</a>
+<hr /><span class="data" onclick="showCom('c0','short')">О тексте</span>
+<span class="data" onclick="showCom('c1','short')">Из ранних редакций</span>
+</pre>
+</details>
 <h1>@media screen</h1>
 
 <pre>
