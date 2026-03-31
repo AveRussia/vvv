@@ -71,7 +71,7 @@ body.dark-theme {
     ),
     rgba(99, 99, 99, 0.2);
   --note-backdrop-filter: blur(9px);
-  --croisan-content: url('data:image/svg+xml;utf8,<svg width="29" height="29" viewBox="-350 -350 1900 1900" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="radialGradient5" cx="576" cy="576" r="999" gradientUnits="userSpaceOnUse"><stop style="stop-color:white" offset="0"/><stop style="stop-color:white;stop-opacity:0" offset="1"/></radialGradient></defs><circle cx="576" cy="576" r="999" style="fill:url(%23radialGradient5);opacity:1; stroke:none"/><circle cx="576" cy="576" r="405" style="fill:white;opacity:1"/></svg>');
+  --croisan-content: url('data:image/svg+xml;utf8,<svg width="29" height="29" viewBox="-350 -350 1900 1900" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="radialGradient5" cx="576" cy="576" r="999" gradientUnits="userSpaceOnUse"><stop style="stop-color:white" offset="0"/><stop style="stop-color:white;stop-opacity:0" offset="1"/></radialGradient></defs><circle cx="576" cy="576" r="999" style="fill:url(%23radialGradient5);opacity:1; stroke:none"/><circle cx="576" cy="576" r="405" style="fill:%23ddd;opacity:1"/></svg>');
 }
 
 body {
@@ -86,11 +86,10 @@ background-color: var(--color-bg);
 
 .toggle {
 position: sticky;
-width: 9px;
-line-height: 9px;
+width: 29px;
+height: 9px;
 margin-left: auto;
 top: 2px;
-right: 19px;
 cursor: alias;
 z-index: 7
 }
@@ -105,6 +104,7 @@ content: var(--croisan-content);
 <body>
 
 <div class="toggle" onclick="toggleTheme()"></div>
+
 <h1>@media screen</h1>
 
 <pre>
