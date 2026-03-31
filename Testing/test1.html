@@ -124,7 +124,9 @@ padding: 23px;
 z-index: 4;
 border-radius: 9px;
 display: inline-block;
-max-width: 299px;
+box-sizing: border-box; /* Ширина контейнера будет включать в себя border и padding, здесь <= 333px */
+width: fit-content;
+max-width: 333px;
 box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
 backdrop-filter: var(--note-backdrop-filter);
 font: 14px Verdana, sans-serif;
@@ -263,22 +265,20 @@ if (src.tagName=='SPAN' && src.hasAttribute('title'))
 	};
 	tmptitlesave = items[myIndex].title;
 	notecontainer.innerHTML=tmptitlesave;
+
 var noteStyles = window.getComputedStyle(notecontainer);
 var width = Math.round(noteStyles.getPropertyValue('width').replace('px',''));
+
+if ((document.documentElement.clientWidth - items[myIndex].getBoundingClientRect().left) >= width) {
 
 	notecontainer.style.left=items[myIndex].getBoundingClientRect().left + window.pageXOffset+"px";
 	notecontainer.style.top=items[myIndex].getBoundingClientRect().bottom + window.pageYOffset+"px";
 
 contLeft = notecontainer.style.left;
-
-if ((document.documentElement.clientWidth - items[myIndex].getBoundingClientRect().left) < (width+59)) {
-//notecontainer.style.left=(document.documentElement.clientWidth-width-9)+'px';
-// notecontainer.style.marginLeft=-((document.documentElement.clientWidth - items[myIndex].getBoundingClientRect().left)-items[myIndex].getBoundingClientRect().width+59)+'px';
-//notecontainer.style.marginLeft='auto';
-notecontainer.style.width=notecontainer.getBoundingClientRect().width+'px';
-console.log(notecontainer.getBoundingClientRect().width);
+}
+else {
 notecontainer.style.left=document.documentElement.clientWidth - notecontainer.getBoundingClientRect().width-3+'px';
-//contLeft = notecontainer.getBoundingClientRect().left+'px';
+notecontainer.style.top=items[myIndex].getBoundingClientRect().bottom + window.pageYOffset+"px";
 
 contLeft = notecontainer.style.left;
 }
