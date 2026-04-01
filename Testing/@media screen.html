@@ -19,6 +19,10 @@ h2 {
 font: 8vw Pouchkine, cursive, fantasy;
 text-align: center;
 }
+h3 {
+font-size: 3vw;
+text-align: center;
+}
 pre.mainText {
 font: 4vw serif;
 margin: 0 auto;
@@ -29,7 +33,7 @@ font-size: 3vw;
 margin-left: 35%;
 margin-right: 2vw;
 margin-bottom: 9vw;
-text-align: justify;
+/*text-align: justify;*/
 width: fit-content;
 max-width: 65%;
 }
@@ -39,7 +43,7 @@ max-width: 333px;
 #bigCommentBox, #shortCommentBox {
 position: absolute;
 width: fit-content;
-max-width: 99%;
+max-width: 97%;
 padding: 21px;
 box-sizing: border-box; /* Ширина контейнера будет включать в себя border и padding, здесь <= 99% */
 background-color: inherit;
@@ -58,7 +62,10 @@ h2 {
 font: 4vw Pouchkine, cursive, fantasy;
 text-align: center;
 }
-
+h3 {
+font-size: 1.5vw;
+text-align: center;
+}
 pre.mainText {
 font: 2vw serif;
 margin: 0 auto;
@@ -174,6 +181,7 @@ padding: 0px;
 background: no-repeat center/contain url('Онегин и Пушкин.png');
 background-size: 100% !important;
 background-position: 0px 0px;
+font-size: 1em;
 color: var(--color-text);
 background-color: var(--color-bg);
 }
@@ -274,15 +282,16 @@ text-align: right;
 
 .floatR {
 float: right;
-padding-left: 29px;
+padding: 0 0 29px 29px;
 }
 .floatL {
 float: left;
-padding-right: 29px;
+padding: 0 29px 29px 0;
 }
 
 pre {
 font-family: serif;
+white-space: pre-wrap;
 }
 
 </style>
@@ -332,7 +341,7 @@ font-family: serif;
 </div>
 
 <div class="epigraph">
-P&eacute;tri de vanit&eacute; il avait encore plus de cette esp&egrave;ce d'orgueil qui fait avouer avec la m&ecirc;me indiff&eacute;rence les bonnes comme les mauvaises actions, suite d'un sentiment de sup&eacute;riorit&eacute;, peut-&ecirc;tre imaginaire.<p class="r"><i><span title="Проникнутый тщеславием, он обладал сверх того ещё особенной гордостью, которая побуждает признаваться с одинаковым равнодушием в своих как добрых, так и дурных поступках,— следствие чувства превосходства, быть может мнимого.&lt;p class='r'>&lt;i>Из частного письма (франц.).&lt;/i>&lt;/p>">Tir&eacute; d'une lettre particuli&egrave;re.*</span></i> <div class="disk"></div>
+Pétri de vanité il avait encore plus de cette espèce d'orgueil qui fait avouer avec la même indifférence les bonnes comme les mauvaises actions, suite d'un sentiment de supériorité, peut-être imaginaire.<p class="r"><i><span title="Проникнутый тщеславием, он обладал сверх того ещё особенной гордостью, которая побуждает признаваться с одинаковым равнодушием в своих как добрых, так и дурных поступках,— следствие чувства превосходства, быть может мнимого.&lt;p class='r'>&lt;i>Из частного письма (франц.).&lt;/i>&lt;/p>">Tiré d'une lettre particuliêre.*</span></i> <div class="disk"></div>
 </p>
 </div>
 
@@ -390,7 +399,7 @@ P&eacute;tri de vanit&eacute; il avait encore plus de cette esp&egrave;ce d'orgu
 </pre>
 
 
-<h3 class="cen">
+<h3>
 Предисловия, примечания, строфы и отдельные стихи из ранних редакций,<br />отсутствующие в окончательной авторской редакции романа,<br />а также варианты строф и отдельных стихов из черновых и беловых рукописей.
 </h3>
 
@@ -477,20 +486,19 @@ Nothing is such an <span title="enemy">ennemy*</span> to accuracy of judgment as
 </div>
 
 <div id="c4">
-<figure class="floatR" style="width: 130px; height: 175px">
-<img src="Вяземский.png" style="width: 130px; height: 175px" border="0" onclick="placeToCenter(this,2)" class="staticPicture" alt="Пётр Андреевич Вяземский" />
+<figure class="floatR" style="width: 130px; height: 195px">
+<img src="Вяземский.png" style="width: 130px; height: 175px" onclick="placeToCenter(this,2)" class="staticPicture" alt="Пётр Андреевич Вяземский" />
 </figure>
 Князь Пётр Андреевич Вя&#769;земский (1792–1878)<br /> Поэт, приятель Пушкина.
 <br />
 Ему принадлежат такие ставшие широко известными афоризмы, как:
 <pre>
-		• Не напрасно дедов слово
-		  Затвердил народный ум:
-		  «Что для русского здорово,
-		  То для немца <span title="Карачу&#769;н — смерть.">карачун*!</span>»
-
-		• В России суровость законов умеряется их неисполнением.
+• Не напрасно дедов слово
+  Затвердил народный ум:
+  «Что для русского здорово,
+  То для немца <span title="Карачу&#769;н — смерть.">карачун*!</span>»
 </pre>
+• В России суровость законов умеряется их неисполнением.
 </div>
 
 <div id="c98">
