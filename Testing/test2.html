@@ -8,6 +8,21 @@
 
 <!-- media="all and (max-width: 1504px) -->
 
+<!-- Общий -->
+<style type="text/css">
+body {
+width: 100%;
+background-color: #000a24;
+margin: 0;
+padding: 0;
+color: white;
+}
+.mainText {
+width: fit-content;
+margin: 0 auto;
+}
+</style>
+
 <!-- Windows -->
 <style type="text/css">
 :root {
@@ -30,7 +45,7 @@ font-size: 2rem;
 }
 
 /*(orientation: portrait), (orientation: landscape) and*/
-@media (max-width: 300px) and (prefers-color-scheme: dark) 
+@media (orientation: portrait) and (prefers-color-scheme: dark) 
 {
 .mainText {
 font-size: 1rem;
@@ -38,7 +53,7 @@ font-size: 1rem;
 }
 
 /* Для планшетов */
-@media (max-width: 1100px) and (prefers-color-scheme: dark) 
+@media (max-width: 1100px) and (orientation: landscape) and (prefers-color-scheme: dark) 
 {
 .mainText {
 font-size: 1.2rem;
@@ -64,20 +79,6 @@ font-size: 3rem;
 
 </style>
 
-<!-- Общий -->
-<style type="text/css">
-body {
-width: 100%;
-background-color: #000a24;
-margin: 0;
-padding: 0;
-color: white;
-}
-.mainText {
-width: fit-content;
-margin: 0 auto;
-}
-</style>
 </head>
 <body>
 <h1 style="text-align: center; color: #fde910; line-height: 0px;">:root font-size in rem</h1>
@@ -147,18 +148,18 @@ font-size <select id="rem">
 var OSName="UnknownOS";
 if (navigator.appVersion.indexOf("Win")!=-1) {
 OSName="Windows";
-document.styleSheets[1].disabled = true;
 document.styleSheets[2].disabled = true;
+document.styleSheets[3].disabled = true;
 }
 if (navigator.appVersion.indexOf("Linux")!=-1) {
 OSName="Linux";
-document.styleSheets[0].disabled = true;
-document.styleSheets[2].disabled = true;
+document.styleSheets[1].disabled = true;
+document.styleSheets[3].disabled = true;
 }
 if (navigator.appVersion.indexOf("Mac")!=-1) {
 OSName="MacOS";
-document.styleSheets[0].disabled = true;
 document.styleSheets[1].disabled = true;
+document.styleSheets[2].disabled = true;
 }
 /*
 if (navigator.appVersion.indexOf("X11")!=-1) {
