@@ -33,10 +33,26 @@ margin: 0 auto;
 <!-- Windows -->
 <style type="text/css">
 
+/*@media  (orientation: portrait), (orientation: landscape) and (prefers-color-scheme: dark) */
+@media  (min-width: 700px) and (prefers-color-scheme: dark) 
+{
+.mainText {
+font-size: 16px;
+}
+}
+/* По достижении ширины окна 900px шрифт становится размером 32px  */
+@media  (min-width: 900px) and (prefers-color-scheme: dark) 
+{
 .mainText {
 font-size: 32px;
 }
-
+}
+@media  (min-width: 1300px) and (prefers-color-scheme: dark) 
+{
+.mainText {
+font-size: 48px;
+}
+}
 </style>
 
 
@@ -44,16 +60,13 @@ font-size: 32px;
 <!-- Linux -->
 <style type="text/css">
 
-/*(orientation: portrait), (orientation: landscape) and*/
-@media (orientation: portrait) and (prefers-color-scheme: dark) 
-{
 .mainText {
 font-size: 16px;
 }
-}
 
 /* Для планшетов */
-@media (orientation: landscape) and (prefers-color-scheme: dark) 
+/*@media (orientation: landscape) and (prefers-color-scheme: dark) */
+@media  (min-width: 400px) and (prefers-color-scheme: dark) 
 {
 .mainText {
 font-size: 19px;
