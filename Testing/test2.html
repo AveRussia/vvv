@@ -10,47 +10,69 @@
 <h1 style="text-align: center; color: #fde910; line-height: 0px;">:root font-size in rem</h1>
 rem — размер относительный к корневому шрифту. По умолчанию шрифт на странице равен 1rem.
 <script type="text/javascript">
-window.onload=function(){
-//alert(document.documentElement.clientWidth)
+
+var OSName="Unknown OS";
+if (navigator.appVersion.indexOf("Win")!=-1) {
+OSName="Windows";
+document.styleSheets[1].disabled = true;
+document.styleSheets[2].disabled = true;
 }
+if (navigator.appVersion.indexOf("Linux")!=-1) {
+OSName="Linux";
+document.styleSheets[0].disabled = true;
+document.styleSheets[2].disabled = true;
+}
+if (navigator.appVersion.indexOf("Mac")!=-1) {
+OSName="MacOS";
+document.styleSheets[0].disabled = true;
+document.styleSheets[1].disabled = true;
+}
+if (navigator.appVersion.indexOf("X11")!=-1) {
+OSName="UNIX";
+/*
+document.styleSheets[].disabled = true;
+document.styleSheets[].disabled = true;
+*/
+}
+//document.getElementsByTagName('body')[0].classList.add(OSName);
 </script>
 
 <!-- media="all and (max-width: 1504px) -->
 
-<style type="text/css">
-	:root {
-/*
-	--responsive-width: 100px;
-    --responsive-color: red;
-*/
-    --root-font-size: 16px;
+<style type="text/css" title="Windows">
+:root {
 	font-size: 16px;
 	color: white;
 }
-
-.Windows {
-font-size: 2rem;
-color: gray;
-}
-.Linux {
-font-size: 3rem;
-color: yellow;
-}
-.MacOS {
-font-size: 1rem;
-color: green;
-}
-
-
-
 .mainText {
-/*    width: var(--responsive-width);
-    color: var(--responsive-color);
-*/
-    font-size: var(--responsive-font-size);
+font-size: 1rem;
 }
 
 </style>
+
+<style type="text/css" title="Linux">
+:root {
+	font-size: 16px;
+	color: aqua;
+}
+.mainText {
+font-size: 2rem;
+}
+
+</style>
+
+<style type="text/css" title="MacOS">
+:root {
+	font-size: 16px;
+	color: green;
+}
+.mainText {
+font-size: 3rem;
+}
+
+</style>
+
+
 <div style="font-size: var(--root-font-size)">test – --root-font-size</div>
 <br /><br />
 
@@ -106,15 +128,6 @@ console.log(document.getElementById('rem').value);
 document.getElementById('mainText').style.fontSize = document.getElementById('rem').value + 'rem';
 })
 
-var OSName="Unknown OS";
-if (navigator.appVersion.indexOf("Win")!=-1) OSName="Windows";
-if (navigator.appVersion.indexOf("Mac")!=-1) OSName="MacOS";
-if (navigator.appVersion.indexOf("X11")!=-1) OSName="UNIX";
-if (navigator.appVersion.indexOf("Linux")!=-1) OSName="Linux";
-
-console.log(OSName);
-document.getElementsByTagName('body')[0].classList.add(OSName);
-console.log(document.getElementsByTagName('body')[0].className);
 </script>
 
 </body>
