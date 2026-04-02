@@ -28,15 +28,17 @@ font-size: 2rem;
 :root {
 	font-size: 16px;
 }
-/* (orientation: portrait), (orientation: landscape) and*/
-@media (400px < width < 700px) and (prefers-color-scheme: dark) 
+
+/*(orientation: portrait), (orientation: landscape) and*/
+@media (max-width: 700px) and (prefers-color-scheme: dark) 
 {
 .mainText {
 font-size: 1rem;
 }
 }
 
-@media (orientation: portrait), (orientation: landscape) and (700px < width < 1100px) and (prefers-color-scheme: dark) 
+/* Для планшетов */
+@media (max-width: 1100px) and (prefers-color-scheme: dark) 
 {
 .mainText {
 font-size: 1.2rem;
