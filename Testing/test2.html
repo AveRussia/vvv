@@ -13,6 +13,16 @@ rem — размер относительный к корневому шрифт
 
 <!-- media="all and (max-width: 1504px) -->
 
+<style type="text/css" title="Win">
+:root {
+	font-size: 16px;
+	color: white;
+}
+.mainText {
+font-size: 2rem;
+}
+
+</style>
 
 <style type="text/css" title="Linux">
 :root {
@@ -25,6 +35,14 @@ font-size: 2rem;
 
 </style>
 
+<style type="text/css" title="MacOS">
+:root {
+	font-size: 16px;
+	color: green;
+}
+.mainText {
+font-size: 3rem;
+}
 
 </style>
 
@@ -79,24 +97,29 @@ font-size <select id="rem">
 </pre>
 
 <script type="text/javascript">
-/*
+
 var OSName="UnknownOS";
 if (navigator.appVersion.indexOf("Win")!=-1) {
 OSName="Windows";
-document.styleSheets[1].disabled = true;
-document.styleSheets[2].disabled = true;
+document.styleSheets[1].outerHTML = "";
+document.styleSheets[2].outerHTML = "";
+//document.styleSheets[1].disabled = true;
+//document.styleSheets[2].disabled = true;
 }
 if (navigator.appVersion.indexOf("Linux")!=-1) {
 OSName="Linux";
-document.styleSheets[0].disabled = true;
-document.styleSheets[2].disabled = true;
+document.styleSheets[0].outerHTML = "";
+document.styleSheets[2].outerHTML = "";
+//document.styleSheets[0].disabled = true;
+//document.styleSheets[2].disabled = true;
 }
 if (navigator.appVersion.indexOf("Mac")!=-1) {
 OSName="MacOS";
-document.styleSheets[0].disabled = true;
-document.styleSheets[1].disabled = true;
+document.styleSheets[0].outerHTML = "";
+document.styleSheets[1].outerHTML = "";
+//document.styleSheets[0].disabled = true;
+//document.styleSheets[1].disabled = true;
 }
-*/
 /*
 if (navigator.appVersion.indexOf("X11")!=-1) {
 OSName="UNIX";
@@ -104,7 +127,7 @@ document.styleSheets[].disabled = true;
 document.styleSheets[].disabled = true;
 }
 */
-//alert(OSName + '-' + document.styleSheets[1].disabled)
+alert(OSName + '-' + document.styleSheets[1].disabled)
 //document.getElementsByTagName('body')[0].classList.add(OSName);
 
 document.getElementById('rem').addEventListener('change', function() {
