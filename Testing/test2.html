@@ -98,7 +98,7 @@ font-size <select id="rem">
 
 <script type="text/javascript">
 
-var OSName="Unknown OS";
+var OSName="UnknownOS";
 if (navigator.appVersion.indexOf("Win")!=-1) {
 OSName="Windows";
 document.styleSheets[1].disabled = true;
@@ -114,13 +114,14 @@ OSName="MacOS";
 document.styleSheets[0].disabled = true;
 document.styleSheets[1].disabled = true;
 }
+/*
 if (navigator.appVersion.indexOf("X11")!=-1) {
 OSName="UNIX";
-/*
 document.styleSheets[].disabled = true;
 document.styleSheets[].disabled = true;
-*/
 }
+*/
+alert(OSName + '-' + document.styleSheets[1].disabled)
 //document.getElementsByTagName('body')[0].classList.add(OSName);
 
 document.getElementById('rem').addEventListener('change', function() {
