@@ -10,6 +10,11 @@
 
 <!-- Общий -->
 <style type="text/css">
+
+:root {
+	font-size: 16px;
+}
+
 body {
 width: 100%;
 background-color: #000a24;
@@ -23,12 +28,10 @@ margin: 0 auto;
 }
 </style>
 
+
+
 <!-- Windows -->
 <style type="text/css">
-:root {
-	font-size: 16px;
-	color: white;
-}
 
 @media (500px < width < 1100px) {
 .mainText {
@@ -38,11 +41,10 @@ font-size: 2rem;
 
 </style>
 
+
+
 <!-- Linux -->
 <style type="text/css">
-:root {
-	font-size: 16px;
-}
 
 /*(orientation: portrait), (orientation: landscape) and*/
 @media (orientation: portrait) and (prefers-color-scheme: dark) 
@@ -62,11 +64,11 @@ font-size: 1.2rem;
 
 </style>
 
+
+
 <!-- MacOS -->
 <style type="text/css">
-:root {
-	font-size: 16px;
-}
+
 /* Ранее: 
 @media (min-width: 992px) and (max-width: 1199px) { ... }*/
 
@@ -177,10 +179,12 @@ document.getElementById('mainText').style.fontSize = document.getElementById('re
 })
 
 //alert(document.documentElement.clientWidth)
-
+const element = document.getElementById('mainText');
+const style = window.getComputedStyle(element);
+const fontSize = style.getPropertyValue('font-size');
 
 window.onresize=function(){
-document.getElementById('widthHeight').value = 'W =' + document.documentElement.clientWidth + '; H =' + document.documentElement.clientHeight;
+document.getElementById('widthHeight').value = 'W =' + document.documentElement.clientWidth + '; H =' + document.documentElement.clientHeight +'; font: '+ fontSize;
 }
 </script>
 
