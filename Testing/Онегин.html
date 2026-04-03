@@ -73,9 +73,8 @@ width: fit-content;
 font-size: 30px;
 margin-left: 45%;
 margin-right: 3%;
-/*margin-right: 2vw;*/
 margin-bottom: 5vw;
-text-align: justify;
+/*text-align: justify;*/
 width: fit-content;
 max-width: 39ch;
 }
@@ -125,7 +124,7 @@ font-size: 1.5vw;
 margin-left: 45%;
 margin-right: 2vw;
 margin-bottom: 5vw;
-text-align: justify;
+/*text-align: justify;*/
 width: fit-content;
 max-width: 33%;
 }
@@ -317,14 +316,6 @@ z-index: 5;
 content: var(--croisan-content);
 }
 
-details {
-position: sticky;
-top: 9px;
-margin: -9px 9px;
-width: fit-content;
-z-index: 5; 
-      }
-
 #note {
 position: absolute;
 left: -999px;
@@ -393,6 +384,7 @@ white-space: pre-wrap;
 <div class="toggle" onclick="toggleTheme()"></div>
 
 <input type="checkbox" id="detail-one" style="display: none" />
+<div style="position: sticky; top: 9px; margin: -9px 9px; width: fit-content; z-index: 5">
 <details>
 <summary>
 <label for="detail-one"></label>
@@ -413,6 +405,7 @@ white-space: pre-wrap;
 <span class="data" onclick="showCom('c1','short')">Из ранних редакций</span>
 </pre>
 </details>
+</div>
 
 <div style="height: 100%; width: 100%; display: flex; align-items: center; justify-content: center; text-align: center; margin-top: 3vw">
 <h1 data-heading="ЕВГЕНИЙ ОНЕГИН" contenteditable>ЕВГЕНИЙ ОНЕГИН</h1>
