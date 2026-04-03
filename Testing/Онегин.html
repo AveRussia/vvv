@@ -384,7 +384,9 @@ white-space: pre-wrap;
 <div class="toggle" onclick="toggleTheme()"></div>
 
 <input type="checkbox" id="detail-one" style="display: none" />
-<div style="position: sticky; top: 9px; margin: -9px 9px; width: fit-content; z-index: 5">
+<div style="position: sticky; top: 9px; margin: -9px 9px; width: fit-content; z-index: 5">&nbsp;
+<!-- details с position: sticky без внешнего контейнера не отображаются в браузерах на iOS -->
+<!-- После открывающего тега div обязательно должен быть какой-нибудь знак, здесь это &nbsp; -->
 <details>
 <summary>
 <label for="detail-one"></label>
