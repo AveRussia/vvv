@@ -9,6 +9,7 @@
 <style type="text/css">
 
 :root {
+font-size: 16px;
   --color-bg: #fffff0;
   --color-text: #000000;
   --note-bg: #fffff0;
@@ -49,7 +50,14 @@ position: absolute; left: 19px; z-index: 1; font-style: italic; cursor: var(--in
 position: absolute; left: 19px; z-index: 1; font-style: italic;
 }
 
-
+pre {
+font-family: serif;
+}
+pre.mainText {
+margin: 0 auto;
+width: fit-content;
+white-space: pre-wrap;
+}
 
 
 
@@ -61,26 +69,19 @@ position: absolute; left: 19px; z-index: 1; font-style: italic;
 @media screen and (orientation: portrait) {
 
 h2 {
-font: 8vw Pouchkine, cursive, fantasy;
+font: 4rem Pouchkine, cursive, fantasy;
 text-align: center;
 }
 h3 {
-font-size: 3vw;
+font-size: 2rem;
 text-align: center;
 }
 
-pre {
-font-family: serif;
-white-space: pre-wrap;
-}
 pre.mainText {
-font: 4vw serif;
-margin: 0 auto;
-width: fit-content;
-color: blue;
+font-size: 1.5rem;
 }
 .epigraph {
-font-size: 3.3vw;
+font-size: 1.25rem;
 margin-left: 35%;
 margin-right: 2vw;
 margin-bottom: 9vw;
@@ -125,32 +126,25 @@ font-size: 14px;
 @media screen and (orientation: landscape) {
 
 h2 {
-font: 4vw Pouchkine, cursive, fantasy;
+font: 5rem Pouchkine, cursive, fantasy;
 text-align: center;
 }
 h3 {
-font-size: 1.5vw;
+font-size: 3rem;
 text-align: center;
 }
 
-pre {
-font-family: serif;
-white-space: pre-wrap;
-}
 pre.mainText {
-font: 2vw serif;
-margin: 0 auto;
-width: fit-content;
-color: red;
+font-size: 2rem;
 }
 .epigraph {
-font-size: 1.7vw;
+font-size: 1.5rem;
 margin-left: 45%;
 margin-right: 2vw;
 margin-bottom: 5vw;
 text-align: justify;
 width: fit-content;
-max-width: 33%;
+max-width: 39ch;
 }
 #note {
 max-width: 499px;
