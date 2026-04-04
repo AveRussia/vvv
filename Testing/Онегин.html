@@ -11,11 +11,13 @@
 
 :root {
 	font-size: 16px;
+	font-family: serif;
   --color-bg: #fffff0;
   --color-text: #000000;
   --note-bg: #fffff0;
   --note-border: 1px solid darkkhaki;
   --croisan-content: url('data:image/svg+xml;utf8,<svg width="29" height="29" viewBox="-350 -350 1900 1900" xmlns="http://www.w3.org/2000/svg"><path d="m734 203c140 53 336 278 208 546-128 269-437 264-572 176 319 106 654-538 364-722z" style="fill:%23000a24"/></svg>');
+  --info: url('data:image/svg+xml;utf8,<svg width="31" height="39" viewBox="0 0 1 550" xmlns="http://www.w3.org/2000/svg"><g style="fill:RoyalBlue;stroke-width:5;stroke:navy"><path d="m-29 237 195-0.13c25 0.035 42 22 42 43l-25 236c-3.5 40-72 40-76 0.99l-27-208c-1.2-6.1-2.5-12-10-14l-98-13c-29-3.9-22-45-0.22-45z"/><circle cx="143" cy="153" r="51"/></g><path d="m-215 3h98l-98 98z" style="fill:red;stroke-width:3;stroke:red"/></svg>'), auto;
 }
 
 body {
@@ -44,7 +46,15 @@ body.dark-theme {
 }
 
 .data {
-cursor: url('data:image/svg+xml;utf8,<svg width="31" height="39" viewBox="0 0 1 550" xmlns="http://www.w3.org/2000/svg"><g style="fill:RoyalBlue;stroke-width:5;stroke:navy"><path d="m-29 237 195-0.13c25 0.035 42 22 42 43l-25 236c-3.5 40-72 40-76 0.99l-27-208c-1.2-6.1-2.5-12-10-14l-98-13c-29-3.9-22-45-0.22-45z"/><circle cx="143" cy="153" r="51"/></g><path d="m-215 3h98l-98 98z" style="fill:red;stroke-width:3;stroke:red"/></svg>'), auto;
+cursor: var(--info);
+}
+
+tt {
+position: absolute; left: 19px; font-size: 18px; color: #999; z-index: 1; font-style: italic;
+}
+
+.prim {
+position: absolute; left: 19px; font-size: 16px; z-index: 1; font-style: italic;
 }
 
 @font-face {
@@ -286,7 +296,7 @@ font: 4vw Pouchkine, cursive, fantasy;
 text-align: center;
 }
 h3 {
-font-size: 1.5vw;
+font-size: 3vw;
 text-align: center;
 }
 pre.mainText {
@@ -310,7 +320,7 @@ width: fit-content;
 max-width: 679px;
 padding: 21px;
 box-sizing: border-box; /* Ширина контейнера будет включать в себя border и padding, здесь <= 679px */
-background-color: inherit;
+background-color: inherit; 
 color: inherit;
 border: darkkhaki 3px double;
 text-align: justify;
@@ -339,7 +349,7 @@ margin: 0 auto;
 width: fit-content;
 }
 .epigraph {
-font-size: 3vw;
+font-size: 2vw;
 margin-left: 35%;
 margin-right: 2vw;
 margin-bottom: 9vw;
@@ -427,7 +437,7 @@ font-size: 38px;
 </details>
 </div>
 
-<div style="align-items: center; justify-content: center; text-align: center; margin-bottom:125vw; color: gray">
+<div style="align-items: center; justify-content: center; text-align: center; margin-bottom:129vw; color: gray">
 
 <br />
 <svg xmlns="http://www.w3.org/2000/svg" style="padding-left: 4vw" width="9vw" height="8vw" viewBox="0 0 74 47">
@@ -468,9 +478,9 @@ Pétri de vanité il avait encore plus de cette espèce d'orgueil qui fait avoue
 
 <h2>Глава первая</h2>
 
-<em><span class="data" onclick="showCom('c2','short')" style="position: absolute; left: 19px">прим.</span></em>
+<span class="data prim" onclick="showCom('c2','short')">прим.</span>
 <br />
-<em><span class="data" onclick="showCom('c3','short')" style="position: absolute; left: 19px">прим.</span></em>
+<span class="data prim" onclick="showCom('c3','short')">прим.</span>
 
 <div class="epigraph">
 И жить торопится и чувствовать спешит.
@@ -498,6 +508,7 @@ Pétri de vanité il avait encore plus de cette espèce d'orgueil qui fait avoue
 Когда же чорт возьмёт тебя!»
 </pre>
 
+<tt class="data">V</tt>
 
 <h3>
 Предисловия, примечания, строфы и отдельные стихи из ранних редакций,<br />отсутствующие в окончательной авторской редакции романа,<br />а также варианты строф и отдельных стихов из черновых и беловых рукописей.
@@ -527,7 +538,9 @@ Pétri de vanité il avait encore plus de cette espèce d'orgueil qui fait avoue
 </div>
 
 <div id="c1">
-Слева от текста романа, приводятся предисловия, примечания, строфы или отдельные стихи из ранних редакций, отсутствующие в окончательной авторской редакции романа, а также варианты строф или отдельных стихов из черновых и беловых рукописей.<br />Для их чтения нажмите на слово<p><em>прим.</em></p> или номер строфы<p class='cen' style='font-size: 18px; color: #999'><tt><em>I, II … V …</em></tt></p>
+Слева от текста романа, приводятся предисловия, примечания, строфы или отдельные стихи из ранних редакций, отсутствующие в окончательной авторской редакции романа, а также варианты строф или отдельных стихов из черновых и беловых рукописей.<br />Для их чтения нажмите на слово<p class="data prim">прим.</p> или номер строфы
+<p><br /><br /><tt class="data">I, II … V …</tt>
+</p>
 </div>
 
 <div id="c2">
