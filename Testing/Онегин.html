@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <head>
-<title>@media screen</title>
+<title>Онегин</title>
 
 <style type="text/css">
 
@@ -58,7 +58,7 @@ position: absolute; left: 19px; z-index: 1; font-style: italic;
 
 
 
-@media screen and (orientation: portrait) and (prefers-color-scheme: dark) {
+@media screen and (orientation: portrait) {
 
 h2 {
 font: 8vw Pouchkine, cursive, fantasy;
@@ -96,7 +96,8 @@ position: absolute;
 width: fit-content;
 max-width: 97%;
 padding: 21px;
-box-sizing: border-box; /* Ширина контейнера будет включать в себя border и padding, здесь <= 99% */
+/* Ширина контейнера будет включать в себя border и padding, здесь <= 97% */
+box-sizing: border-box;
 background-color: inherit;
 color: inherit;
 border: darkkhaki 3px double;
@@ -121,7 +122,7 @@ font-size: 14px;
 
 
 
-@media screen and (orientation: landscape) and (prefers-color-scheme: dark) {
+@media screen and (orientation: landscape) {
 
 h2 {
 font: 4vw Pouchkine, cursive, fantasy;
@@ -159,7 +160,8 @@ position: absolute;
 width: fit-content;
 max-width: 679px;
 padding: 21px;
-box-sizing: border-box; /* Ширина контейнера будет включать в себя border и padding, здесь <= 679px */
+/* Ширина контейнера будет включать в себя border и padding, здесь <= 679px */
+box-sizing: border-box;
 background-color: inherit;
 color: inherit;
 border: darkkhaki 3px double;
