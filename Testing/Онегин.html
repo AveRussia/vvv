@@ -4,31 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <head>
-<title>Онегин</title>
+<title>@media screen</title>
 
-<!-- Общий -->
 <style type="text/css">
 
 :root {
-	font-size: 16px;
-	font-family: serif;
   --color-bg: #fffff0;
   --color-text: #000000;
   --note-bg: #fffff0;
   --note-border: 1px solid darkkhaki;
   --croisan-content: url('data:image/svg+xml;utf8,<svg width="29" height="29" viewBox="-350 -350 1900 1900" xmlns="http://www.w3.org/2000/svg"><path d="m734 203c140 53 336 278 208 546-128 269-437 264-572 176 319 106 654-538 364-722z" style="fill:%23000a24"/></svg>');
   --info: url('data:image/svg+xml;utf8,<svg width="31" height="39" viewBox="0 0 1 550" xmlns="http://www.w3.org/2000/svg"><g style="fill:RoyalBlue;stroke-width:5;stroke:navy"><path d="m-29 237 195-0.13c25 0.035 42 22 42 43l-25 236c-3.5 40-72 40-76 0.99l-27-208c-1.2-6.1-2.5-12-10-14l-98-13c-29-3.9-22-45-0.22-45z"/><circle cx="143" cy="153" r="51"/></g><path d="m-215 3h98l-98 98z" style="fill:red;stroke-width:3;stroke:red"/></svg>'), auto;
-}
-
-body {
-width: 100%;
-margin: 0;
-padding: 0;
-background: no-repeat center/contain url('Онегин и Пушкин.png');
-background-size: 100% !important;
-background-position: 0px 0px;
-background-color: var(--color-bg);
-color: var(--color-text);
 }
 
 body.dark-theme {
@@ -45,17 +31,161 @@ body.dark-theme {
   --croisan-content: url('data:image/svg+xml;utf8,<svg width="29" height="29" viewBox="-350 -350 1900 1900" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="radialGradient5" cx="576" cy="576" r="999" gradientUnits="userSpaceOnUse"><stop style="stop-color:white" offset="0"/><stop style="stop-color:white;stop-opacity:0" offset="1"/></radialGradient></defs><circle cx="576" cy="576" r="999" style="fill:url(%23radialGradient5);opacity:1; stroke:none"/><circle cx="576" cy="576" r="405" style="fill:%23ddd;opacity:1"/></svg>');
 }
 
-.data {
-cursor: var(--info);
+body {
+margin: 0px;
+padding: 0px;
+background: no-repeat center/contain url('Онегин и Пушкин.png');
+background-size: 100% !important;
+background-position: 0px 0px;
+background-color: var(--color-bg);
+color: var(--color-text);
 }
 
 tt {
-position: absolute; left: 19px; font-size: 18px; color: #999; z-index: 1; font-style: italic;
+position: absolute; left: 19px; z-index: 1; font-style: italic; cursor: var(--info);
 }
 
 .prim {
-position: absolute; left: 19px; font-size: 16px; z-index: 1; font-style: italic;
+position: absolute; left: 19px; z-index: 1; font-style: italic;
 }
+
+
+
+
+
+
+
+
+
+
+@media screen and (orientation: portrait) and (prefers-color-scheme: dark) {
+
+h2 {
+font: 8vw Pouchkine, cursive, fantasy;
+text-align: center;
+}
+h3 {
+font-size: 3vw;
+text-align: center;
+}
+
+pre {
+font-family: serif;
+white-space: pre-wrap;
+}
+pre.mainText {
+font: 4vw serif;
+margin: 0 auto;
+width: fit-content;
+color: blue;
+}
+.epigraph {
+font-size: 3.3vw;
+margin-left: 35%;
+margin-right: 2vw;
+margin-bottom: 9vw;
+text-align: justify;
+width: fit-content;
+max-width: 65%;
+}
+#note {
+max-width: 333px;
+}
+#bigCommentBox, #shortCommentBox {
+position: absolute;
+width: fit-content;
+max-width: 97%;
+padding: 21px;
+box-sizing: border-box; /* Ширина контейнера будет включать в себя border и padding, здесь <= 99% */
+background-color: inherit;
+color: inherit;
+border: darkkhaki 3px double;
+text-align: justify;
+font-size: 14px;
+z-index: 3;
+}
+
+tt {
+font-size: 18px; color: #999;
+}
+
+.prim {
+font-size: 14px;
+}
+
+}
+
+
+
+
+
+
+
+@media screen and (orientation: landscape) and (prefers-color-scheme: dark) {
+
+h2 {
+font: 4vw Pouchkine, cursive, fantasy;
+text-align: center;
+}
+h3 {
+font-size: 1.5vw;
+text-align: center;
+}
+
+pre {
+font-family: serif;
+white-space: pre-wrap;
+}
+pre.mainText {
+font: 2vw serif;
+margin: 0 auto;
+width: fit-content;
+color: red;
+}
+.epigraph {
+font-size: 1.7vw;
+margin-left: 45%;
+margin-right: 2vw;
+margin-bottom: 5vw;
+text-align: justify;
+width: fit-content;
+max-width: 33%;
+}
+#note {
+max-width: 499px;
+}
+#bigCommentBox, #shortCommentBox {
+position: absolute;
+width: fit-content;
+max-width: 679px;
+padding: 21px;
+box-sizing: border-box; /* Ширина контейнера будет включать в себя border и padding, здесь <= 679px */
+background-color: inherit;
+color: inherit;
+border: darkkhaki 3px double;
+text-align: justify;
+font-size: 16px;
+z-index: 3;
+}
+
+tt {
+font-size: 20px; color: #999;
+}
+
+.prim {
+font-size: 16px;
+}
+
+}
+
+
+
+
+
+
+
+
+
 
 @font-face {
 font-family: 'Pouchkine';
@@ -125,7 +255,7 @@ background-image: linear-gradient(to bottom, #edc967 14%, #d2ac47 16%, #f7ef8a 2
 	font-family: 'Playfair Display', Garamond, serif;
 	font-size: 8vw;
     position: relative;
-	margin: 2vw 0 -1vw 0;
+	margin-top: 0;
 	font-weight: 400;
 }
 
@@ -140,13 +270,13 @@ h1:after {
 	text-shadow: #fff 2px 2px 2px, #333 -1px -1px 2px;
 }
 
+
 .toggle {
-position: fixed; /*sticky;*/
+position: sticky;
 width: 33px;
 height: 9px;
 margin-left: auto;
 top: 2px;
-right: 2px;
 cursor: alias;
 z-index: 7
 }
@@ -155,6 +285,14 @@ position: absolute;
 z-index: 5;
 content: var(--croisan-content);
 }
+
+details {
+position: sticky;
+top: 9px;
+margin: -9px 9px;
+width: fit-content;
+z-index: 5; 
+      }
 
 #note {
 position: absolute;
@@ -211,215 +349,24 @@ float: left;
 padding: 0 29px 29px 0;
 }
 
-pre.mainText {
-font-family: serif;
-white-space: pre-wrap;
-width: fit-content;
-margin: 0 auto;
+.data {
+cursor: var(--info);
 }
 
-summary {
-display: block;
-}
-summary::-webkit-details-marker {
-  display: none;
-}
-summary::before {
-  content: url('data:image/svg+xml;utf8,<svg width="41" height="19" viewBox="0 0 293 134" xmlns="http://www.w3.org/2000/svg"><path d="m290 42-79 66-106-26c-6.6-0.21-7.7 22-0.18 24l106 27 79-66c-3-5.8-4.4-13 0-25z" style="fill:Wheat;stroke-width:3px;stroke:Chocolate"/><g transform="translate(1.2 26)"><path d="m290 15-100-15-87 56 107 26z" style="fill:Chocolate;stroke-width:3px;stroke:Chocolate"/></g></svg>');
-  padding-right: 0.5em;
-}
-details[open] > summary::before {
-  content: url('data:image/svg+xml;utf8,<svg width="41" height="19" version="1.1" viewBox="0 0 293 134" xmlns="http://www.w3.org/2000/svg"><path d="m290 42-79 66-106-26c-6.6-0.21-7.7 22-0.18 24l106 27 79-66c-3-5.8-4.4-13 0-25z" style="fill:Wheat;stroke-width:3px;stroke:Chocolate"/><g transform="translate(1.2 26)"><path d="m290 15-100-15-87 56 107 26z" style="fill:Wheat;stroke-width:3px;stroke:DarkGoldenRod"/><path d="m190-0.28-95-25-95 47 103 34z" style="fill:Wheat;stroke-width:3px;stroke:DarkGoldenRod"/></g></svg>');
-}
 
 </style>
-
-
-
-<!-- Windows -->
-<style type="text/css">
-
-@media  (prefers-color-scheme: dark) 
-{
-h2 {
-font: 80px Pouchkine, cursive, fantasy;
-text-align: center;
-}
-h3 {
-font-size: 40px;
-text-align: center;
-}
-pre.mainText {
-font-size: 38px;
-}
-.epigraph {
-font-size: 30px;
-margin-left: 45%;
-margin-right: 3%;
-margin-bottom: 5vw;
-text-align: justify;
-width: fit-content;
-max-width: 39ch;
-}
-#note {
-max-width: 499px;
-}
-#bigCommentBox, #shortCommentBox {
-position: absolute;
-width: fit-content;
-max-width: 679px;
-padding: 21px;
-box-sizing: border-box; /* Ширина контейнера будет включать в себя border и padding, здесь <= 679px */
-background-color: inherit;
-color: inherit;
-border: darkkhaki 3px double;
-text-align: justify;
-font-size: 16px;
-z-index: 3;
-}
-
-}
-
-</style>
-
-
-
-<!-- Linux -->
-<style type="text/css">
-
-/* Для телефонов */
-@media (pointer: coarse)
-{
-
-h2 {
-font: 4vw Pouchkine, cursive, fantasy;
-text-align: center;
-}
-h3 {
-font-size: 3vw;
-text-align: center;
-}
-pre.mainText {
-font-size: 3vw;
-}
-.epigraph {
-font-size: 1.5vw;
-margin-left: 45%;
-margin-right: 2vw;
-margin-bottom: 5vw;
-text-align: justify;
-width: fit-content;
-max-width: 33%;
-}
-#note {
-max-width: 499px;
-}
-#bigCommentBox, #shortCommentBox {
-position: absolute;
-width: fit-content;
-max-width: 679px;
-padding: 21px;
-box-sizing: border-box; /* Ширина контейнера будет включать в себя border и padding, здесь <= 679px */
-background-color: inherit; 
-color: inherit;
-border: darkkhaki 3px double;
-text-align: justify;
-font-size: 16px;
-z-index: 3;
-}
-
-}
-
-/* Для планшетов */
-/* По достижении ширины окна 400px шрифт становится размером 19px  */
-@media (pointer: coarse) and (min-width: 400px) and (prefers-color-scheme: dark) 
-{
-
-h2 {
-font: 8vw Pouchkine, cursive, fantasy;
-text-align: center;
-}
-h3 {
-font-size: 3vw;
-text-align: center;
-}
-pre.mainText {
-font: 4vw serif;
-margin: 0 auto;
-width: fit-content;
-}
-.epigraph {
-font-size: 2vw;
-margin-left: 35%;
-margin-right: 2vw;
-margin-bottom: 9vw;
-text-align: justify;
-width: fit-content;
-max-width: 65%;
-}
-#note {
-max-width: 333px;
-}
-#bigCommentBox, #shortCommentBox {
-position: absolute;
-width: fit-content;
-max-width: 97%;
-padding: 21px;
-box-sizing: border-box; /* Ширина контейнера будет включать в себя border и padding, здесь <= 99% */
-background-color: inherit;
-color: inherit;
-border: darkkhaki 3px double;
-text-align: justify;
-font-size: 14px;
-z-index: 3;
-}
-
-.mainText {
-font-size: 19px;
-}
-}
-
-</style>
-
-
-
-<!-- MacOS -->
-<style type="text/css">
-
-/* Ранее: 
-@media (min-width: 992px) and (max-width: 1199px) { ... }*/
-
-/* Новый синтаксис: 
-@media (992px <= width < 1200px) { ... }*/
-
-.mainText {
-font-size: 38px;
-}
-
-</style>
-
-
-
-
 
 </head>
 <body>
 
-<div style="height: 100%; width: 100%; display: flex; align-items: center; justify-content: center; text-align: center; margin-top: 3vw">
-<h1 data-heading="ЕВГЕНИЙ ОНЕГИН">ЕВГЕНИЙ ОНЕГИН</h1>
-</div>
-
 <div class="toggle" onclick="toggleTheme()"></div>
 
 <input type="checkbox" id="detail-one" style="display: none" />
-<div style="position: fixed; top: 1px; margin-left: 3px; z-index: 5; display: inline-block; border: 1px solid transparent; line-height: 9px">&nbsp;
-<!-- details с position: fixed или sticky без внешнего контейнера не отображаются в браузерах на iOS -->
-<!-- После открывающего тега div обязательно должен быть какой-нибудь знак, здесь это &nbsp; -->
 <details>
 <summary>
 <label for="detail-one"></label>
 </summary>
-<pre style="white-space: pre; position: absolute; background-color: var(--color-bg); border: 1px solid gray; border-radius: 12px; padding: 9px; font: menu">
+<pre style="position: absolute; background-color: var(--color-bg); border: 1px solid gray; border-radius: 12px; padding: 9px; font: menu">
 <a href="#glava1">Глава первая</a>
 <a href="#glava2">Глава вторая</a>
 <a href="#glava3">Глава третья</a>
@@ -435,9 +382,12 @@ font-size: 38px;
 <span class="data" onclick="showCom('c1','short')">Из ранних редакций</span>
 </pre>
 </details>
+
+<div style="height: 100%; width: 100%; display: flex; align-items: center; justify-content: center; text-align: center; margin-top: 3vw">
+<h1 data-heading="ЕВГЕНИЙ ОНЕГИН" contenteditable>ЕВГЕНИЙ ОНЕГИН</h1>
 </div>
 
-<div style="align-items: center; justify-content: center; text-align: center; margin-bottom:129vw; color: gray">
+<div style="align-items: center; justify-content: center; text-align: center; margin-bottom:125vw; color: gray">
 
 <br />
 <svg xmlns="http://www.w3.org/2000/svg" style="padding-left: 4vw" width="9vw" height="8vw" viewBox="0 0 74 47">
@@ -508,7 +458,27 @@ Pétri de vanité il avait encore plus de cette espèce d'orgueil qui fait avoue
 Когда же чорт возьмёт тебя!»
 </pre>
 
-<tt class="data">V</tt>
+<tt class="">IV</tt>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <h3>
 Предисловия, примечания, строфы и отдельные стихи из ранних редакций,<br />отсутствующие в окончательной авторской редакции романа,<br />а также варианты строф и отдельных стихов из черновых и беловых рукописей.
@@ -538,9 +508,7 @@ Pétri de vanité il avait encore plus de cette espèce d'orgueil qui fait avoue
 </div>
 
 <div id="c1">
-Слева от текста романа, приводятся предисловия, примечания, строфы или отдельные стихи из ранних редакций, отсутствующие в окончательной авторской редакции романа, а также варианты строф или отдельных стихов из черновых и беловых рукописей.<br />Для их чтения нажмите на слово<p class="data prim">прим.</p> или номер строфы
-<p><br /><br /><tt class="data">I, II … V …</tt>
-</p>
+Слева от текста романа, приводятся предисловия, примечания, строфы или отдельные стихи из ранних редакций, отсутствующие в окончательной авторской редакции романа, а также варианты строф или отдельных стихов из черновых и беловых рукописей.<br />Для их чтения нажмите на слово<p><em>прим.</em></p> или номер строфы<p class='cen' style='font-size: 18px; color: #999'><tt><em>I, II … V …</em></tt></p>
 </div>
 
 <div id="c2">
@@ -911,26 +879,13 @@ even = !(times % 2); // результат true или false
 
 /* Конец открытия больших картинок */
 
-/* Определение операционной системы устройства и отключение таблиц стилей для других систем */
-if (navigator.appVersion.indexOf("Win")!=-1) {
-document.styleSheets[2].disabled = true;
-document.styleSheets[3].disabled = true;
-}
-if (navigator.appVersion.indexOf("Linux")!=-1) {
-document.styleSheets[1].disabled = true;
-document.styleSheets[3].disabled = true;
-}
-if (navigator.appVersion.indexOf("Mac")!=-1) {
-document.styleSheets[3].disabled = true;
-document.styleSheets[2].disabled = true;
-}
-/* UNIX */
-/*
-if (navigator.appVersion.indexOf("X11")!=-1) {
-document.styleSheets[].disabled = true;
-document.styleSheets[].disabled = true;
-}
-*/
+var OSName="UnknownOS";
+if (navigator.appVersion.indexOf("Win")!=-1) OSName="Windows";
+if (navigator.appVersion.indexOf("Mac")!=-1) OSName="MacOS";
+if (navigator.appVersion.indexOf("X11")!=-1) OSName="UNIX";
+if (navigator.appVersion.indexOf("Linux")!=-1) OSName="Linux";
+
+document.getElementsByTagName('body')[0].classList.add(OSName);
 
 </script>
 
