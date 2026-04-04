@@ -60,14 +60,29 @@ max-width: 95%;
 /*white-space: pre-wrap;*/
 }
 
+.epigraph {
+text-align: justify;
+width: fit-content;
+}
+
+#bigCommentBox, #shortCommentBox {
+position: absolute;
+width: fit-content;
+/* Ширина контейнера будет включать в себя border и padding, здесь <= 97% */
+box-sizing: border-box;
+background-color: inherit;
+color: inherit;
+border: darkkhaki 3px double;
+text-align: justify;
+z-index: 3;
+}
 
 
 
 
 
 
-
-@media screen and (orientation: portrait) and (350px < width < 700px) {
+@media screen and (orientation: portrait) and (300px < width < 600px) {
 
 h2 {
 font: 2.2rem Pouchkine, cursive, fantasy;
@@ -86,24 +101,14 @@ font-size: 0.7rem;
 margin-left: 29%;
 margin-right: 2vw;
 margin-bottom: 9vw;
-text-align: justify;
-width: fit-content;
 max-width: 65%;
 }
 #note {
 max-width: 333px;
 }
 #bigCommentBox, #shortCommentBox {
-position: absolute;
-width: fit-content;
 max-width: 97%;
 padding: 21px;
-/* Ширина контейнера будет включать в себя border и padding, здесь <= 97% */
-box-sizing: border-box;
-background-color: inherit;
-color: inherit;
-border: darkkhaki 3px double;
-text-align: justify;
 font-size: 14px;
 z-index: 3;
 }
@@ -119,12 +124,55 @@ font-size: 0.6rem;
 }
 
 
+/* Для планшета */
+
+@media screen and (orientation: portrait) and (600px < width < 999px) {
+
+h2 {
+font: 2.5rem Pouchkine, cursive, fantasy;
+text-align: center;
+}
+h3 {
+font-size: 1.5rem;
+text-align: center;
+}
+
+pre.mainText {
+font-size: 1.5rem;
+}
+.epigraph {
+font-size: 1rem;
+margin-left: 29%;
+margin-right: 2vw;
+margin-bottom: 9vw;
+max-width: 65%;
+}
+#note {
+max-width: 333px;
+}
+#bigCommentBox, #shortCommentBox {
+max-width: 97%;
+padding: 21px;
+font-size: 14px;
+z-index: 3;
+}
+
+tt {
+font-size: 1rem; color: #999;
+}
+
+.prim {
+font-size: 0.9rem;
+}
+
+}
 
 
 
 
+/* and (600px < width < 999px) */
 
-@media screen and (orientation: landscape) and (min-width: 600px) {
+@media screen and (orientation: landscape) {
 
 h2 {
 font: 3.5rem Pouchkine, cursive, fantasy;
@@ -143,24 +191,14 @@ font-size: 1.1rem;
 margin-left: 37%;
 margin-right: 2vw;
 margin-bottom: 5vw;
-text-align: justify;
-width: fit-content;
 max-width: 39ch;
 }
 #note {
 max-width: 499px;
 }
 #bigCommentBox, #shortCommentBox {
-position: absolute;
-width: fit-content;
 max-width: 679px;
 padding: 21px;
-/* Ширина контейнера будет включать в себя border и padding, здесь <= 679px */
-box-sizing: border-box;
-background-color: inherit;
-color: inherit;
-border: darkkhaki 3px double;
-text-align: justify;
 font-size: 16px;
 z-index: 3;
 }
