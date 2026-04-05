@@ -11,6 +11,12 @@
 font-size: 16px;
 font-family: serif;
 }
+
+
+.nonebreak {
+white-space: pre;
+}
+
 /*and (700px <= width < 1920px) */
 @media screen and (orientation: portrait) {
 
@@ -22,7 +28,6 @@ margin-left: auto;
 margin-right: 2ch;
 margin-bottom: 9vw;
 max-width: 45ch;
-white-space: pre;
 }
 pre.mainText {
 font-size: 1rem;
@@ -44,7 +49,6 @@ margin-left: auto;
 margin-right: 13%;
 margin-bottom: 9vw;
 max-width: 45ch;
-white-space: pre;
 }
 pre.mainText {
 font-size: 1.3rem;
@@ -112,7 +116,7 @@ Pétri de vanité il avait encore plus de cette espèce d'orgueil qui fait avoue
  -->
 
 
-<div class="epigraph">
+<div class="epigraph nonebreak">
 И жить торопится и чувствовать спешит.
 <p class="r">
 <i><span class="data" onclick="showCom('c4','big')">К. Вяземский*</span></i>
