@@ -11,27 +11,35 @@
 font-size: 16px;
 font-family: serif;
 }
+/*and (700px <= width < 1920px) */
+@media screen and (orientation: portrait) {
 
-.epigraph1 {
+.epigraph {
 text-align: justify;
 width: fit-content;
 font-size: 0.7rem;
-margin-left: auto;
+margin-left: auto; /**/
+margin-right: 2ch;
+margin-bottom: 9vw;
+max-width: 45ch;
+}
+}
+
+@media screen and (orientation: landscape) {
+
+.epigraph {
+text-align: justify;
+width: fit-content;
+font-size: 0.7rem;
+margin-left: 22%;
 margin-right: 2ch;
 margin-bottom: 9vw;
 max-width: 45ch;
 }
 
-.epigraph2 {
-text-align: justify;
-width: fit-content;
-font-size: 0.7rem;
-margin-left: auto;
-margin-right: 2ch;
-margin-bottom: 9vw;
-max-width: 45ch;
 }
 
+/*
 .epigraph3 {
 text-align: justify;
 width: fit-content;
@@ -51,7 +59,7 @@ margin-right: 2ch;
 margin-bottom: 9vw;
 max-width: 45ch;
 }
-
+*/
 .r {
 text-align: right;
 }
@@ -66,10 +74,11 @@ text
 
 
 
-<div class="epigraph1">
+<div class="epigraph">
 Pétri de vanité il avait encore plus de cette espèce d'orgueil qui fait avouer avec la même indifférence les bonnes comme les mauvaises actions, suite d'un sentiment de supériorité, peut-être imaginaire.<p class="r"><i><span title="Проникнутый тщеславием, он обладал сверх того ещё особенной гордостью, которая побуждает признаваться с одинаковым равнодушием в своих как добрых, так и дурных поступках,— следствие чувства превосходства, быть может мнимого.&lt;p class='r'>&lt;i>Из частного письма (франц.).&lt;/i>&lt;/p>">Tiré d'une lettre particuliêre.*</span></i> <div class="disk"></div>
 </p>
 </div>
+<!-- 
 <div class="epigraph2">
 Pétri de vanité il avait encore plus de cette espèce d'orgueil qui fait avouer avec la même indifférence les bonnes comme les mauvaises actions, suite d'un sentiment de supériorité, peut-être imaginaire.<p class="r"><i><span title="Проникнутый тщеславием, он обладал сверх того ещё особенной гордостью, которая побуждает признаваться с одинаковым равнодушием в своих как добрых, так и дурных поступках,— следствие чувства превосходства, быть может мнимого.&lt;p class='r'>&lt;i>Из частного письма (франц.).&lt;/i>&lt;/p>">Tiré d'une lettre particuliêre.*</span></i> <div class="disk"></div>
 </p>
@@ -82,15 +91,16 @@ Pétri de vanité il avait encore plus de cette espèce d'orgueil qui fait avoue
 Pétri de vanité il avait encore plus de cette espèce d'orgueil qui fait avouer avec la même indifférence les bonnes comme les mauvaises actions, suite d'un sentiment de supériorité, peut-être imaginaire.<p class="r"><i><span title="Проникнутый тщеславием, он обладал сверх того ещё особенной гордостью, которая побуждает признаваться с одинаковым равнодушием в своих как добрых, так и дурных поступках,— следствие чувства превосходства, быть может мнимого.&lt;p class='r'>&lt;i>Из частного письма (франц.).&lt;/i>&lt;/p>">Tiré d'une lettre particuliêre.*</span></i> <div class="disk"></div>
 </p>
 </div>
+ -->
 
 
-
-<div class="epigraph1">
+<div class="epigraph">
 И жить торопится и чувствовать спешит.
 <p class="r">
 <i><span class="data" onclick="showCom('c4','big')">К. Вяземский*</span></i>
 </p>
 </div>
+<!-- 
 <div class="epigraph2">
 И жить торопится и чувствовать спешит.
 <p class="r">
@@ -109,5 +119,5 @@ Pétri de vanité il avait encore plus de cette espèce d'orgueil qui fait avoue
 <i><span class="data" onclick="showCom('c4','big')">К. Вяземский*</span></i>
 </p>
 </div>
-
+ -->
 </html>
