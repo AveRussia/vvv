@@ -249,8 +249,44 @@ padding: 0 29px 29px 0;
 .data {
 cursor: var(--info);
 }
-	
+
+.soni {
+	position: relative;
+	width: 50px;
+	height: 50px;
+	margin: -20px -7px -20px -23px;
+	/*border: 1px solid red;*/
+}
+
+.soni use{
+	fill: red;
+	stroke: gray;
+	stroke-width: 1px;
+}
+
+.circle {
+	animation: pulse 3s var(--d) infinite linear;
+	fill: none;
+	stroke: aqua;
+	stroke-width: 1px;
+	/*stroke-dasharray: 1.35;*/
+	opacity: 0;
+}
+@keyframes pulse {
+	0% {transform: scale(1); transform-origin: 50px 50px; opacity:0}
+	50% {transform: scale(2); transform-origin: 50px 50px; opacity:1}
+	100% {transform: scale(3); transform-origin: 50px 50px; opacity:0}
+}
+
 </style>
+
+
+
+
+
+
+
+
 
 
 
@@ -284,16 +320,16 @@ font-size: 1.7rem;
 font-size: 1.3rem;
 margin-left: 49%;
 margin-right: 2ch;
-margin-bottom: 9vw;
+margin-bottom: 5vw;
 max-width: 49ch;
 }
 #note {
 max-width: 499px;
 }
 #bigCommentBox, #shortCommentBox {
-max-width: 97%;
+max-width: 790px;
 padding: 21px;
-font-size: 14px;
+font-size: 1.1rem;
 z-index: 3;
 }
 
@@ -655,7 +691,7 @@ font-size: 1.5rem;
 </div>
 
 <div class="epigraph">
-Pétri de vanité il avait encore plus de cette espèce d'orgueil qui fait avouer avec la même indifférence les bonnes comme les mauvaises actions, suite d'un sentiment de supériorité, peut-être imaginaire.<p class="r"><i><span title="Проникнутый тщеславием, он обладал сверх того ещё особенной гордостью, которая побуждает признаваться с одинаковым равнодушием в своих как добрых, так и дурных поступках,— следствие чувства превосходства, быть может мнимого.&lt;p class='r'>&lt;i>Из частного письма (франц.).&lt;/i>&lt;/p>">Tiré d'une lettre particuliêre.*</span></i> <div class="disk"></div>
+Pétri de vanité il avait encore plus de cette espèce d'orgueil qui fait avouer avec la même indifférence les bonnes comme les mauvaises actions, suite d'un sentiment de supériorité, peut-être imaginaire.<p class="r"><i><span title="Проникнутый тщеславием, он обладал сверх того ещё особенной гордостью, которая побуждает признаваться с одинаковым равнодушием в своих как добрых, так и дурных поступках,— следствие чувства превосходства, быть может мнимого.&lt;p class='r'>&lt;i>Из частного письма (франц.).&lt;/i>&lt;/p>">Tiré d'une lettre particuliêre.*</span></i> <svg class='soni' viewBox='30 2 40 95' style="width: 55px; height: 55px; margin: -24px -19px; border: 1px solid transparent" onclick="playAudio(this, 'Epigraph1')"><use href='#sonic' /></svg>
 </p>
 </div>
 
@@ -683,7 +719,7 @@ Pétri de vanité il avait encore plus de cette espèce d'orgueil qui fait avoue
 <h2>Глава первая</h2>
 
 <span class="data prim" onclick="showCom('c2','short')">прим.</span>
-<br />
+<br /><br />
 <span class="data prim" onclick="showCom('c3','short')">прим.</span>
 
 <div class="epigraph nonebreak">
@@ -710,13 +746,96 @@ Pétri de vanité il avait encore plus de cette espèce d'orgueil qui fait avoue
 Печально подносить лекарство,
 Вздыхать и думать про себя:
 Когда же чорт возьмёт тебя!»
+
+
+				II
+
+Так думал молодой повеса,
+Летя в пыли на <span title="На почтовы&#769;х — на почто&#769;вых, казённых лошадях, которые сменялись на каждой станции, и потому путешествие совершалось гораздо быстрее, чем на собственных лошадях (ср. поездку Лариных в Москву, глава седьмая, строфа XXXV).">почтовых*,</span>
+Всевышней волею <span title="Зеве&#769;са, т.е. Зе&#769;вса.<br />Зе&#769;вс в древнегреческой мифологии — верховный бог.<br />У римлян — Юпи&#769;тер.">Зевеса*</span>
+Наследник всех своих родных.—
+Друзья Людмилы и Руслана!
+С героем моего романа
+Без предисловий, сей же час
+Позвольте познакомить вас:
+Онегин, добрый мой приятель,
+Родился на брегах Невы,
+Где, может быть, родились вы,
+Или блистали, мой читатель;
+Там некогда гулял и я:
+<a href="#1"><span title="Цифрами отмечены слова, примечания к которым даны Пушкиным. Эти примечания традиционно помещаются в конце романа.&lt;br />&lt;hr />Этот стих — намёк на ссылку Пушкина на юг.">Но вреден север для меня.*</span><sup><span title="К примечаниям">1</span></sup></a>
+
+				III
+
+Служив <span title="Отлично-благородно — старинное выражение казённых служебных аттестатов.">отлично-благородно*</span>,
+Долгами жил его отец,
+Давал три бала ежегодно
+И промотался наконец.
+Судьба Евгения хранила:
+Сперва <i><span title="<svg id='madame' class='soni' viewBox='30 2 40 95' onclick='playAudio(this, this.id)'><use href='#sonic' /></svg>Мадам (франц.) — зд. гувернантка, воспитательница.">Madame*</span></i> за ним ходила,
+Потом <i><span title="<svg id='monsieur' class='soni' viewBox='30 2 40 95' onclick='playAudio(this, this.id)'><use href='#sonic' /></svg> Мосьё (франц.) — зд. гувернёр, воспитатель.">Monsieur*</span></i> её сменил;
+Ребенок был резов, но мил.
+<i><span title="<svg id='monsieur-lAbbe' class='soni' viewBox='30 2 40 95' onclick='playAudio(this, this.id)'><use href='#sonic' /></svg> Мосьё ль'Аббе (франц.) — господин Аббат.">Monsieur l'Abb&eacute;*</span></i>, француз убогой,
+Чтоб не измучилось дитя,
+Учил его всему шутя,
+Не докучал моралью строгой,
+Слегка за шалости бранил,
+И в Летний сад гулять водил.
+
+				IV
+
+Когда же юности мятежной
+Пришла Евгению пора,
+Пора надежд и грусти нежной,
+<i>Monsieur</i> прогнали со двора.
+Вот мой Онегин на свободе;
+Острижен по последней моде;
+Как <a href="#2"><i><span title="<svg id='dandy' class='soni' viewBox='30 2 40 95' onclick='playAudio(this, this.id)'><use href='#sonic' /></svg> К примечаниям">dandy</span></i><sup>2</sup></a> лондонский одет —
+И наконец увидел свет.
+Он по-французски совершенно
+Мог изъясняться и писал;
+Легко мазурку танцовал,
+И кланялся непринужденно;
+Чего ж вам больше? Свет решил,
+Что он умен и очень мил.
+
+<!-- <tt class="data" onclick="showCom('c5','short')">V</tt>        <u>V</u> -->
+<tt id="cc5">V</tt>				V
+
+Мы все учились понемногу
+Чему-нибудь и как-нибудь,
+Так воспитаньем, слава богу,
+У нас немудрено блеснуть.
+Онегин был по мненью многих
+(Судей решительных и строгих)
+Ученый малый, но <span title="Педа&#769;нт — здесь это слово имеет значение: человек с принципами и взглядами, расходящимися со взглядами светского общества.">педант*</span>:
+Имел он счастливый талант
+Без принужденья в разговоре
+Коснуться до всего слегка,
+С ученым видом знатока
+Хранить молчанье в важном споре,
+И возбуждать улыбку дам
+Огнём нежданных <span title="Эпигра&#769;мма [др.-греч. ἐπίγραμμα «надпись», от ἐπι — на, над + γρᾱ́φω — писать +‎ -μᾱ (суффикс)]&lt;br />1) у древних греков — надпись на памятнике, здании, подарке и т.п., объяснявшая значение предмета;&lt;br />2) стихотворная острота, короткий сатирический выпад в стихах, например:
+&lt;p class='PT' style='margin-left: 49px'>
+Как брань тебе не надоела!&lt;br />
+Расчёт короток мой с тобой:&lt;br />
+Ну, так, я празден, я без дела;&lt;br />
+А ты бездельник деловой.&lt;/p>
+&lt;div class='r'>&lt;i>А. С. Пушкин&lt;/i>&lt;/div>">эпиграмм*</span>.
+
 </pre>
 
-<tt class="">IV</tt>
+<!-- 
+<style type="text/css">
+#test:first-of-type path {
+  transform:translate(-43px,-39px);
+}
+</style>
 
+<svg id="test" xmlns="http://www.w3.org/2000/svg" style="margin: 8px 0 -8px 0; border: 1px solid transparent" width="25px" height="25px"><path id="sonic" d="M 44,40 61,50 44,60 Z" stroke="gray" stroke-width="1px" fill="gray" />Не удалять! viewBox="43 39 22 22"</svg>
+ -->
 
-
-
+<svg id="test" xmlns="http://www.w3.org/2000/svg" style="margin: 8px 0 -8px 0; border: 1px solid transparent" viewBox="30 2 40 95" stroke="gray" stroke-width="1px" fill="gray" width="50px" height="50px"><path id="sonic" d="M 44,40 61,50 44,60 Z" />Не удалять!</svg>
 
 
 
@@ -776,25 +895,25 @@ Pétri de vanité il avait encore plus de cette espèce d'orgueil qui fait avoue
 <p>
 «N. В. Все пропуски в сем сочинении, означенные точками, сделаны самим автором».
 </p>
-Последнее примечание было вызвано тем, что запрещалось означать точками исключенные цензурой места. В дальнейшем вообще некоторое время запрещали означать какие бы то ни было пропуски точками, и в главах 4—7 точек, означающих пропуски, уже нет.
+Последнее примечание было вызвано тем, что запрещалось означать точками исключённые цензурой места. В дальнейшем вообще некоторое время запрещали означать какие бы то ни было пропуски точками, и в главах 4—7 точек, означающих пропуски, уже нет.
 <p>
 В беловой рукописи было два эпиграфа к первой главе, не появившихся в печати:
 </p>
-<div style="width: 199px; margin-left: 199px">
+<div style="width: fit-content; margin: 0 auto">
 <span title="Цитата из «Пиров» Баратынского.">Собранье пламенных замет
 <br />
 Богатой жизни юных лет.*</span>
-<br />
+<br /><br />
 <div class="r">
 <i><span class="data" onclick="showCom('c98','short')">Баратынский.*</span></i>
 </div>
 </div>
 <br />
-<div style="width: 249px; margin-left: 199px">
-Nothing is such an <span title="enemy">ennemy*</span> to accuracy of judgment as a coarse discrimination.
-<br />
+<div style="width: fit-content; margin: 0 auto">
+<span title="Ничто так не враждебно точности суждения,<br /> как недостаточное различение. (англ.) <br /><br /><div class='r'><em>Бёрк.</em></div><hr>ennemy — enemy">Nothing is such an ennemy to accuracy of judgment as a coarse discrimination.*</span>
+<br /><br />
 <div class="r">
-<i><span title="Ничто так не враждебно точности суждения, как недостаточное различение. Бёрк. (англ.)">Burke.*</span></i>
+<i>Burke.</i>
 </div>
 </div>
 <br />
@@ -828,12 +947,14 @@ Nothing is such an <span title="enemy">ennemy*</span> to accuracy of judgment as
 <br />
 Ему принадлежат такие ставшие широко известными афоризмы, как:
 <pre>
+
 • Не напрасно дедов слово
   Затвердил народный ум:
   «Что для русского здорово,
   То для немца <span title="Карачу&#769;н — смерть.">карачун*!</span>»
-</pre>
+
 • В России суровость законов умеряется их неисполнением.
+</pre>
 </div>
 
 <div id="c98">
@@ -1134,9 +1255,24 @@ even = !(times % 2); // результат true или false
 /* Конец открытия больших картинок */
 
 
+/* Плеер начало */
+
+function playAudio(elem, src){
+let circle = (_,i) => `<circle cx='50' cy='50' r='15' style='--d:${0.75*i}s' class='circle' /><path d='M 44,40 61,50 44,60 Z' stroke='gray' fill='aqua' stroke-width='1px' />`
+elem.innerHTML = [...Array(4)].map(circle).join('');
+var audio = new Audio(src+'.mp3');
+audio.play();
+audio.addEventListener('ended', function() {
+elem.innerHTML = '<path d="M 44,40 61,50 44,60 Z" stroke="gray" stroke-width="1px" fill="gray" />';
+});
+}
+
+/* Плеер конец */
+
 var OSName="UnknownOS";
 if (navigator.appVersion.indexOf("Win")!=-1) document.styleSheets[2].disabled = true;
 else document.styleSheets[1].disabled = true;
+
 </script>
 
 </body>
