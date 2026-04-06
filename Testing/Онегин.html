@@ -86,7 +86,7 @@ white-space: pre;
 
 
 
-
+/* Для телефона */
 
 @media screen and (orientation: portrait) and (300px < width < 600px) {
 
@@ -146,15 +146,16 @@ font-size: 1.5rem;
 text-align: center;
 }
 
-pre.mainText {
-font-size: 1.3rem;
-}
 .epigraph {
 font-size: 1rem;
 margin-left: 33%;
 margin-right: 2ch;
 margin-bottom: 9vw;
 max-width: 39ch;
+}
+
+pre.mainText {
+font-size: 1.3rem;
 }
 #note {
 max-width: 333px;
@@ -223,7 +224,7 @@ font-size: 0.9rem;
 
 
 
-
+/* Для телефона */
 
 @media screen and (orientation: landscape) {
 
@@ -268,6 +269,51 @@ font-size: 0.9rem;
 
 }
 
+
+/* Для планшета */
+
+@media screen and (orientation: landscape) and (800px < width < 1920px) {
+
+h2 {
+font: 3.5rem Pouchkine, cursive, fantasy;
+text-align: center;
+}
+h3 {
+font-size: 1.5rem;
+text-align: center;
+}
+
+.epigraph {
+font-size: 1.1rem;
+margin-left: auto;
+margin-right: 13%;
+margin-bottom: 9vw;
+max-width: 45ch;
+}
+pre.mainText {
+font-size: 1.5rem;
+}
+
+#note {
+max-width: 499px;
+}
+
+#bigCommentBox, #shortCommentBox {
+max-width: 679px;
+padding: 21px;
+font-size: 16px;
+z-index: 3;
+}
+
+tt {
+font-size: 1.5rem; color: #999;
+}
+
+.prim {
+font-size: 0.9rem;
+}
+
+}
 
 
 /*
