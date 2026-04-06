@@ -54,9 +54,10 @@ pre {
 font-family: serif;
 }
 pre.mainText {
+font-family: serif;
 margin: 0 auto;
 width: fit-content;
-max-width: 95%;
+max-width: 98%;
 /*white-space: pre-wrap;*/
 }
 
@@ -77,6 +78,11 @@ text-align: justify;
 z-index: 3;
 }
 
+.nonebreak {
+white-space: pre;
+}
+
+
 
 
 
@@ -93,19 +99,22 @@ font-size: 1rem;
 text-align: center;
 }
 
+.epigraph {
+font-size: 0.7rem;
+margin-left: auto;
+margin-right: 2ch;
+margin-bottom: 9vw;
+max-width: 45ch;
+}
+
 pre.mainText {
 font-size: 1rem;
 }
-.epigraph {
-font-size: 0.7rem;
-margin-left: 25%;
-margin-right: 2ch;
-margin-bottom: 9vw;
-max-width: 59ch;
-}
+
 #note {
 max-width: 333px;
 }
+
 #bigCommentBox, #shortCommentBox {
 max-width: 97%;
 padding: 21px;
@@ -525,7 +534,7 @@ Pétri de vanité il avait encore plus de cette espèce d'orgueil qui fait avoue
 <br />
 <span class="data prim" onclick="showCom('c3','short')">прим.</span>
 
-<div class="epigraph">
+<div class="epigraph nonebreak">
 И жить торопится и чувствовать спешит.
 <p class="r">
 <i><span class="data" onclick="showCom('c4','big')">К. Вяземский*</span></i>
