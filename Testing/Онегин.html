@@ -255,7 +255,7 @@ cursor: var(--info);
 	width: 50px;
 	height: 50px;
 	margin: -20px -7px -20px -23px;
-	/*border: 1px solid red;*/
+	border: 0.1px solid red;/**/
 }
 
 .soni use{
@@ -1068,7 +1068,7 @@ items[myIndex].title="";
 if (src.id=='note') notecontainer.style.left=contLeft;
 
 src.addEventListener('mouseleave', function() {
-	if (src.tagName=='SPAN' && src.hasAttribute('title') || src.id=='note')
+	if (src.tagName=='SPAN' && src.hasAttribute('title') || src.id=='note' || src.parentElement.id=='note')
 	{
 	items[myIndex].title = tmptitlesave;
 	document.getElementById("note").style.left=-999+"px";
