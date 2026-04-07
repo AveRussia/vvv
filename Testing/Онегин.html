@@ -278,6 +278,21 @@ cursor: var(--info);
 	100% {transform: scale(3); transform-origin: 50px 50px; opacity:0}
 }
 
+
+.ring {
+	animation: spred 3s var(--d) infinite linear;
+	fill: none;
+	stroke: aqua;
+	stroke-width: 0.3px;
+	/*stroke-dasharray: 1.35;*/
+	opacity: 0;
+}
+@keyframes spred {
+	0% {transform: scale(1); transform-origin: 11px 6px; opacity:0.5}
+	50% {transform: scale(2); transform-origin: 11px 6px; opacity:1}
+	100% {transform: scale(3); transform-origin: 11px 6px; opacity:0}
+}
+
 </style>
 
 
@@ -691,7 +706,7 @@ font-size: 1.5rem;
 </div>
 
 <div class="epigraph">
-Pétri de vanité il avait encore plus de cette espèce d'orgueil qui fait avouer avec la même indifférence les bonnes comme les mauvaises actions, suite d'un sentiment de supériorité, peut-être imaginaire.<p class="r"><i><span title="Проникнутый тщеславием, он обладал сверх того ещё особенной гордостью, которая побуждает признаваться с одинаковым равнодушием в своих как добрых, так и дурных поступках,— следствие чувства превосходства, быть может мнимого.&lt;p class='r'>&lt;i>Из частного письма (франц.).&lt;/i>&lt;/p>">Tiré d'une lettre particuliêre.*</span></i> <svg class='soni' viewBox='30 2 40 95' style="width: 55px; height: 55px; margin: -24px -19px; border: 1px solid transparent" onclick="playAudio(this, 'Epigraph1')"><use href='#sonic' /></svg>
+Pétri de vanité il avait encore plus de cette espèce d'orgueil qui fait avouer avec la même indifférence les bonnes comme les mauvaises actions, suite d'un sentiment de supériorité, peut-être imaginaire.<p class="r"><i><span title="Проникнутый тщеславием, он обладал сверх того ещё особенной гордостью, которая побуждает признаваться с одинаковым равнодушием в своих как добрых, так и дурных поступках,— следствие чувства превосходства, быть может мнимого.&lt;p class='r'>&lt;i>Из частного письма (франц.).&lt;/i>&lt;/p>">Tiré d'une lettre particuliêre.*</span></i> <svg viewBox='2.5 -4 20 15' style="width: 26px; height: 17px" onclick="playLongAudio(this, 'Epigraph1')"><use href="#megaphon" /></svg>
 </p>
 </div>
 
@@ -772,10 +787,10 @@ Pétri de vanité il avait encore plus de cette espèce d'orgueil qui fait avoue
 Давал три бала ежегодно
 И промотался наконец.
 Судьба Евгения хранила:
-Сперва <i><span title="<svg id='madame' class='soni' viewBox='30 2 40 95' onclick='playAudio(this, this.id)'><use href='#sonic' /></svg>Мадам (франц.) — зд. гувернантка, воспитательница.">Madame*</span></i> за ним ходила,
-Потом <i><span title="<svg id='monsieur' class='soni' viewBox='30 2 40 95' onclick='playAudio(this, this.id)'><use href='#sonic' /></svg> Мосьё (франц.) — зд. гувернёр, воспитатель.">Monsieur*</span></i> её сменил;
+Сперва <i><span title="<svg id='madame' viewBox='2.5 -4 20 15' style='width: 26px; height: 17px' onclick='playShortAudio(this, this.id)'><use href='#megaphon' /></svg> Мадам (франц.) — зд. гувернантка, воспитательница.">Madame*</span></i> за ним ходила,
+Потом <i><span title="<svg id='monsieur' viewBox='2.5 -4 20 15' style='width: 26px; height: 17px' onclick='playShortAudio(this, this.id)'><use href='#megaphon' /></svg> Мосьё (франц.) — зд. гувернёр, воспитатель.">Monsieur*</span></i> её сменил;
 Ребенок был резов, но мил.
-<i><span title="<svg id='monsieur-lAbbe' class='soni' viewBox='30 2 40 95' onclick='playAudio(this, this.id)'><use href='#sonic' /></svg> Мосьё ль'Аббе (франц.) — господин Аббат.">Monsieur l'Abb&eacute;*</span></i>, француз убогой,
+<i><span title="<svg id='monsieur-lAbbe' viewBox='2.5 -4 20 15' style='width: 26px; height: 17px' onclick='playShortAudio(this, this.id)'><use href='#megaphon' /></svg> Мосьё ль'Аббе (франц.) — букв. господин Аббат.">Monsieur l'Abb&eacute;*</span></i>, француз убогой,
 Чтоб не измучилось дитя,
 Учил его всему шутя,
 Не докучал моралью строгой,
@@ -1255,25 +1270,48 @@ even = !(times % 2); // результат true или false
 /* Конец открытия больших картинок */
 
 
-/* Плеер начало */
+/* Плееры начало */
 
-function playAudio(elem, src){
-let circle = (_,i) => `<circle cx='50' cy='50' r='15' style='--d:${0.75*i}s' class='circle' /><path d='M 44,40 61,50 44,60 Z' stroke='gray' fill='aqua' stroke-width='1px' />`
-elem.innerHTML = [...Array(4)].map(circle).join('');
+function playShortAudio(elem, src){
+
+let ring = (_,i) => `<g style='transform: rotate(-9deg)'><circle cx='12.5' cy='6' r='2.3' style='--d:${0.75*i}s' class='ring' /></g><use href='#megaphon' />`
+elem.innerHTML = [...Array(4)].map(ring).join('');
 var audio = new Audio(src+'.mp3');
 audio.play();
 audio.addEventListener('ended', function() {
-elem.innerHTML = '<path d="M 44,40 61,50 44,60 Z" stroke="gray" stroke-width="1px" fill="gray" />';
+elem.innerHTML = '<use href="#megaphon" />';
 });
 }
 
-/* Плеер конец */
+function playLongAudio(elem, id){
+
+let circle = (_,i) => `<g style='transform: rotate(-9deg)'><circle cx='12.5' cy='6' r='2.3' style='--d:${0.75*i}s' class='ring' /></g><use href='#megaphon' />`
+elem.innerHTML = [...Array(4)].map(circle).join('');
+var audio = document.getElementById(id);
+audio.paused ? audio.play() : audio.pause();
+audio.addEventListener('pause', function() {
+elem.innerHTML = '<use href="#megaphon" />';
+});
+}
+
+/* Плееры конец */
 
 var OSName="UnknownOS";
 if (navigator.appVersion.indexOf("Win")!=-1) document.styleSheets[2].disabled = true;
 else document.styleSheets[1].disabled = true;
 
+
+/*
+document.addEventListener('mouseover', function(e) {
+console.log(e.srcElement.tagName);
+});
+*/
 </script>
+
+<svg style="display: none" width="16" height="12" viewBox="0 0 16 12" xmlns="http://www.w3.org/2000/svg"><g id="megaphon" style="transform: rotate(-9deg)"><circle cx="11" cy="6" r="1.4" style="fill:white;stroke-width:0.25;stroke:white"/><path d="m2.5 3.7c4.7 0.051 6.9-0.85 8.6-3.7v12c-1.7-3-3.9-3.8-8.6-3.8-3.1-0.031-3-4.5 0-4.5z" style="fill:white;stroke-width:0.25;stroke:black"/><path d="m2.7 8.0 1.4 0.058c0.16 1.3 1 2.7 1.8 3.3-0.16 0.3-0.86 0.65-1.4 0.35-0.66-0.39-1.6-1.7-1.8-3.7z" style="fill:white;stroke-width:0.25;stroke:black"/><rect x="2.3" y="3.4" width="3" height="5" style="fill:darkorange;stroke-width:0.25;stroke:none"/></g></svg>
+
+<audio id="Epigraph1" src="Epigraph1.mp3"></audio>
+<audio id="Malfilâtre" src="Malfilâtre.mp3"></audio>
 
 </body>
 </html>
