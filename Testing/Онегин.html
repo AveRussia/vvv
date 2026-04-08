@@ -167,7 +167,6 @@ h1:after {
 	text-shadow: #fff 2px 2px 2px, #333 -1px -1px 2px;
 }
 
-
 .toggle {
 position: sticky;
 width: 33px;
@@ -250,6 +249,8 @@ padding: 0 29px 29px 0;
 cursor: var(--info);
 }
 
+
+/* Блок плееров начало*/
 .soni {
 	position: relative;
 	width: 50px;
@@ -279,7 +280,7 @@ cursor: var(--info);
 }
 
 
-.ring {
+.circle {
 	animation: spred 3s var(--d) infinite linear;
 	fill: none;
 	stroke: aqua;
@@ -292,6 +293,47 @@ cursor: var(--info);
 	50% {transform: scale(2); transform-origin: 11px 6px; opacity:1}
 	100% {transform: scale(3); transform-origin: 11px 6px; opacity:0}
 }
+
+
+.ring {
+	box-sizing: border-box;
+	margin-top: -91px;
+	width: 91px;
+	height: 91px;
+	border: 5px solid var(--color-text);
+	border-radius: 50%;
+}
+.all {
+	width: 91px;
+	height: 91px;
+	background-color: var(--color-text);
+}
+.left {
+	clip-path: polygon(32px 22.4px, 52px 33.5px, 52px 56.3px, 32px 68.4px);
+transition: clip-path 500ms;
+}
+.right {
+	margin-top: -91px;
+	clip-path: polygon(50px 32.3px, 71.5px 44.4px, 71.5px 44.4px, 50px 57.5px);
+transition: clip-path 500ms;
+}
+.active .left {
+	clip-path: polygon(29px 27px, 40px 27px, 40px 65px, 29px 65px);
+}
+.active .right {
+	clip-path: polygon(51px 27px, 62px 27px, 62px 65px, 51px 65px);
+}
+.song {
+	display: inline-block;
+	position: absolute;
+	white-space: wrap; /* Необходимо для правильного отображения при размещении внутри тегов pre */
+	transform: scale(0.15);/**/
+	width: 20px;
+	height: 20px;
+	margin: -9px 0 9px -9px;
+}
+
+/* Блок плееров конец */
 
 </style>
 
@@ -328,9 +370,6 @@ font-size: 2rem;
 text-align: center;
 }
 
-pre.mainText {
-font-size: 1.7rem;
-}
 .epigraph {
 font-size: 1.3rem;
 margin-left: 49%;
@@ -338,9 +377,19 @@ margin-right: 2ch;
 margin-bottom: 5vw;
 max-width: 49ch;
 }
+
+pre.mainText {
+font-size: 1.7rem;
+}
+
+sup {
+font-size: 1.1rem;
+}
+
 #note {
 max-width: 499px;
 }
+
 #bigCommentBox, #shortCommentBox {
 max-width: 790px;
 padding: 21px;
@@ -402,6 +451,10 @@ pre.mainText {
 font-size: 1rem;
 }
 
+sup {
+font-size: 0.5rem;
+}
+
 #note {
 max-width: 333px;
 }
@@ -446,6 +499,10 @@ max-width: 45ch;
 }
 pre.mainText {
 font-size: 1.3rem;
+}
+
+sup {
+font-size: 0.7rem;
 }
 
 #note {
@@ -495,9 +552,15 @@ max-width: 39ch;
 pre.mainText {
 font-size: 1.3rem;
 }
+
+sup {
+font-size: 0.7rem;
+}
+
 #note {
 max-width: 333px;
 }
+
 #bigCommentBox, #shortCommentBox {
 max-width: 97%;
 padding: 21px;
@@ -539,6 +602,10 @@ pre.mainText {
 font-size: 1.5rem;
 }
 
+sup {
+font-size: 0.8rem;
+}
+
 #note {
 max-width: 499px;
 }
@@ -576,10 +643,6 @@ font-size: 2.5rem;
 text-align: center;
 }
 
-pre.mainText {
-font-size: 2rem;
-color: khaki;
-}
 .epigraph {
 font-size: 1.5rem;
 margin-left: 45%;
@@ -587,9 +650,20 @@ margin-right: 2ch;
 margin-bottom: 9vw;
 max-width: 39ch;
 }
+
+pre.mainText {
+font-size: 2rem;
+color: khaki;
+}
+
+sup {
+font-size: 1rem;
+}
+
 #note {
 max-width: 333px;
 }
+
 #bigCommentBox, #shortCommentBox {
 max-width: 97%;
 padding: 21px;
@@ -617,15 +691,12 @@ h2 {
 font: 5rem Pouchkine, cursive, fantasy;
 text-align: center;
 }
+
 h3 {
 font-size: 3rem;
 text-align: center;
 }
 
-pre.mainText {
-font-size: 2.3rem;
-color: aqua;
-}
 .epigraph {
 font-size: 1.7rem;
 margin-left: 45%;
@@ -633,9 +704,20 @@ margin-right: 2ch;
 margin-bottom: 9vw;
 max-width: 39ch;
 }
+
+pre.mainText {
+font-size: 2.3rem;
+color: aqua;
+}
+
+sup {
+font-size: 1.1rem;
+}
+
 #note {
 max-width: 333px;
 }
+
 #bigCommentBox, #shortCommentBox {
 max-width: 97%;
 padding: 21px;
@@ -706,7 +788,15 @@ font-size: 1.5rem;
 </div>
 
 <div class="epigraph">
-Pétri de vanité il avait encore plus de cette espèce d'orgueil qui fait avouer avec la même indifférence les bonnes comme les mauvaises actions, suite d'un sentiment de supériorité, peut-être imaginaire.<p class="r"><i><span title="Проникнутый тщеславием, он обладал сверх того ещё особенной гордостью, которая побуждает признаваться с одинаковым равнодушием в своих как добрых, так и дурных поступках,— следствие чувства превосходства, быть может мнимого.&lt;p class='r'>&lt;i>Из частного письма (франц.).&lt;/i>&lt;/p>">Tiré d'une lettre particuliêre.</span></i><svg viewBox='2.5 -4 20 15' style="width: 26px; height: 17px; margin: -7px 0 7px 0" onclick="playLongAudio(this, 'Epigraph1')"><use href="#megaphon" /></svg>
+Pétri de vanité il avait encore plus de cette espèce d'orgueil qui fait avouer avec la même indifférence les bonnes comme les mauvaises actions, suite d'un sentiment de supériorité, peut-être imaginaire.<div id="first" class="song" data-src="Epigraph1">
+<div class="all left"></div>
+<div class="all right"></div>
+<div class="ring"></div>
+</div>
+<p class="r"><i><span title="Проникнутый тщеславием, он обладал сверх того ещё особенной гордостью, которая побуждает признаваться с одинаковым равнодушием в своих как добрых, так и дурных поступках,— следствие чувства превосходства, быть может мнимого.&lt;p class='r'>&lt;i>Из частного письма (франц.).&lt;/i>&lt;/p>">Tiré d'une lettre particuliêre.</span></i><audio id="Epigraph1" src="Epigraph1.mp3"></audio>
+
+<svg viewBox='1.5 -3 20 16' style="width: 24px; height: 18px; margin: -7px 0 7px 0" onclick="playLongAudio(this, 'Epigraph1')"><use href="#megaphon" /></svg>
+
 </p>
 </div>
 
@@ -741,12 +831,16 @@ Pétri de vanité il avait encore plus de cette espèce d'orgueil qui fait avoue
 И жить торопится и чувствовать спешит.
 <p class="r">
 <i><span class="data" onclick="showCom('c4','big')">К. Вяземский*</span></i>
+
 </p>
 </div>
 
+
+
+
+
 <pre class="mainText">
 				I
-
 «Мой дядя самых честных правил,
 Когда не в шутку занемог,
 Он <span title="В старину «заставить себя уважать»<br /> иносказательно означало — быть при смерти.">уважать себя заставил*</span>
@@ -781,16 +875,16 @@ Pétri de vanité il avait encore plus de cette espèce d'orgueil qui fait avoue
 <a href="#1"><span title="Цифрами отмечены слова, примечания к которым даны Пушкиным. Эти примечания традиционно помещаются в конце романа.&lt;br />&lt;hr />Этот стих — намёк на ссылку Пушкина на юг.">Но вреден север для меня.</span><sup><span title="К примечаниям">1</span></sup></a>
 
 				III
-
+<audio id="Malfilatre" src="Malfilatre.mp3"></audio>
 Служив <span title="Отлично-благородно — старинное выражение казённых служебных аттестатов.">отлично-благородно*</span>,
 Долгами жил его отец,
 Давал три бала ежегодно
 И промотался наконец.
 Судьба Евгения хранила:
-Сперва <i><span title="Мадам (франц.) — зд. гувернантка, воспитательница.">Madame</span></i><svg id='madame' viewBox='2.5 -4 20 15' style='width: 26px; height: 17px; margin: -7px -11px 7px 4px' onclick='playShortAudio(this, this.id)'><use href='#megaphon' /></svg> за ним ходила,
-Потом <i><span title="Мосьё (франц.) — зд. гувернёр, воспитатель.">Monsieur</span></i><svg id='monsieur' viewBox='2.5 -4 20 15' style='width: 26px; height: 17px; margin: -7px -11px 7px 4px' onclick='playShortAudio(this, this.id)'><use href='#megaphon' /></svg> её сменил;
+Сперва <i><span title="Мадам (франц.) — зд. гувернантка, воспитательница.">Madame</span></i><div class='song' data-src='Malfilatre'></div>  за ним ходила,
+Потом <i><span title="Мосьё (франц.) — зд. гувернёр, воспитатель.">Monsieur</span></i><svg id='monsieur' viewBox='1.5 -3 20 16' style='width: 24px; height: 18px; margin: -6px -11px 6px 4px' onclick='playShortAudio(this, this.id)'><use href='#megaphon' /></svg> её сменил;
 Ребенок был резов, но мил.
-<i><span title="Мосьё ль'Аббе (франц.) — букв. господин Аббат.">Monsieur l'Abb&eacute;,</span></i><svg id='monsieur-lAbbe' viewBox='2.5 -4 20 15' style='width: 26px; height: 17px; margin: -11px -7px 7px 4px' onclick='playShortAudio(this, this.id)'><use href='#megaphon' /></svg> француз убогой,
+<i><span title="Мосьё ль'Аббе (франц.) — букв. господин Аббат.">Monsieur l'Abb&eacute;,</span></i><svg id='monsieur-lAbbe' viewBox='1.5 -3 20 16' style='width: 24px; height: 18px; margin: -6px -12px 6px 0' onclick='playShortAudio(this, this.id)'><use href='#megaphon' /></svg> француз убогой,
 Чтоб не измучилось дитя,
 Учил его всему шутя,
 Не докучал моралью строгой,
@@ -805,7 +899,7 @@ Pétri de vanité il avait encore plus de cette espèce d'orgueil qui fait avoue
 <i>Monsieur</i> прогнали со двора.
 Вот мой Онегин на свободе;
 Острижен по последней моде;
-Как <a href="#2"><i><span title="К примечаниям">dandy<sup>2</sup></span></i></a><svg id='dandy' viewBox='2.5 -4 20 15' style='width: 26px; height: 17px; margin: -7px -11px 7px 4px' onclick='playShortAudio(this, this.id)'><use href='#megaphon' /></svg> лондонский одет —
+Как <a href="#2"><i>dandy <sup><span title="К примечаниям">2</span></sup></i></a><svg id='dandy' viewBox='1.5 -3 20 16' style='width: 24px; height: 18px; margin: -6px -11px 6px 4px' onclick='playShortAudio(this, this.id)'><use href='#megaphon' /></svg> лондонский одет —
 И наконец увидел свет.
 Он по-французски совершенно
 Мог изъясняться и писал;
@@ -839,18 +933,6 @@ Pétri de vanité il avait encore plus de cette espèce d'orgueil qui fait avoue
 &lt;div class='r'>&lt;i>А. С. Пушкин&lt;/i>&lt;/div>">эпиграмм*</span>.
 
 </pre>
-
-<!-- 
-<style type="text/css">
-#test:first-of-type path {
-  transform:translate(-43px,-39px);
-}
-</style>
-
-<svg id="test" xmlns="http://www.w3.org/2000/svg" style="margin: 8px 0 -8px 0; border: 1px solid transparent" width="25px" height="25px"><path id="sonic" d="M 44,40 61,50 44,60 Z" stroke="gray" stroke-width="1px" fill="gray" />Не удалять! viewBox="43 39 22 22"</svg>
- -->
-
-<svg id="test" xmlns="http://www.w3.org/2000/svg" style="margin: 8px 0 -8px 0; border: 1px solid transparent" viewBox="30 2 40 95" stroke="gray" stroke-width="1px" fill="gray" width="50px" height="50px"><path id="sonic" d="M 44,40 61,50 44,60 Z" />Не удалять!</svg>
 
 
 
@@ -1274,7 +1356,7 @@ even = !(times % 2); // результат true или false
 
 function playShortAudio(elem, src){
 
-let ring = (_,i) => `<g style='transform: rotate(-9deg)'><circle cx='12.5' cy='6' r='2.3' style='--d:${0.75*i}s' class='ring' /></g><use href='#megaphon' />`
+let ring = (_,i) => `<g style='transform: rotate(-9deg)'><circle cx='12' cy='6' r='2.2' style='--d:${0.75*i}s' class='circle' /></g><use href='#megaphon' />`
 elem.innerHTML = [...Array(4)].map(ring).join('');
 var audio = new Audio(src+'.mp3');
 audio.play();
@@ -1285,7 +1367,7 @@ elem.innerHTML = '<use href="#megaphon" />';
 
 function playLongAudio(elem, id){
 
-let circle = (_,i) => `<g style='transform: rotate(-9deg)'><circle cx='12.5' cy='6' r='2.3' style='--d:${0.75*i}s' class='ring' /></g><use href='#megaphon' />`
+let circle = (_,i) => `<g style='transform: rotate(-9deg)'><circle cx='12' cy='6' r='2.2' style='--d:${0.75*i}s' class='circle' /></g><use href='#megaphon' />`
 elem.innerHTML = [...Array(4)].map(circle).join('');
 var audio = document.getElementById(id);
 audio.paused ? audio.play() : audio.pause();
@@ -1294,6 +1376,39 @@ elem.innerHTML = '<use href="#megaphon" />';
 });
 }
 
+
+
+var classN = document.getElementsByClassName('song');
+for (var i = 0; i < classN.length; ++i) {
+    var item = classN[i];
+    item.innerHTML = document.getElementById('first').innerHTML;
+}
+
+function onToggle(event) {
+
+var getAttr = event.target.parentElement.dataset.src; // Получение значения атрибута data-src
+var myAudio = document.getElementById(getAttr);
+
+// Замена значка на исходный по завершении проигрывания
+myAudio.addEventListener("ended", function() {
+event.target.parentElement.classList="song";
+});
+
+    document.querySelectorAll(".song").forEach(el => {
+		  el.classList.toggle('active');
+// Перебор елементов и исключение того, который был только что открыт с классом active
+      if (el === event.target.parentElement) {
+		myAudio.paused ? myAudio.play() : myAudio.pause();
+        return;
+      }
+      else {
+		el.classList="song"; // Закрытие предыдущего елемента с классом active
+		document.getElementById(el.dataset.src).pause();
+	  }
+    });
+}
+// Задаём отслеживание щелчка по любому из элементов класса .song
+document.querySelectorAll(".song").forEach(el => el.addEventListener("click", onToggle));
 /* Плееры конец */
 
 var OSName="UnknownOS";
@@ -1308,10 +1423,8 @@ console.log(e.srcElement.tagName);
 */
 </script>
 
-<svg style="display: none" width="16" height="12" viewBox="0 0 16 12" xmlns="http://www.w3.org/2000/svg"><g id="megaphon" style="transform: rotate(-9deg)"><circle cx="11" cy="6" r="1.4" style="fill:white;stroke-width:0.25;stroke:white"/><path d="m2.5 3.7c4.7 0.051 6.9-0.85 8.6-3.7v12c-1.7-3-3.9-3.8-8.6-3.8-3.1-0.031-3-4.5 0-4.5z" style="fill:white;stroke-width:0.25;stroke:black"/><path d="m2.7 8.0 1.4 0.058c0.16 1.3 1 2.7 1.8 3.3-0.16 0.3-0.86 0.65-1.4 0.35-0.66-0.39-1.6-1.7-1.8-3.7z" style="fill:white;stroke-width:0.25;stroke:black"/><rect x="2.3" y="3.4" width="3" height="5" style="fill:darkorange;stroke-width:0.25;stroke:none"/></g></svg>
+<svg style="display: none" width="12" height="14" viewBox="0 0 12 14" xmlns="http://www.w3.org/2000/svg"><g id="megaphon" style="transform: rotate(-9deg)"><circle cx="10" cy="6.1" r="1.4" style="fill:#ffffff;stroke-width:.25;stroke:#000000"/><path d="m2.4 3.8c3.8 0.012 6.1-0.97 7.9-3.7-0.27 3.5-0.35 7.4 0 12-1.7-2.8-4.1-3.8-7.9-3.8-3.1-0.031-3-4.5 0-4.5z" style="fill:#ffffff;stroke-width:.25;stroke:#000000"/><path d="m4.3 8.4c0.1 1.9 0.22 2.9 0.37 4.1 0.15 1-1.4 1.3-1.6 0.27-0.15-1.2-0.27-2.4-0.41-4.5z" style="fill:#ffffff;stroke-width:.25;stroke:#000000"/><path d="m2.2 3.6c0.43 0.0017 1.7-0.041 2.2-0.098-0.02 0.94-0.019 4.2 0.16 5-0.74-0.033-1.6-0.11-2.3-0.14-0.13-0.75-0.18-4-0.078-4.8z" style="fill:#ffa03d"/></g></svg>
 
-<audio id="Epigraph1" src="Epigraph1.mp3"></audio>
-<audio id="Malfilâtre" src="Malfilâtre.mp3"></audio>
 
 </body>
 </html>
