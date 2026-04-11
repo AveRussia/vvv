@@ -294,43 +294,50 @@ cursor: var(--info);
 	100% {transform: scale(3); transform-origin: 11px 6px; opacity:0}
 }
 
-
 .ring {
 	box-sizing: border-box;
 	margin-top: -91px;
 	width: 91px;
 	height: 91px;
-	border: 5px solid var(--color-text);
+	/*border: 5px solid var(--color-text);*/
 	border-radius: 50%;
 }
+
 .all {
 	width: 91px;
 	height: 91px;
+	background-color: #337ab7;
 	background-color: var(--color-text);
 }
+
 .left {
 	clip-path: polygon(32px 22.4px, 52px 33.5px, 52px 56.3px, 32px 68.4px);
+/*	clip-path: polygon(32px 35px, 44px 35px, 44px 54px, 32px 54px); */
 transition: clip-path 500ms;
 }
 .right {
 	margin-top: -91px;
 	clip-path: polygon(50px 32.3px, 71.5px 44.4px, 71.5px 44.4px, 50px 57.5px);
+/*	clip-path: polygon(46px 35px, 63px 25px, 63px 64px, 46px 54px); */
 transition: clip-path 500ms;
 }
 .active .left {
 	clip-path: polygon(29px 27px, 40px 27px, 40px 65px, 29px 65px);
+/*	clip-path: polygon(29px 25px, 40px 25px, 40px 64px, 29px 64px); */
 }
 .active .right {
 	clip-path: polygon(51px 27px, 62px 27px, 62px 65px, 51px 65px);
+/*	clip-path: polygon(51px 25px, 62px 25px, 62px 64px, 51px 64px); */
 }
-.song {
+.voice {
 	display: inline-block;
 	position: absolute;
 	white-space: wrap; /* Необходимо для правильного отображения при размещении внутри тегов pre */
-	transform: scale(0.15);/**/
+	transform: scale(0.23);/**/
 	width: 20px;
 	height: 20px;
-	margin: -9px 0 9px -9px;
+	margin: -11px 0 9px -12px;
+	cursor: url('data:image/svg+xml;utf8,<svg width="23" height="23.5" viewBox="0 0 115 117" xmlns="http://www.w3.org/2000/svg"><g style="fill:none;stroke-linecap:round;stroke:aqua"><path d="m15 101c-4.1-14-10-28-10-45-0.075-31 22-50 52-51 29 0.083 52 18 52 52-0.091 17-5.3 31-9.7 47" style="stroke-width:7.6"/><path d="m25 77 9 31" style="stroke-width:19"/><path d="m89 77-9 31" style="stroke-width:19"/><path d="m107 85-6.4 22" style="stroke-width:13"/><path d="m7.3 85 7.2 23" style="stroke-width:13"/></g></svg>'), auto;
 }
 
 /* Блок плееров конец */
@@ -788,7 +795,7 @@ font-size: 1.5rem;
 </div>
 
 <div class="epigraph">
-Pétri de vanité il avait encore plus de cette espèce d'orgueil qui fait avouer avec la même indifférence les bonnes comme les mauvaises actions, suite d'un sentiment de supériorité, peut-être imaginaire.<div id="first" class="song" data-src="Epigraph1">
+Pétri de vanité il avait encore plus de cette espèce d'orgueil qui fait avouer avec la même indifférence les bonnes comme les mauvaises actions, suite d'un sentiment de supériorité, peut-être imaginaire.<div id="first" class="voice" data-src="Epigraph1">
 <div class="all left"></div>
 <div class="all right"></div>
 <div class="ring"></div>
@@ -875,14 +882,14 @@ Pétri de vanité il avait encore plus de cette espèce d'orgueil qui fait avoue
 <a href="#1"><span title="Цифрами отмечены слова, примечания к которым даны Пушкиным. Эти примечания традиционно помещаются в конце романа.&lt;br />&lt;hr />Этот стих — намёк на ссылку Пушкина на юг.">Но вреден север для меня.</span><sup><span title="К примечаниям">1</span></sup></a>
 
 				III
-<div class='song' data-src='Malfilatre'></div><audio id="Malfilatre" src="Malfilatre.mp3"></audio>
+
 Служив <span title="Отлично-благородно — старинное выражение казённых служебных аттестатов.">отлично-благородно*</span>,
 Долгами жил его отец,
 Давал три бала ежегодно
 И промотался наконец.
 Судьба Евгения хранила:
-Сперва <i><span title="Мадам (франц.) — зд. гувернантка, воспитательница.">Madame</span></i>  за ним ходила,
-Потом <i><span title="Мосьё (франц.) — зд. гувернёр, воспитатель.">Monsieur</span></i><svg id='monsieur' viewBox='1.5 -3 20 16' style='width: 24px; height: 18px; margin: -6px -11px 6px 4px' onclick='playShortAudio(this, this.id)'><use href='#megaphon' /></svg> её сменил;
+Сперва <i><span title="Мадам (франц.) — зд. гувернантка, воспитательница.">Madame</span></i><div class='voice' data-src='Malfilatre'></div><audio id="Malfilatre" src="Malfilatre.mp3"></audio>  за ним ходила,
+Потом <i><span title="Мосьё (франц.) — зд. гувернёр, воспитатель.">Monsieur</span></i><svg width="14" height="14" viewBox="2 -5 723 671" xmlns="http://www.w3.org/2000/svg" style="margin: -13px -3px 13px 2px"><g  style="fill:white;stroke-width:3px;stroke:none"><path d="m425 277c-44-80-104-241-75-257 78-50 397 515 327 564-32 22-151-135-175-174 84-64 26-173-77-132z"/><path d="m334 109c41 173 155 352 275 460-149-30-281-31-448 79-123 73-233-102-92-183 166-104 214-189 265-356z"/></g></svg><!--svg id='monsieur' viewBox='1.5 -3 20 16' style='width: 24px; height: 18px; margin: -6px -11px 6px 4px' onclick='playShortAudio(this, this.id)'><use href='#megaphon' /></svg--> её сменил;
 Ребенок был резов, но мил.
 <i><span title="Мосьё ль'Аббе (франц.) — букв. господин Аббат.">Monsieur l'Abb&eacute;,</span></i><svg id='monsieur-lAbbe' viewBox='1.5 -3 20 16' style='width: 24px; height: 18px; margin: -6px -12px 6px 0' onclick='playShortAudio(this, this.id)'><use href='#megaphon' /></svg> француз убогой,
 Чтоб не измучилось дитя,
@@ -1378,7 +1385,7 @@ elem.innerHTML = '<use href="#megaphon" />';
 
 
 
-var classN = document.getElementsByClassName('song');
+var classN = document.getElementsByClassName('voice');
 for (var i = 0; i < classN.length; ++i) {
     var item = classN[i];
     item.innerHTML = document.getElementById('first').innerHTML;
@@ -1391,10 +1398,10 @@ var myAudio = document.getElementById(getAttr);
 
 // Замена значка на исходный по завершении проигрывания
 myAudio.addEventListener("ended", function() {
-event.target.parentElement.classList="song";
+event.target.parentElement.classList="voice";
 });
 
-    document.querySelectorAll(".song").forEach(el => {
+    document.querySelectorAll(".voice").forEach(el => {
 		  el.classList.toggle('active');
 // Перебор елементов и исключение того, который был только что открыт с классом active
       if (el === event.target.parentElement) {
@@ -1402,13 +1409,13 @@ event.target.parentElement.classList="song";
         return;
       }
       else {
-		el.classList="song"; // Закрытие предыдущего елемента с классом active
+		el.classList="voice"; // Закрытие предыдущего елемента с классом active
 		document.getElementById(el.dataset.src).pause();
 	  }
     });
 }
-// Задаём отслеживание щелчка по любому из элементов класса .song
-document.querySelectorAll(".song").forEach(el => el.addEventListener("click", onToggle));
+// Задаём отслеживание щелчка по любому из элементов класса .voice
+document.querySelectorAll(".voice").forEach(el => el.addEventListener("click", onToggle));
 /* Плееры конец */
 
 var OSName="UnknownOS";
