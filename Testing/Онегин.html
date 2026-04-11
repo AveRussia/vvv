@@ -303,6 +303,10 @@ cursor: var(--info);
 	border-radius: 50%;
 }
 
+.active .ring {
+	background-color: gray;
+}
+
 .all {
 	width: 91px;
 	height: 91px;
@@ -311,23 +315,23 @@ cursor: var(--info);
 }
 
 .left {
-	clip-path: polygon(32px 22.4px, 52px 33.5px, 52px 56.3px, 32px 68.4px);
-/*	clip-path: polygon(32px 35px, 44px 35px, 44px 54px, 32px 54px); */
+/*	clip-path: polygon(32px 22.4px, 52px 33.5px, 52px 56.3px, 32px 68.4px); */
+	clip-path: polygon(32px 35px, 44px 35px, 44px 54px, 32px 54px);
 transition: clip-path 500ms;
 }
 .right {
 	margin-top: -91px;
-	clip-path: polygon(50px 32.3px, 71.5px 44.4px, 71.5px 44.4px, 50px 57.5px);
-/*	clip-path: polygon(46px 35px, 63px 25px, 63px 64px, 46px 54px); */
+/*	clip-path: polygon(50px 32.3px, 71.5px 44.4px, 71.5px 44.4px, 50px 57.5px); */
+	clip-path: polygon(46px 35px, 63px 25px, 63px 64px, 46px 54px);
 transition: clip-path 500ms;
 }
 .active .left {
-	clip-path: polygon(29px 27px, 40px 27px, 40px 65px, 29px 65px);
-/*	clip-path: polygon(29px 25px, 40px 25px, 40px 64px, 29px 64px); */
+/*	clip-path: polygon(29px 27px, 40px 27px, 40px 65px, 29px 65px); */
+	clip-path: polygon(29px 25px, 40px 25px, 40px 64px, 29px 64px);
 }
 .active .right {
-	clip-path: polygon(51px 27px, 62px 27px, 62px 65px, 51px 65px);
-/*	clip-path: polygon(51px 25px, 62px 25px, 62px 64px, 51px 64px); */
+/*	clip-path: polygon(51px 27px, 62px 27px, 62px 65px, 51px 65px); */
+	clip-path: polygon(51px 25px, 62px 25px, 62px 64px, 51px 64px);
 }
 .voice {
 	display: inline-block;
@@ -889,7 +893,7 @@ Pétri de vanité il avait encore plus de cette espèce d'orgueil qui fait avoue
 И промотался наконец.
 Судьба Евгения хранила:
 Сперва <i><span title="Мадам (франц.) — зд. гувернантка, воспитательница.">Madame</span></i><div class='voice' data-src='Malfilatre'></div><audio id="Malfilatre" src="Malfilatre.mp3"></audio>  за ним ходила,
-Потом <i><span title="Мосьё (франц.) — зд. гувернёр, воспитатель.">Monsieur</span></i><svg width="14" height="14" viewBox="2 -5 723 671" xmlns="http://www.w3.org/2000/svg" style="margin: -13px -3px 13px 2px"><g  style="fill:white;stroke-width:3px;stroke:none"><path d="m425 277c-44-80-104-241-75-257 78-50 397 515 327 564-32 22-151-135-175-174 84-64 26-173-77-132z"/><path d="m334 109c41 173 155 352 275 460-149-30-281-31-448 79-123 73-233-102-92-183 166-104 214-189 265-356z"/></g></svg><!--svg id='monsieur' viewBox='1.5 -3 20 16' style='width: 24px; height: 18px; margin: -6px -11px 6px 4px' onclick='playShortAudio(this, this.id)'><use href='#megaphon' /></svg--> её сменил;
+Потом <i><span title="<svg id='Malfilatre' style='margin: -9px -3px 9px 3px' width='10' height='13' viewBox='0 0 22 32' xmlns='http://www.w3.org/2000/svg' onclick='playLongAudio(this, this.id)'><path d='m1.2 22v-12h9.8l10-8.8v30l-10-8.8z' style='fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke:white'/></svg> Мосьё (франц.) — зд. гувернёр, воспитатель.">Monsieur</span></i><svg id='Malfilatre' style="margin: -9px -3px 9px 3px" width="10" height="13" viewBox="0 0 22 32" xmlns="http://www.w3.org/2000/svg" onclick='playLongAudio(this, this.id)'><path d="m1.2 22v-12h9.8l10-8.8v30l-10-8.8z" style="fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke:white"/></svg> её сменил;
 Ребенок был резов, но мил.
 <i><span title="Мосьё ль'Аббе (франц.) — букв. господин Аббат.">Monsieur l'Abb&eacute;,</span></i><svg id='monsieur-lAbbe' viewBox='1.5 -3 20 16' style='width: 24px; height: 18px; margin: -6px -12px 6px 0' onclick='playShortAudio(this, this.id)'><use href='#megaphon' /></svg> француз убогой,
 Чтоб не измучилось дитя,
@@ -1360,7 +1364,7 @@ even = !(times % 2); // результат true или false
 
 
 /* Плееры начало */
-
+/*
 function playShortAudio(elem, src){
 
 let ring = (_,i) => `<g style='transform: rotate(-9deg)'><circle cx='12' cy='6' r='2.2' style='--d:${0.75*i}s' class='circle' /></g><use href='#megaphon' />`
@@ -1382,7 +1386,17 @@ audio.addEventListener('pause', function() {
 elem.innerHTML = '<use href="#megaphon" />';
 });
 }
+*/
 
+function playLongAudio(elem, id){
+
+elem.innerHTML = '<svg style="margin: -9px -3px 9px 3px" width="22" height="32" viewBox="0 0 22 32" xmlns="http://www.w3.org/2000/svg"><g style="fill:white;stroke-linejoin:round;stroke-width:2;stroke:none"><path d="m1.2 3.2h6.8v26h-6.8z"/><path d="m14 3.2h6.7v26h-6.7z"/></g></svg>';
+var audio = document.getElementById(id);
+audio.paused ? audio.play() : audio.pause();
+audio.addEventListener('pause', function() {
+elem.innerHTML = '<svg style="margin: -9px -3px 9px 3px" width="22" height="32" viewBox="0 0 22 32" xmlns="http://www.w3.org/2000/svg"><path d="m1.2 22v-12h9.8l10-8.8v30l-10-8.8z" style="fill:white;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke:none"/></svg>';
+});
+}
 
 
 var classN = document.getElementsByClassName('voice');
