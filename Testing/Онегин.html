@@ -344,6 +344,10 @@ transition: clip-path 500ms;
 	cursor: url('data:image/svg+xml;utf8,<svg width="23" height="23.5" viewBox="0 0 115 117" xmlns="http://www.w3.org/2000/svg"><g style="fill:none;stroke-linecap:round;stroke:aqua"><path d="m15 101c-4.1-14-10-28-10-45-0.075-31 22-50 52-51 29 0.083 52 18 52 52-0.091 17-5.3 31-9.7 47" style="stroke-width:7.6"/><path d="m25 77 9 31" style="stroke-width:19"/><path d="m89 77-9 31" style="stroke-width:19"/><path d="m107 85-6.4 22" style="stroke-width:13"/><path d="m7.3 85 7.2 23" style="stroke-width:13"/></g></svg>'), auto;
 }
 
+.speaker {
+ margin: -9px -3px 9px 3px; width:10px; height:13px;
+}
+
 /* Блок плееров конец */
 
 </style>
@@ -893,9 +897,9 @@ Pétri de vanité il avait encore plus de cette espèce d'orgueil qui fait avoue
 И промотался наконец.
 Судьба Евгения хранила:
 Сперва <i><span title="Мадам (франц.) — зд. гувернантка, воспитательница.">Madame</span></i><div class='voice' data-src='Malfilatre'></div><audio id="Malfilatre" src="Malfilatre.mp3"></audio>  за ним ходила,
-Потом <i><span title="<svg id='Malfilatre' style='margin: -9px -3px 9px 3px' width='10' height='13' viewBox='0 0 22 32' xmlns='http://www.w3.org/2000/svg' onclick='playLongAudio(this, this.id)'><path d='m1.2 22v-12h9.8l10-8.8v30l-10-8.8z' style='fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke:white'/></svg> Мосьё (франц.) — зд. гувернёр, воспитатель.">Monsieur</span></i><svg id='Malfilatre' style="margin: -9px -3px 9px 3px" width="10" height="13" viewBox="0 0 22 32" xmlns="http://www.w3.org/2000/svg" onclick='playLongAudio(this, this.id)'><path d="m1.2 22v-12h9.8l10-8.8v30l-10-8.8z" style="fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke:white"/></svg> её сменил;
+Потом <i><span title="Мосьё (франц.) — зд. гувернёр, воспитатель.">Monsieur</span></i><svg class="speaker" viewBox="0 -0.1 23 33" onclick="playLongAudio(this, 'Malfilatre')"><use href="#speak" /></svg> её сменил;
 Ребенок был резов, но мил.
-<i><span title="Мосьё ль'Аббе (франц.) — букв. господин Аббат.">Monsieur l'Abb&eacute;,</span></i><svg id='monsieur-lAbbe' viewBox='1.5 -3 20 16' style='width: 24px; height: 18px; margin: -6px -12px 6px 0' onclick='playShortAudio(this, this.id)'><use href='#megaphon' /></svg> француз убогой,
+<i><span title="Мосьё ль'Аббе (франц.) — букв. господин Аббат.">Monsieur l'Abb&eacute;,</span></i><!-- <svg id='monsieur-lAbbe' viewBox='1.5 -3 20 16' style='width: 24px; height: 18px; margin: -6px -12px 6px 0' onclick='playShortAudio(this, this.id)'><use href='#megaphon' /></svg> --><svg style="margin: -9px 0 9px 0" width="11.5" height="11.75" viewBox="0 0 115 117" xmlns="http://www.w3.org/2000/svg"><g style="fill:none;stroke-linecap:round;stroke:white"><path d="m15 101c-4.1-14-10-28-10-45-0.075-31 22-50 52-51 29 0.083 52 18 52 52-0.091 17-5.3 31-9.7 47" style="stroke-width:7.6"/><path d="m25 77 9 31" style="stroke-width:19"/><path d="m89 77-9 31" style="stroke-width:19"/><path d="m107 85-6.4 22" style="stroke-width:13"/><path d="m7.3 85 7.2 23" style="stroke-width:13"/></g></svg> француз убогой,
 Чтоб не измучилось дитя,
 Учил его всему шутя,
 Не докучал моралью строгой,
@@ -1387,14 +1391,13 @@ elem.innerHTML = '<use href="#megaphon" />';
 });
 }
 */
-
 function playLongAudio(elem, id){
 
-elem.innerHTML = '<svg style="margin: -9px -3px 9px 3px" width="22" height="32" viewBox="0 0 22 32" xmlns="http://www.w3.org/2000/svg"><g style="fill:white;stroke-linejoin:round;stroke-width:2;stroke:none"><path d="m1.2 3.2h6.8v26h-6.8z"/><path d="m14 3.2h6.7v26h-6.7z"/></g></svg>';
+elem.innerHTML = '<use href="#paused" />';
 var audio = document.getElementById(id);
 audio.paused ? audio.play() : audio.pause();
 audio.addEventListener('pause', function() {
-elem.innerHTML = '<svg style="margin: -9px -3px 9px 3px" width="22" height="32" viewBox="0 0 22 32" xmlns="http://www.w3.org/2000/svg"><path d="m1.2 22v-12h9.8l10-8.8v30l-10-8.8z" style="fill:white;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke:none"/></svg>';
+elem.innerHTML = '<use href="#speak" />';
 });
 }
 
@@ -1445,6 +1448,8 @@ console.log(e.srcElement.tagName);
 </script>
 
 <svg style="display: none" width="12" height="14" viewBox="0 0 12 14" xmlns="http://www.w3.org/2000/svg"><g id="megaphon" style="transform: rotate(-9deg)"><circle cx="10" cy="6.1" r="1.4" style="fill:#ffffff;stroke-width:.25;stroke:#000000"/><path d="m2.4 3.8c3.8 0.012 6.1-0.97 7.9-3.7-0.27 3.5-0.35 7.4 0 12-1.7-2.8-4.1-3.8-7.9-3.8-3.1-0.031-3-4.5 0-4.5z" style="fill:#ffffff;stroke-width:.25;stroke:#000000"/><path d="m4.3 8.4c0.1 1.9 0.22 2.9 0.37 4.1 0.15 1-1.4 1.3-1.6 0.27-0.15-1.2-0.27-2.4-0.41-4.5z" style="fill:#ffffff;stroke-width:.25;stroke:#000000"/><path d="m2.2 3.6c0.43 0.0017 1.7-0.041 2.2-0.098-0.02 0.94-0.019 4.2 0.16 5-0.74-0.033-1.6-0.11-2.3-0.14-0.13-0.75-0.18-4-0.078-4.8z" style="fill:#ffa03d"/></g></svg>
+
+<svg style="display: none" viewBox="0 -0.1 23 33"><path id="speak" d="m1.2 22v-12h9.8l10-8.8v30l-10-8.8z" style="fill:none; stroke-linecap:round; stroke-linejoin:round; stroke-width:2.5; stroke:white"/><g id="paused" style="width: 10px; height: 13px; fill:none; stroke-linejoin:round; stroke-width:2; stroke:white"><path d="m1.2 3.2h6.8v26h-6.8z"/><path d="m14 3.2h6.7v26h-6.7z"/></g></svg>
 
 
 </body>
