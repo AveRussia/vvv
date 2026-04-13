@@ -166,12 +166,11 @@ h1:after {
 }
 
 .black {
-width:13px; height: 17px; border-radius: 2px; background: var(--color-text); position: fixed; margin-top: -5px; margin-left: auto; right: 3px;
+width:13px; height: 17px; margin-left: auto; border-radius: 2px; background: var(--color-text); position: fixed; top: 8px; right: 3px;
 }
 
 .white {
-width:11px; height: 15px; border: 1px solid var(--color-text); outline: 1px solid var(--color-bg);
-border-radius: 2px; background: var(--color-bg); position: fixed; margin-top: 0; margin-left: auto; right: 8px;
+width:11px; height: 15px; margin-left: auto; border: 1px solid var(--color-text); outline: 1px solid var(--color-bg); border-radius: 2px; background: var(--color-bg); position: fixed; top: 13px; right: 8px;
 }
 
 details {
@@ -688,6 +687,7 @@ font-size: 1.5rem;
 <div class="white" onclick="toggleTheme()"></div>
 
 <input type="checkbox" id="detail-one" style="display: none" />
+
 <div style="position: fixed; top: 1px; margin: 9px 0 0 -7px; z-index: 5; display: inline-block; border: 1px solid transparent; line-height: 9px">&nbsp;
 <!-- details с position: fixed или sticky без внешнего контейнера не отображаются в браузерах на iOS -->
 <!-- После открывающего тега div обязательно должен быть какой-нибудь знак, здесь это &nbsp; -->
