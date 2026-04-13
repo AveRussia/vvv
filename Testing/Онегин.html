@@ -1275,7 +1275,7 @@ var audio = new Audio(src+'.mp3');
 audio.play();
 audio.addEventListener('ended', function() {
 elem.innerHTML = '<use href="#headphones" />';
-elem.style.transform = '';
+elem.style.transform = 'none';
 });
 }
 
@@ -1287,7 +1287,7 @@ var audio = document.getElementById(id);
 audio.paused ? audio.play() : audio.pause();
 audio.addEventListener('pause', function() {
 elem.innerHTML = '<use href="#headphones" />';
-elem.style.transform = '';
+elem.style.transform = 'none';
 });
 }
 
