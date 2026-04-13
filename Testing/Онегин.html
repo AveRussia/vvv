@@ -11,16 +11,15 @@
 :root {
 font-size: 16px;
   --color-bg: #fffff0;
-  --color-text: #000000;
+  --color-text: #000a24;
   --note-bg: #fffff0;
   --note-border: 1px solid darkkhaki;
-  --croisan-content: url('data:image/svg+xml;utf8,<svg width="29" height="29" viewBox="-350 -350 1900 1900" xmlns="http://www.w3.org/2000/svg"><path d="m734 203c140 53 336 278 208 546-128 269-437 264-572 176 319 106 654-538 364-722z" style="fill:%23000a24"/></svg>');
   --info: url('data:image/svg+xml;utf8,<svg width="31" height="39" viewBox="0 0 1 550" xmlns="http://www.w3.org/2000/svg"><g style="fill:RoyalBlue;stroke-width:5;stroke:navy"><path d="m-29 237 195-0.13c25 0.035 42 22 42 43l-25 236c-3.5 40-72 40-76 0.99l-27-208c-1.2-6.1-2.5-12-10-14l-98-13c-29-3.9-22-45-0.22-45z"/><circle cx="143" cy="153" r="51"/></g><path d="m-215 3h98l-98 98z" style="fill:red;stroke-width:3;stroke:red"/></svg>'), auto;
 }
 
 body.dark-theme {
   --color-bg: #000a24; 
-  --color-text: #ffffff;
+  --color-text: #fffff0;
   --note-bg: radial-gradient(
       47.2% 50% at 50.39% 88.37%,
       rgba(99, 99, 99, 0.2) 0%,
@@ -29,7 +28,6 @@ body.dark-theme {
     rgba(99, 99, 99, 0.2);
   --note-border: "";
   --note-backdrop-filter: blur(9px);
-  --croisan-content: url('data:image/svg+xml;utf8,<svg width="29" height="29" viewBox="-350 -350 1900 1900" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="radialGradient5" cx="576" cy="576" r="999" gradientUnits="userSpaceOnUse"><stop style="stop-color:white" offset="0"/><stop style="stop-color:white;stop-opacity:0" offset="1"/></radialGradient></defs><circle cx="576" cy="576" r="999" style="fill:url(%23radialGradient5);opacity:1; stroke:none"/><circle cx="576" cy="576" r="405" style="fill:%23ddd;opacity:1"/></svg>');
 }
 
 body {
@@ -167,19 +165,13 @@ h1:after {
 	text-shadow: #fff 2px 2px 2px, #333 -1px -1px 2px;
 }
 
-.toggle {
-position: sticky;
-width: 33px;
-height: 9px;
-margin-left: auto;
-top: 2px;
-cursor: alias;
-z-index: 7
+.black {
+width:13px; height: 17px; border-radius: 2px; background: var(--color-text); position: fixed; margin-top: 16px; margin-left: auto; right: 3px;
 }
-.toggle:after {
-position: absolute;
-z-index: 5;
-content: var(--croisan-content);
+
+.white {
+width:11px; height: 15px; border: 1px solid var(--color-text); outline: 1px solid var(--color-bg);
+border-radius: 2px; background: var(--color-bg); position: fixed; margin-top: 21px; margin-left: auto; right: 8px;
 }
 
 details {
@@ -188,7 +180,7 @@ top: 9px;
 margin: -9px 9px;
 width: fit-content;
 z-index: 5; 
-      }
+}
 
 #note {
 position: absolute;
@@ -673,9 +665,8 @@ font-size: 1.5rem;
 
 <body>
 
-<div class="toggle" onclick="toggleTheme()"></div>
-
-<div style="width:29px; height: 35px; border: 1px solid white; background: blue; position: fixed; margin-left: auto; right: 3px" onclick="toggleTheme()"></div>
+<div class="black" onclick="toggleTheme()"></div>
+<div class="white" onclick="toggleTheme()"></div>
 
 <input type="checkbox" id="detail-one" style="display: none" />
 <details>
