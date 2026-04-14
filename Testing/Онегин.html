@@ -41,11 +41,11 @@ color: var(--color-text);
 }
 
 tt {
-position: absolute; left: 19px; font-family: sans-serif; font-style: italic; cursor: var(--info); z-index: 1;
+position: absolute; left: 19px; font: 1rem sans-serif; cursor: var(--info); z-index: 1;
 }
 
 .prim {
-position: absolute; left: 9px; font-family: serif; font-style: italic; z-index: 1;
+position: absolute; left: 9px; font-family: serif; font-style: italic; cursor: var(--info); z-index: 1;
 }
 
 pre {
@@ -335,7 +335,7 @@ z-index: 3;
 }
 
 tt {
-font-size: 1.7rem; color: #999;
+font-size: 1.5rem; color: #999;
 }
 
 .prim {
@@ -759,9 +759,9 @@ Pétri de vanité il avait encore plus de cette espèce d'orgueil qui fait avoue
 
 <h2>Глава первая</h2>
 
-<span class="data prim" onclick="showCom('c2','short')">прим.</span>
+<span class="prim" onclick="showCom('c2','short')">прим.</span>
 <br /><br />
-<span class="data prim" onclick="showCom('c3','short')">прим.</span>
+<span class="prim" onclick="showCom('c3','short')">прим.</span>
 
 <div class="epigraph nonebreak">
 И жить торопится и чувствовать спешит.
@@ -1219,6 +1219,7 @@ else if (isOutsideBigComment && isOutsideShortComment && evt.srcElement.tagName!
 }
 
 // Начало комментариев слева от текста романа
+
 var comTT = document.getElementById('comTT')
 var px, py, ppx, ppy, eventTarget
 if(!evt) evt=window.event
@@ -1228,7 +1229,7 @@ eventTarget=evt.target
 if(eventTarget.tagName=="TT"){
 var comID = eventTarget.id.replace("c","")
 comTT.innerHTML = document.getElementById(comID).innerHTML
-comTT.style.top = (eventTarget.offsetTop+29)+"px"
+comTT.style.top = (eventTarget.offsetTop+39)+"px"
 comTT.style.display = "block"
 }
 
@@ -1248,7 +1249,7 @@ else comTT.style.display="none"
 const LeftComTT = document.createElement('div');
 LeftComTT.id = 'comTT';
 document.getElementsByTagName('body')[0].appendChild(LeftComTT);
-comTT.outerHTML = '<div id="comTT" style="position: absolute; display: block; left: 0px; background-color: inherit; font-size: 14px; color: inherit; width: 299px; padding-left: 19px; padding-right: 9px; text-align: justify; z-index: 2;">text</div>';
+comTT.outerHTML = '<div id="comTT" style="position: absolute; display: none; left: 0px; background-color: inherit; font-size: 1rem; color: inherit; width: 299px; padding: 19px; border: 1px solid gray; border-radius: 5px; text-align: justify; z-index: 2;"></div>';
 
 // Конец комментариев слева от текста романа
 
