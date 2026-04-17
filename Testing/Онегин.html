@@ -45,7 +45,7 @@ position: absolute; left: 19px; font: 1rem sans-serif; cursor: var(--info); z-in
 }
 
 .prim {
-position: absolute; left: 9px; font-family: serif; font-style: italic; cursor: var(--info); z-index: 1;
+position: absolute; left: 9px; margin: -119px 0 119px 0; font-family: serif; font-style: italic; cursor: var(--info); z-index: 1;
 }
 
 pre {
@@ -67,7 +67,7 @@ width: fit-content;
 #bigCommentBox, #shortCommentBox {
 position: absolute;
 width: fit-content;
-/* Ширина контейнера будет включать в себя border и padding, здесь <= 97% */
+/* Ширина контейнера будет включать в себя border и padding */
 box-sizing: border-box;
 background-color: inherit;
 color: inherit;
@@ -487,7 +487,7 @@ font-size: 0.9rem;
 }
 
 .comments {
-width: 650px;
+width: 599px;
 margin: 0 auto;
 font-size: 1rem;
 }
@@ -545,7 +545,7 @@ font-size: 0.9rem;
 }
 
 .comments {
-width: 600px;
+width: 599px;
 margin: 0 auto;
 font-size: 1rem;
 }
@@ -600,7 +600,7 @@ font-size: 0.9rem;
 }
 
 .comments {
-width: 600px;
+width: 599px;
 margin: 0 auto;
 font-size: 0.9rem;
 }
@@ -660,7 +660,7 @@ font-size: 1.5rem;
 }
 
 .comments {
-width: 659px;
+width: 599px;
 margin: 0 auto;
 font-size: 1.5rem;
 }
@@ -720,7 +720,7 @@ font-size: 1.5rem;
 }
 
 .comments {
-width: 600px;
+width: 599px;
 margin: 0 auto;
 font-size: 1.5rem;
 }
@@ -762,8 +762,7 @@ font-size: 1.5rem;
 <a href="#notes" class="tableOfContents">Примечания</a>
 <a href="#trip" class="tableOfContents">Путешествие Онегина</a>
 <a href="#glava10" class="tableOfContents">Десятая глава</a><span class="tableOfContents"></span>
-<hr />
-<span class="data" onclick="showCom('c0','short')">О тексте</span>
+<hr /><span class="data" onclick="showCom('c0','short')">О тексте</span>
 <span class="data" onclick="showCom('c1','short')">Из ранних редакций</span>
 </pre>
 </details>
@@ -812,7 +811,7 @@ Pétri de vanité il avait encore plus de cette espèce d'orgueil qui fait avoue
 И сердца горестных замет.
 
 </pre>
-
+<a name="glava1">&nbsp;</a>
 <h2>Глава первая</h2>
 
 <span class="data prim" onclick="showCom('prim1','short')">прим.</span>
@@ -955,7 +954,7 @@ Pétri de vanité il avait encore plus de cette espèce d'orgueil qui fait avoue
 Отец понять его не мог
 И земли отдавал в залог.
 
-<i><span class="data" style="position: absolute; left: 19px" onclick="showCom('c11','big')">прим.</span></i>
+<i><span class="data prim" onclick="showCom('c11','big')">прим.</span></i>
 			VIII
 
 Всего, что знал ещё Евгений,
@@ -1224,7 +1223,7 @@ Pétri de vanité il avait encore plus de cette espèce d'orgueil qui fait avoue
 Когда, надев мужской наряд,
 Богиня едет в маскарад.
 
-<i><span class="data" onclick="showCom('c32','short')" style="position: absolute; left: 19px">прим.</span></i>
+<i><span class="data prim" onclick="showCom('c32','short')">прим.</span></i>
 <tt id="cc33">XXVI</tt>			XXVI
 
 В последнем вкусе туалетом
@@ -1776,11 +1775,11 @@ Pétri de vanité il avait encore plus de cette espèce d'orgueil qui fait avoue
 Кривые толки, шум и брань!
 </pre>
 
-<em><span class="data" onclick="showCom('c44','short')" style="position: absolute; left: 19px">прим. ко второй главе</span></em>
+
 
 <a name="glava2">&nbsp;</a>
 <h2>Глава вторая</h2>
-
+<em><span class="data prim" onclick="showCom('c44','short')">прим. ко второй главе</span></em>
 <div class="epigraph" style="width: 99px; padding-left:99px">
 <span title="О деревня!..<br />&nbsp; &nbsp; &nbsp; <i>Гораций</i> (латин.)">O rus!..*</span>
 <p class="r">
@@ -3292,11 +3291,11 @@ O свадьбе Ленского давно
 </pre>
 
 
-<em><span class="data" onclick="showCom('c92','short')">прим.</span></em>
 
 <a name="glava4">&nbsp;</a>
 
 <h2>Глава четвёртая</h2>
+<em><span class="data prim" onclick="showCom('c92','short')">прим.</span></em>
 
 <div class="epigraph" style="width: 379px"> <span class="data" title="Нравственность в природе вещей.&lt;div class='r'>&lt;i>Неккер&lt;/i> (франц.)&lt;/div>">La morale est dans la nature des choses.</span><svg class="headphones" viewBox="-2 0 119 116" onclick="playShortAudio(this, 'Necker')"><use href="#headphones" /></svg>
 <p class="r"><em><span class="data" onclick="showCom('c93','short')">Necker*</span></em>
@@ -4037,10 +4036,10 @@ O свадьбе Ленского давно
 И забываться запретил!
 </pre>
 
-<em><span class="data" onclick="showCom('c104','big')" style="position: absolute; left: 29px">прим.</span></em>
 
 <a name="glava5">&nbsp;</a>
 <h2>Глава пятая</h2>
+<em><span class="data prim" onclick="showCom('c104','big')">прим.</span></em>
 
 <div class="epigraph" style="width: 309px">
 О, не знай сих страшных снов<br />
@@ -4767,9 +4766,9 @@ O свадьбе Ленского давно
 </pre>
 
 
-<em><span class="data" onclick="showCom('c113','short')" style="position: absolute; left: 29px">прим.</span></em>
 <a name="glava6">&nbsp;</a>
 <h2>Глава шестая</h2>
+<em><span class="data prim" onclick="showCom('c113','short')">прим.</span></em>
 
 <div class="epigraph" style="width: 359px">
 <span title="Там, где дни облачны и кратки,&lt;br />Родится племя, которому умирать не больно.&lt;p class='r'>&lt;i>Петрарка&lt;/i> (итал.)&lt;/p>">La, sotto i giorni nubilosi e brevi,
@@ -5515,7 +5514,8 @@ Nasce una gente a cui l'morir non dole.</span><svg class="headphones" viewBox="-
 </pre>
 
 <a name="glava7">&nbsp;</a>
-<em><span class="data" onclick="showCom('c119','short')" style="position: absolute; left: 29px">прим.</span></em><h2>Глава седьмая</h2>
+<h2>Глава седьмая</h2>
+<em><span class="data prim" onclick="showCom('c119','short')">прим.</span></em>
 
 <div class="epigraph" style="width: 409px">
 Москва, России дочь любима,<br />
@@ -7405,7 +7405,7 @@ N. N. прекрасный человек.
 	
 <h2 class="cen">Примечания Пушкина</h2><a name="notes">&nbsp;</a>
 
-<div id="comments">
+<div class="comments">
 <p>
 <a name="1"><sup>1</sup></a> Писано в <span title="Бессарабия — Молдавия. Намёк на ссылку Пушкина за его политические стихи.">Бессарабии*</span>.
 </p>
@@ -7711,7 +7711,7 @@ N. N. прекрасный человек.
 
 <a name="trip">&nbsp;</a>
 <h2>Отрывки из путешествия Онегина</h2>
-<em><span class="data" onclick="showCom('c162','short')"  style="position: absolute; left: 29px">прим.</span></em>
+<em><span class="data prim" onclick="showCom('c162','short')">прим.</span></em>
 <br />
 <br />
 <tt id="cc163">РР</tt>
@@ -8076,9 +8076,9 @@ N. N. прекрасный человек.
 </pre>
 
 
-<span class="data" onclick="showCom('c169','short')"  style="position: absolute; left: 29px">прим.</span>
 <a name="glava10">&nbsp;</a>
 <h2>Десятая глава</h2>
+<span class="data prim" onclick="showCom('c169','short')">прим.</span>
 <pre class="mainText" chapter="Десятая глава">
 
 <tt id="cc170">РР</tt>			I
@@ -8260,7 +8260,7 @@ N. N. прекрасный человек.
 Россия . . . . . . . . . . . . . . . . . .
 Наш царь дремал . . . . . . . . .
 	···········
-<em><span class="data" onclick="showCom('c181','short')" style="position: absolute; left: 29px">прим.</span></em>
+<em><span class="data prim" onclick="showCom('c181','short')">прим.</span></em>
 <b><i><span style="margin-left: 69px" title="Работа Пушкина над романом продолжалась свыше 7 лет. Начат роман 9 мая 1823 г. в Кишиневе и окончен 25 сентября 1830 г. в Болдине. Осенью 1831 г. Пушкин переработал последнюю главу и написал письмо Онегина к Татьяне (5 октября).">1823–1831*</span></i></b>
 
 </pre>
