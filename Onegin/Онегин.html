@@ -120,9 +120,9 @@ color: black;
 }
 
 /* text-align: center; к figure применять нельзя */
-figure {display: block; margin: 0;
+figure {position: relative;
 }
-figcaption {font: 10px sans-serif; color: gray; text-align: center;
+figcaption {font: 10px sans-serif; color: gray; text-align: center; position: absolute; bottom: 0;
 }
 
 .staticPicture {
@@ -11900,9 +11900,9 @@ Panem et circenses.
 
 
 <div class="clear" id="c10">
-<figure style="width: 7rem; position: relative; height: 16rem" class="floatL">
-<img src="Homer.jpg" style="width: 7rem" border="0" onclick="placeToCenter(this,4)" class="staticPicture" />
-<figcaption style="position: absolute; bottom: 0;">Бюст Гомера.<br />Мрамор, римская копия с греческого оригинала<br />2-го века до н.э.<br /><span title="Первый в мире публичный художественный музей, начало которому положил Папа римский Сикст IV в 1471 году.">Капитолийские музеи<br />(итал. Musei Capitolini)*.</span></figcaption>
+<figure style="width: 9rem; height: 19rem" class="floatL">
+<img src="Homer.jpg" style="width: 9rem" border="0" onclick="placeToCenter(this,4)" class="staticPicture" />
+<figcaption>Бюст Гомера.<br />Мрамор, римская копия с греческого оригинала<br />2-го века до н.э.<br /><span title="Первый в мире публичный художественный музей, начало которому положил Папа римский Сикст IV в 1471 году.">Капитолийские музеи<br />(итал. Musei Capitolini)*.</span></figcaption>
 </figure>
 <div class="t" style="padding-top: 19px">
 Гоме́р (др.-греч. Ὅμηρος) — легендарный древнегреческий поэт-сказитель, создатель эпических поэм «Илиада» (древнейшего памятника европейской литературы) и «Одиссея». Жизнь датируется VIII—VII вв. до н. э. (иногда IX в. до н. э.). Предположительно, был аэдом (профессиональным исполнителем эпических поэм в классической Греции).
